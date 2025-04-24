@@ -1,5 +1,6 @@
 package com.vaytree.antic.model.utils
 
+import com.vaytree.antic.app.MyApplication
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -40,9 +41,10 @@ object RetrofitManager {
     private var interceptor = Interceptor { chain ->
         val builder = chain.request().newBuilder()
             .addHeader("Content-Type", "application/json;charset=utf-8")
-            .addHeader("versionName", "")
-            .addHeader("packageName", "")
-            .addHeader("VN-CASH-TOKEN", SharedPreferencesUtil.getUser()?.RQnYKmh ?: "")
+            .addHeader("versionName", ToolUtils.getVersionName(MyApplication.instance))
+            .addHeader("packageName", ToolUtils.getPageName(MyApplication.instance))
+            .addHeader("User-Agent", ToolUtils.getVersionName(MyApplication.instance))
+            .addHeader("Authorization", SharedPreferencesUtil.getUser()?.RQnYKmh ?: "")
             .addHeader("Accept-Language", OverallVariable.LANGUAGE)
         val request = builder.build()
 

@@ -43,7 +43,7 @@ class OrderDetailsActivity : BaseActivity() {
                     }
                 }
 
-                tvLoanCommitment.text = it.Kx9qLCK.toString()
+                tvLoanCommitment.text = it.ILilVJQ.toString()
                 tvCollectionAmount.text = it.POgXdfV.toString()
                 tvAccountManagementFee.text = it.cVgjvar.toString()
                 tvApprovalFee.text = it.i1EFg6j.toString()
@@ -54,6 +54,7 @@ class OrderDetailsActivity : BaseActivity() {
                     it.bHZyFoY.toString(),
                     "yyyy-MM-dd"
                 )
+                tvCommissionCharge.text = it.SOlaQhz.toString()
             }
             observe(viewModel1.infoData) {
                 mBinding.tvShroffAccountNumber.text = it.EOG0xi9

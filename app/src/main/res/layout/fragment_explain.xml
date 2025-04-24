@@ -59,4 +59,30 @@
             app:layout_constraintTop_toBottomOf="@id/tv1_id" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_20"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_id">
+
+        <TextView
+            android:id="@+id/tv3_id"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/space_30"
+            android:layout_marginTop="@dimen/space_30"
+            android:layout_marginEnd="@dimen/space_30"
+            android:background="@drawable/shape_white_20"
+            android:paddingStart="@dimen/space_10"
+            android:paddingTop="@dimen/space_20"
+            android:paddingEnd="@dimen/space_10"
+            android:paddingBottom="@dimen/space_20"
+            android:text="@string/text157"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_10" />
+    </ScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

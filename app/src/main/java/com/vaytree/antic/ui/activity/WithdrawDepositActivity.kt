@@ -29,6 +29,7 @@ class WithdrawDepositActivity : BaseActivity() {
             viewModel.orderDetail(orderCode)
             viewModel1.acquisition(this@WithdrawDepositActivity)
             observe(viewModel.orderDetailData) {
+                tv2Id.text = it.ILilVJQ.toString()
                 tvLoanCommitment.text = it.Kx9qLCK.toString()
                 tvCollectionAmount.text = it.POgXdfV.toString()
                 tvAccountManagementFee.text = it.cVgjvar.toString()
@@ -36,10 +37,7 @@ class WithdrawDepositActivity : BaseActivity() {
                 tvServiceCharge.text = it.YNI0czs.toString()
                 tvInterest.text = it.yUvaIa4.toString()
                 tvLoanTime.text = it.HRUK7J7.toString() + getString(R.string.text126)
-                tvRepaymentTime.text = ToolUtils.getDateToString(
-                    it.bHZyFoY.toString(),
-                    "yyyy-MM-dd"
-                )
+                tvCommissionCharge.text = it.SOlaQhz.toString()
             }
             observe(viewModel.withdrawData) {
                 if (it) {

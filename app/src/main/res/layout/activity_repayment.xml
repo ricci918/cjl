@@ -47,7 +47,7 @@
         android:paddingStart="@dimen/space_20"
         android:paddingTop="@dimen/space_30"
         android:paddingEnd="@dimen/space_20"
-        android:paddingBottom="@dimen/space_50"
+        android:paddingBottom="@dimen/space_30"
         app:layout_constraintTop_toBottomOf="@id/tv2_id">
 
         <TextView
@@ -169,13 +169,35 @@
             android:textSize="@dimen/sp_14"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv7_id" />
+            app:layout_constraintTop_toBottomOf="@id/tv13_id" />
 
         <TextView
             android:id="@+id/tv_demurrage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_5"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv13_id" />
+
+        <TextView
+            android:id="@+id/tv13_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_10"
+            android:text="@string/text156"
+            android:textColor="@color/f006"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv7_id" />
+
+        <TextView
+            android:id="@+id/tv_commission_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_10"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_14"
             app:layout_constraintEnd_toEndOf="parent"

@@ -3,6 +3,7 @@ package com.vaytree.antic.ui.activity
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import androidx.lifecycle.ViewModelProvider
@@ -31,19 +32,24 @@ class PrivacyActivity : BaseActivity() {
                 mBinding.webView.webViewClient = WebViewClient()
                 SharedPreferencesUtil.getSystemInfoData()
                     ?.let { mBinding.webView.loadUrl(it.CkSYfJE) }
+                val settings = mBinding.webView.settings
+                settings.layoutAlgorithm = WebSettings.LayoutAlgorithm.NARROW_COLUMNS
+                settings.textZoom = 80
             }
         }
     }
 
     private fun initView() {
         mBinding.apply {
-            headId.headId.visibility = View.GONE
+            headId.headId.visibility = View.INVISIBLE
             val name = intent.getStringExtra("name")
             if (name == "login") {
                 cl1Id.visibility = View.GONE
                 headId.headId.visibility = View.VISIBLE
             }
             headId.ivClose.text = getString(R.string.text37)
+            webView.setBackgroundResource(R.drawable.shape_white_10_)
+            webView.setBackgroundColor(Color.TRANSPARENT)
             headId.ivClose.setOnClickListener {
                 finish()
             }

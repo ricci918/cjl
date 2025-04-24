@@ -19,4 +19,6 @@ class Content(
     val iXJovfN: Long,//settlementTime
     val R4YWnW1: String,//status
     val QUr2JpF: String,//productName
+    val whrcF5H : Int,//commission
+    val yxgphaq : Int,//contractAmount
 )

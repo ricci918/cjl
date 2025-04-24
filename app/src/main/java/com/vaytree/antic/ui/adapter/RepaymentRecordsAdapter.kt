@@ -52,7 +52,7 @@ class RepaymentRecordsAdapter(
                 tv3.setTextColor(context.getColor(R.color.black))
                 tv4.setTextColor(context.getColor(R.color.black))
                 tv2.text = context.getString(R.string.text111)
-                tv3.text = context.getString(R.string.text127) + it1.PsX05tt
+                tv3.text = context.getString(R.string.text127) + it1.yxgphaq
                 tv4.text = ToolUtils.getDateToString(
                     it1.iXJovfN.toString(),
                     "yyyy-MM-dd"

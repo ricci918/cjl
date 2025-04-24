@@ -18,4 +18,6 @@ data class AuditListData(
     val TFCZLPO : Int,//overdueDays
     val SsQBpSD : String,//productName
     val CGYFALN : String,//settlementTime
+    val rfOc8X0 : Int,//commission
+    val N30drqp : Int,//contractAmount
 )

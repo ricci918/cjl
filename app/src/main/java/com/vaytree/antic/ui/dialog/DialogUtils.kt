@@ -96,8 +96,8 @@ object DialogUtils {
         var da = format.format(Date())
         date.init(2000, 0, 1, null)
         date.setOnDateChangedListener { _, year, monthOfYear, dayOfMonth ->
-            val month = monthOfYear + 1
-            da = "$year-$month-$dayOfMonth"
+            val month = (monthOfYear + 1).toString().padStart(2, 0.toChar())
+            da = "$year-$month-${dayOfMonth.toString().padStart(2, 0.toChar())}"
         }
         confirm.setOnClickListener {
             onSelectedListener.invoke(da)
@@ -267,7 +267,7 @@ object DialogUtils {
     fun showCustomerServiceDialog(
         activity: Activity,
         parentView: View,
-        phoneNumber : String
+        phoneNumber: String
     ): PopupWindow {
         val view =
             LayoutInflater.from(activity).inflate(R.layout.customer_service_dialog, null, false)

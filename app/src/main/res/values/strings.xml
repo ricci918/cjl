@@ -278,4 +278,20 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text154">Xóa tài khoản</string>
     <string name="text155">Khoản vay đã duyệt,
 bấm “Rút tiền” để nhận tiền ngay!</string>
+    <string name="text156">Phí xử lý</string>
+    <string name="text157">Bước 1: Rút tiền - Thanh toán
+\n\nPhê duyệt thành công, vui lòng chọn “Đơn hàng” - “Kết quả phê duyệt”. Khi đơn vay của bạn được duyệt thành công, bạn có thể chọn “Rút tiền” - Xác nhận rút tiền - Hệ thống sẽ chuyển tiền vào tài khoản của bạn ngay lập tức.
+
+\n\nBước 2: Thanh toán khoản vay
+\n\nVui lòng chọn “Đơn hàng” - “Khoản vay của tôi” - “Hoàn trả”. Lấy thông tin tài khoản thanh toán. Khách hàng có thể sử dụng ngân hàng trực tuyến hoặc chuyển khoản tại ngân hàng gần nhất hoặc điểm giao dịch Viettel.
+
+\n\nLưu ý: Hệ thống chỉ cung cấp duy nhất một tài khoản thanh toán hiển thị trong ứng dụng. Tất cả các tài khoản khác gửi cho khách hàng để thanh toán đều là giả mạo.
+
+\n\nBước 3: Vay lại
+\n\nSau khi khách hàng hoàn tất việc thanh toán, hệ thống sẽ tự động gửi đơn đăng ký vay tiếp theo của khách hàng đến công ty tài chính. Khách hàng sẽ nhận được hạn mức vay cao hơn. Khách hàng quay lại bước “Kết quả phê duyệt” để chờ kết quả từ công ty tài chính.
+
+\n\nVui lòng duy trì thói quen thanh toán tốt – điều này sẽ giúp tăng điểm tín dụng – và hạn mức vay lần sau sẽ cao hơn.
+
+\n\nNếu có bất kỳ thắc mắc nào, vui lòng liên hệ hotline: </string>
+    <string name="text158">Ngày đến hạn</string>
 </resources>

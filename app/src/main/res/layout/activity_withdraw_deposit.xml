@@ -12,61 +12,64 @@
         android:id="@+id/head_id"
         layout="@layout/head_layout" />
 
+    <TextView
+        android:id="@+id/tv1_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_30"
+        android:text="@string/text101"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/head_id" />
+
+    <TextView
+        android:id="@+id/tv2_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_15"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_30"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv1_id" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/space_20"
-        android:layout_marginTop="@dimen/space_30"
+        android:layout_marginTop="@dimen/space_20"
         android:layout_marginEnd="@dimen/space_20"
         android:background="@drawable/shape_white_20"
         android:paddingStart="@dimen/space_20"
         android:paddingTop="@dimen/space_30"
         android:paddingEnd="@dimen/space_20"
-        android:paddingBottom="@dimen/space_50"
-        app:layout_constraintTop_toBottomOf="@id/head_id">
+        android:paddingBottom="@dimen/space_30"
+        app:layout_constraintTop_toBottomOf="@id/tv2_id">
 
-        <TextView
-            android:id="@+id/tv3_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/text101"
-            android:textColor="@color/f006"
-            android:textSize="@dimen/sp_14"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_loan_commitment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_14"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv4_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_10"
             android:text="@string/text102"
             android:textColor="@color/f006"
             android:textSize="@dimen/sp_14"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv3_id" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_collection_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_10"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_14"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv3_id" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
@@ -167,7 +170,7 @@
             android:textSize="@dimen/sp_14"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv8_id" />
+            app:layout_constraintTop_toBottomOf="@id/tv13_id" />
 
         <TextView
             android:id="@+id/tv_loan_time"
@@ -177,14 +180,14 @@
             android:textColor="@color/black"
             android:textSize="@dimen/sp_14"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv8_id" />
+            app:layout_constraintTop_toBottomOf="@id/tv13_id" />
 
         <TextView
             android:id="@+id/tv10_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_10"
-            android:text="@string/text13"
+            android:text="@string/text158"
             android:textColor="@color/f006"
             android:textSize="@dimen/sp_14"
             android:textStyle="bold"
@@ -192,7 +195,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv9_id" />
 
         <TextView
-            android:id="@+id/tv_repayment_time"
+            android:id="@+id/tv_loan_commitment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_10"
@@ -201,13 +204,35 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv9_id" />
 
+        <TextView
+            android:id="@+id/tv13_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_10"
+            android:text="@string/text156"
+            android:textColor="@color/f006"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv8_id" />
+
+        <TextView
+            android:id="@+id/tv_commission_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_10"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv8_id" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/tv_next_step"
         android:layout_width="@dimen/space_240"
         android:layout_height="@dimen/space_45"
-        android:layout_marginBottom="@dimen/space_80"
+        android:layout_marginBottom="@dimen/space_60"
         android:background="@drawable/shape_f2cd00_5"
         android:gravity="center"
         android:text="@string/text100"

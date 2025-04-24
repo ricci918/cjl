@@ -34,30 +34,23 @@ class LoginViewModel : BaseViewModel() {
     }
 
     fun login(activity: Activity, phone: String, code: String) {
-        if (phone != "" && code != "" && codeData != "") {
-            launchWithException {
-                loadingLiveData.value = true
-                val loginSmsReq = LoginSmsReq(
-                    phone,
-                    SharedPreferencesUtil.getSystemInfoData()?.ozVIAIM ?: "",
-                    codeData,
-                    code,
-                    null,
-                    ToolUtils.getAndroidId(activity),
-                    AppsFlyerLib.getInstance().getAppsFlyerUID(activity) ?: "",
-                    "",
-                    ""
-                )
-                val loginSms = ApiServiceResponse.loginSms(loginSmsReq)
-                UserConfig.saveUser(loginSms)
-                isLogin.value = true
-                loadingLiveData.value = false
-            }
-        } else {
-            ToolUtils.showToast(
-                MyApplication.instance,
-                MyApplication.instance.getString(R.string.text148)
+        launchWithException {
+            loadingLiveData.value = true
+            val loginSmsReq = LoginSmsReq(
+                phone,
+                SharedPreferencesUtil.getSystemInfoData()?.ozVIAIM ?: "",
+                codeData,
+                code,
+                null,
+                ToolUtils.getAndroidId(activity),
+                AppsFlyerLib.getInstance().getAppsFlyerUID(activity) ?: "",
+                "",
+                ""
             )
+            val loginSms = ApiServiceResponse.loginSms(loginSmsReq)
+            UserConfig.saveUser(loginSms)
+            isLogin.value = true
+            loadingLiveData.value = false
         }
     }
 

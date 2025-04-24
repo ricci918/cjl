@@ -26,4 +26,6 @@ data class OrderDetailData(
     val vnE3Jdy: Int,//overdueFee
     val PG4qyiC: Int,//totalAmount
     val F3RZszg: Int,//hasPaidAmount
+    val SOlaQhz : Int,//commission
+    val ILilVJQ : Int,//contractAmount
 )

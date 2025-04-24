@@ -32,6 +32,7 @@ class RepaymentActivity : BaseActivity() {
                 tvServiceCharge.text = it.YNI0czs.toString()
                 tvInterest.text = it.yUvaIa4.toString()
                 tvDemurrage.text = it.vnE3Jdy.toString()
+                tvCommissionCharge.text = it.SOlaQhz.toString()
             }
         }
 

@@ -13,5 +13,6 @@ data class LoanListData (
     val plGytjI : Int, //overdueDays
     val xJxENI2 : String, //status
     val T0HAjKf : String, //productName
-
+    val vbK8Mpq : Int,//commission
+    val e6T2Pr4 : Int,//contractAmount
 )

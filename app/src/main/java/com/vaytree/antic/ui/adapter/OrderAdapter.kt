@@ -51,7 +51,7 @@ class OrderAdapter(
                     .into(icon)
                 tv1.text = it1.LpWSDmI
                 when (it1.wPYI0pU) {
-                    "AUDITING" -> {
+                    "AUDITING" -> { //审核中
                         tv2.setTextColor(context.getColor(R.color.black))
                         tv3.setTextColor(context.getColor(R.color.black))
                         tv4.setTextColor(context.getColor(R.color.black))
@@ -65,7 +65,7 @@ class OrderAdapter(
                         tv5.visibility = View.GONE
                     }
 
-                    "REJECT" -> {
+                    "REJECT" -> { //审核被拒绝
                         tv2.setTextColor(context.getColor(R.color.red))
                         tv3.setTextColor(context.getColor(R.color.red))
                         tv4.setTextColor(context.getColor(R.color.red))
@@ -84,22 +84,22 @@ class OrderAdapter(
                         }
                     }
 
-                    "WAIT_TO_WITHDRAW" -> {
+                    "WAIT_TO_WITHDRAW" -> { //待提现
                         tv2.setTextColor(context.getColor(R.color.f006))
                         tv3.setTextColor(context.getColor(R.color.f006))
                         tv4.setTextColor(context.getColor(R.color.f006))
                         tv2.text = context.getString(R.string.text108)
-                        tv3.text = context.getString(R.string.text109) + it1.YdCOJfC
+                        tv3.text = context.getString(R.string.text109) + it1.N30drqp
                         tv4.text =  context.getString(R.string.text155)
                         tv5.text = context.getString(R.string.text21)
                     }
 
-                    "PAYING" -> {
+                    "PAYING" -> { //打款中
                         tv2.setTextColor(context.getColor(R.color.black))
                         tv3.setTextColor(context.getColor(R.color.black))
                         tv4.setTextColor(context.getColor(R.color.black))
                         tv2.text = context.getString(R.string.text115)
-                        tv3.text = context.getString(R.string.text109) + it1.YdCOJfC
+                        tv3.text = context.getString(R.string.text109) + it1.N30drqp
                         tv4.text = context.getString(R.string.text110) +
                                 ToolUtils.getDateToString(
                                     it1.E2pGjFD,
@@ -108,7 +108,7 @@ class OrderAdapter(
                         tv5.visibility = View.GONE
                     }
 
-                    "PAY_ERROR" -> {
+                    "PAY_ERROR" -> { //打款出错
                         tv2.setTextColor(context.getColor(R.color.black))
                         tv3.setTextColor(context.getColor(R.color.black))
                         tv4.setTextColor(context.getColor(R.color.black))
@@ -119,7 +119,7 @@ class OrderAdapter(
                         tv5.visibility = View.GONE
                     }
 
-                    "OVERDUE" -> {
+                    "OVERDUE" -> { //已逾期
                         tv2.setTextColor(context.getColor(R.color.red))
                         tv3.setTextColor(context.getColor(R.color.red))
                         tv4.setTextColor(context.getColor(R.color.red))
@@ -133,19 +133,19 @@ class OrderAdapter(
                         tv5.text = context.getString(R.string.text74)
                     }
 
-                    "TO_REPAYMENT" -> {
+                    "TO_REPAYMENT" -> { //待还款
                         tv2.setTextColor(context.getColor(R.color.black))
                         tv3.setTextColor(context.getColor(R.color.black))
                         tv4.setTextColor(context.getColor(R.color.black))
                         tv2.text = context.getString(R.string.text118)
-                        tv3.text = context.getString(R.string.text119) + it1.YdCOJfC
+                        tv3.text = context.getString(R.string.text119) + it1.E8RGNzn
                         tv4.text = context.getString(R.string.text141)+
                         ToolUtils.getDateToString(it1.MrskJ2w, "yyyy-MM-dd")
                         tv5.visibility = View.VISIBLE
                         tv5.text = context.getString(R.string.text74)
                     }
 
-                    "CANCELED" -> {
+                    "CANCELED" -> { //订单被取消
                         tv2.setTextColor(context.getColor(R.color.black))
                         tv3.setTextColor(context.getColor(R.color.black))
                         tv4.setTextColor(context.getColor(R.color.black))
@@ -163,14 +163,14 @@ class OrderAdapter(
                         }
                     }
 
-                    "END" -> {
+                    "END" -> { //已完成
                         tv2.setTextColor(context.getColor(R.color.black))
                         tv2.text = context.getString(R.string.text111)
                         tv5.text = context.getString(R.string.text112)
                         tv5.visibility = View.GONE
                     }
 
-                    "OTHER_ERROR" -> {
+                    "OTHER_ERROR" -> { //未知错误
                         tv2.setTextColor(context.getColor(R.color.red))
                         tv3.setTextColor(context.getColor(R.color.red))
                         tv4.setTextColor(context.getColor(R.color.red))

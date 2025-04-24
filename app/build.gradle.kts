@@ -13,17 +13,35 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("myConfig") {
+            storeFile = file("key.jks")
+            storePassword = "vt123456"
+            keyAlias = "key0"
+            keyPassword = "vt123456"
+        }
+
+    }
+
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("myConfig")
+        }
+        release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            signingConfig = signingConfigs.getByName("myConfig")
         }
     }
     compileOptions {
@@ -66,10 +84,10 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.appsflyer:af-android-sdk:6.16.2")
     implementation("com.google.android.gms:play-services-ads-identifier:18.2.0")
-    implementation ("com.github.nanchen2251:CompressHelper:1.0.5")
-    implementation ("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    implementation ("com.github.gzu-liyujiang.AndroidPicker:WheelView:4.1.11")
-    implementation ("org.greenrobot:eventbus:3.3.1")
-    implementation ("com.yanzhenjie:permission:2.0.0-rc4")
-
+    implementation("com.github.nanchen2251:CompressHelper:1.0.5")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("com.github.gzu-liyujiang.AndroidPicker:WheelView:4.1.11")
+    implementation("org.greenrobot:eventbus:3.3.1")
+    implementation("com.yanzhenjie:permission:2.0.0-rc4")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.21")
 }
