@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_bj"
+    tools:context=".ui.fragment.MineFragment">
+
+    <include
+        android:id="@+id/head_id"
+        layout="@layout/head_layout" />
+
+    <TextView
+        android:id="@+id/tv_personal_information"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_40"
+        android:layout_marginStart="@dimen/space_30"
+        android:layout_marginTop="@dimen/space_30"
+        android:layout_marginEnd="@dimen/space_30"
+        android:background="@drawable/shape_f2cd00_5"
+        android:gravity="center"
+        android:text="@string/text94"
+        android:textColor="#006F11"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/head_id" />
+
+    <TextView
+        android:id="@+id/tv_bank_information"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_40"
+        android:layout_marginStart="@dimen/space_30"
+        android:layout_marginTop="@dimen/space_15"
+        android:layout_marginEnd="@dimen/space_30"
+        android:background="@drawable/shape_f2cd00_5"
+        android:gravity="center"
+        android:text="@string/text95"
+        android:textColor="#006F11"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_personal_information" />
+
+    <TextView
+        android:id="@+id/tv_1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_40"
+        android:layout_marginStart="@dimen/space_30"
+        android:layout_marginTop="@dimen/space_15"
+        android:layout_marginEnd="@dimen/space_30"
+        android:background="@drawable/shape_f2cd00_5"
+        android:gravity="center"
+        android:text="@string/text154"
+        android:textColor="#006F11"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_bank_information" />
+
+    <TextView
+        android:id="@+id/tv_hotline"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_40"
+        android:layout_marginStart="@dimen/space_30"
+        android:layout_marginTop="@dimen/space_15"
+        android:layout_marginEnd="@dimen/space_30"
+        android:background="@drawable/shape_f2cd00_5"
+        android:gravity="center"
+        android:text="@string/text96"
+        android:textColor="#006F11"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_1" />
+
+    <TextView
+        android:id="@+id/tv_exit"
+        android:layout_width="@dimen/space_240"
+        android:layout_height="@dimen/space_40"
+        android:layout_marginTop="@dimen/space_10"
+        android:layout_marginBottom="@dimen/space_80"
+        android:background="@drawable/shape_white_5_"
+        android:gravity="center"
+        android:text="@string/text97"
+        android:textColor="#006F11"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

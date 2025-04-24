@@ -1,0 +1,281 @@
+<resources>
+    <string name="app_name">VayTree</string>
+    <string name="text1">Nhận khoản vay từ</string>
+    <string name="text2">đến 20.000.000 VND</string>
+    <string name="text3">Số điện thoại </string>
+    <string name="text4">Vui lòng nhập số điện thoại của bạn</string>
+    <string name="text5"> Vui lòng nhập mã xác minh </string>
+    <string name="text6">Nhận mã xác minh </string>
+    <string name="text7">Đăng ký ngay </string>
+    <string name="text8"><![CDATA[Tôi đã đọc và đồng ý <font color="#F2CD00">Chính sách bảo mật</font>]]></string>
+    <string name="text9">Chính sách bảo mật</string>
+    <string name="text10">Chọn số tiền vay bạn cần</string>
+    <string name="text11">VND</string>
+    <string name="text12">Số tiền cho vay (VND)</string>
+    <string name="text13">Thời gian hoàn trả</string>
+    <string name="text14">Đăng ký khoản vay </string>
+    <string name="text15">*Chúng tôi từ chối cung cấp các khoản vay cho những người dưới 18 tuổi </string>
+    <string name="text16">Khách mới đăng ký chỉ cần 3 bước đơn giản</string>
+    <string name="text17">Điền thông tin đăng ký trực tuyến</string>
+    <string name="text18">Bạn cần điền thông tin cá nhân và tải lên ảnh chụp bạn và CCCD.</string>
+    <string name="text19">Thẩm định đơn giản </string>
+    <string name="text20">Trong vòng vài phút, bạn sẽ nhận được tin nhắn thông báo, tư vấn cho vay </string>
+    <string name="text21">Rút tiền</string>
+    <string name="text22">Số tiền vay được chuyển vào tài khoản ngân hàng của bạn</string>
+    <string name="text23">Đơn hàng</string>
+    <string name="text24">Mô tả khoản vay</string>
+    <string name="text25">Của tôi</string>
+    <string name="text26">Thông tin cá nhân đầy đủ</string>
+    <string name="text27">Nhập họ tên của bạn</string>
+    <string name="text28">Nhập số CCCD của bạn</string>
+    <string name="text29">Ngày sinh </string>
+    <string name="text30">Vui lòng chọn</string>
+    <string name="text31">Giới tính </string>
+    <string name="text32">Vui lòng điền trình độ học vấn của bạn</string>
+    <string name="text33">Tình trạng hôn nhân</string>
+    <string name="text34">FaceBook</string>
+    <string name="text35">Zalo</string>
+    <string name="text36">Bước tiếp theo </string>
+    <string name="text37">Quay lại </string>
+    <string name="text38">Vui lòng điền nghề nghiệp của bạn</string>
+    <string name="text39">Tình hình thu nhập của bạn</string>
+    <string name="text40">Vui lòng nhập tên công ty của bạn</string>
+    <string name="text41">Số điện thoại nơi làm việc</string>
+    <string name="text42">Vui lòng điền địa chỉ công ty</string>
+    <string name="text43">Điền địa chỉ</string>
+    <string name="text44">Vui lòng điền vào tỉnh thành của bạn</string>
+    <string name="text45">Vui lòng nhập quận/ huyện của bạn</string>
+    <string name="text46">Vui lòng điền địa chỉ cụ thể của bạn</string>
+    <string name="text47">Thông tin gia đình</string>
+    <string name="text48">Tên người liên lạc khẩn cấp/thành viên gia đình</string>
+    <string name="text49">Số điện thoại người liên lạc khẩn cấp/gia đình</string>
+    <string name="text50">Mối quan hệ với người liên lạc khẩn cấp</string>
+    <string name="text51">Thông tin công việc</string>
+    <string name="text52">Xác minh thông tin</string>
+    <string name="text53">Vui lòng điền tên thật của bạn</string>
+    <string name="text54">Chọn tên thẻ ngân hàng</string>
+    <string name="text55">Vui lòng tải lên mặt trước CCCD của bạn</string>
+    <string name="text56">Vui lòng tải lên mặt sau CCCD của bạn</string>
+    <string name="text57">Hãy đảm bảo rằng ảnh bạn tải lên rõ nét\nKhông tải ảnh lên mà không có giấy tờ tùy thân liên quan</string>
+    <string name="text58">Tải lên ảnh tự sướng mặt trước</string>
+    <string name="text59">Hãy đảm bảo rằng ảnh bạn tải lên rõ nét và chỉ có khuôn mặt bạn. \nẢnh được tải lên không chứa khuôn mặt của người khác hoặc bất kỳ đối tượng nào。</string>
+    <string name="text60">Số tiền vay</string>
+    <string name="text61"><![CDATA[Bằng cách nhấp vào <b>“Đăng ký khoản vay”</b>Nút ấn , <u><b>bạn đồng ý với đi kèm Thỏa thuận vay。</b></u>]]></string>
+    <string name="text142">Thỏa thuận vay。</string>
+    <string name="text143">“Đăng ký khoản vay”</string>
+    <string name="text144">Nút ấn , bạn đồng ý với đi kèm</string>
+    <string name="text62">Chu kỳ vay</string>
+    <string name="text63">Lãi suất</string>
+    <string name="text64">Tổng số tiền phải trả</string>
+    <string name="text65">Tên Ngân hàng</string>
+    <string name="text66">Tài khoản ngân hàng</string>
+    <string name="text67">Đăng ký khoản vay</string>
+    <string name="text68">*Số tiền giải ngân thực tế được xác định dựa trên tình hình tín dụng của bạn</string>
+    <string name="text69">Quay lại </string>
+    <string name="text70">Kết quả xét duyệt</string>
+    <string name="text71">Khoản vay của tôi</string>
+    <string name="text72">Lịch sử trả nợ</string>
+    <string name="text73">Chi tiết đơn hàng</string>
+    <string name="text74">Hoàn trả</string>
+    <string name="text75">Đơn hàng</string>
+    <string name="text76">Số tiền phải trả </string>
+    <string name="text77">Tiền gốc phải trả</string>
+    <string name="text78">Phí quản lý tài khoản</string>
+    <string name="text79">Phí phê duyệt</string>
+    <string name="text80">Phí phục vụ</string>
+    <string name="text81">Lãi suất phải trả</string>
+    <string name="text82">Phí trễ hạn</string>
+    <string name="text83">Xác nhận</string>
+    <string name="text84">Phương thức hoàn trả </string>
+    <string name="text85">Tài khoản nhận </string>
+    <string name="text86">Thanh toán ngoại tuyến</string>
+    <string name="text87">*Vui lòng chọn "tài khoản nhận" để thanh toán, \nĐể nhanh chóng tất toán tài khoản và tiếp tục khoản vay</string>
+    <string name="text88">LƯU Ý：Tài khoản này chỉ định duy nhất tài khoản người nhận ở trên. Vui lòng kiểm tra tên và số thẻ ngân hàng của bạn khi chuyển tiền và nhớ ghi lại tên và số điện thoại di động khi thanh toán.</string>
+    <string name="text89">Nhận thanh toán</string>
+    <string name="text90">Tài khoản ngân hàng</string>
+    <string name="text91">Ngân hàng</string>
+    <string name="text92">Chi nhánh </string>
+    <string name="text93">Bạn có thể sử dụng thông tin trên để trả nợ tại ngân hàng gần nhất hoặc thông qua Ngân hàng Internet. \nCác giao dịch ngân hàng có thể bị tạm dừng vào thứ Bảy, Chủ Nhật và ngày lễ, vì vậy vui lòng sắp xếp việc thanh toán của bạn một cách hợp lý để tránh thanh toán quá hạn vì lý do này.</string>
+    <string name="text94">Thông tin cá nhân </string>
+    <string name="text95">Thông tin ngân hàng </string>
+    <string name="text96">Hotline：</string>
+    <string name="text97">Đăng xuất</string>
+    <string name="text98">Mô tả khoản vay</string>
+    <string name="text99">Vui lòng đọc kỹ hướng dẫn vay VayTree để nhanh chóng nhận được nhiều khoản vay。</string>
+    <string name="text100">Bước tiếp theo</string>
+    <string name="text101">Số tiền cho vay</string>
+    <string name="text102">Số tiền nhận </string>
+    <string name="text103">Thời hạn vay</string>
+    <string name="text104">Phí quản lý tài khoản</string>
+    <string name="text105">Đơn đăng ký của bạn tạm thời không thể thông qua. Vui lòng nộp lại đơn đăng ký của bạn sau %s ngày.</string>
+    <string name="text106">Trạng thái：xét duyệt thất bại</string>
+    <string name="text107">Đăng ký lại</string>
+    <string name="text108">Tình trạng：xét duyệt thông qua </string>
+    <string name="text109">Hạn mức phê duyệt：</string>
+    <string name="text110">Thời gian phê duyệt：</string>
+    <string name="text111">Tình trạng：Khoản vay đã được thanh toán</string>
+    <string name="text112">Tiếp tục vay </string>
+    <string name="text113">Trạng thái：Khoản vay đã quá hạn %d ngày</string>
+    <string name="text114">Tình trạng： Đang xét duyệt </string>
+    <string name="text115">Trạng thái：Đang thanh toán</string>
+    <string name="text116">Trạng thái：Lỗi thanh toán</string>
+    <string name="text117">Trạng thái：Lỗi không xác định</string>
+    <string name="text118">Trạng thái：Đang chờ hoàn trả</string>
+    <string name="text119">Số tiền phải trả：</string>
+    <string name="text120">Cần sửa đổi liên hệ dịch vụ khách hàng</string>
+    <string name="text121">Liên hệ với dịch vụ khách hàng để xóa</string>
+    <string name="text123">Thời gian hoàn trả：</string>
+    <string name="text124">Sao chép thành công</string>
+    <string name="text125">Sao chép</string>
+    <string name="text126">Ngày</string>
+    <string name="text127">Số tiền đã trả：</string>
+    <string name="text128">Đang giải ngân </string>
+    <string name="text129">Tài khoản thanh toán </string>
+    <string name="text130">Tên người nhận</string>
+    <string name="text131">Tên ngân hàng của người thụ hưởng</string>
+    <string name="text132">Tên chi nhánh </string>
+    <string name="text133">VayTree Đồng ý</string>
+    <string name="text134">Thu thập một số dữ liệu của bạn cho mục\nđích quản lý rủi ro và gian lận</string>
+    <string name="text135">·Máy ảnh</string>
+    <string name="text136">Đồng ý và tiếp tục</string>
+    <string name="text137">Loading</string>
+    <string name="text138">Vui lòng điền đầy đủ thông tin</string>
+    <string name="text139">Quay lại</string>
+    <string name="text140">Xác nhận</string>
+    <string name="text141">Ngày đến hạn：</string>
+
+    <string name="text145"><![CDATA[Để bảo vệ quyền lợi hợp pháp của Quý khách, vui lòng đọc kỹ và tuân thủ Thỏa thuận vay này. Trước khi xác nhận và đồng ý với thỏa thuận này, Quý khách phải hiểu rõ đầy đủ tất cả thông tin liên quan đến sản phẩm vay. Việc nhấp vào “Đồng ý” và đăng ký khoản vay thông qua ứng dụng và/hoặc nền tảng này đồng nghĩa với việc Quý khách đã đọc, hiểu rõ và chấp nhận tất cả các điều khoản và điều kiện trong Thỏa thuận vay này, cũng như đồng ý chịu các nghĩa vụ và trách nhiệm pháp lý tương ứng theo các điều khoản của Thỏa thuận. Nếu không đồng ý, Quý khách phải ngay lập tức ngừng sử dụng dịch vụ được cung cấp theo Thỏa thuận này.<br/>
+
+Thỏa thuận này được ký kết vào ngày <font color="#D21E1E">%1$s</font>giữa các bên sau:<br/ >
+
+Yay Area Heating &amp; Cooling Inc (“Bên cho vay”), là một công ty được thành lập và hoạt động hợp pháp, có địa chỉ đăng ký tại 2629 Sibelius Ave San Jose - 95122-1344 United States (US)<br/>
+
+Và<br/>
+
+Bên vay: <font color="#D21E1E">%2$s</font>  <font color="#D21E1E">%3$s</font> ,<br/>
+
+Theo đó, Bên cho vay đồng ý cung cấp khoản vay cho Bên vay theo các điều khoản và điều kiện sau đây.<br/>
+
+1. Số Tiền Vay và Chi Phí<br/>
+1.1 Bên cho vay sẽ cung cấp cho Bên vay một khoản vay với số tiền gốc là  <font color="#D21E1E">%4$s</font>  %% đồng Việt Nam (VND), theo các hình thức sau:<br/>
+
+1.1.1 Lãi suất:  <font color="#D21E1E">%5$s</font> %% mỗi ngày.<br/>
+
+1.1.2 Phương thức thanh toán: Bên vay phải hoàn trả cả gốc và lãi theo hướng dẫn trong đơn đăng ký trước khi khoản vay đến hạn.<br/>
+
+1.1.3 Ngày đáo hạn:  <font color="#D21E1E">%6$s</font> ngày kể từ ngày khoản vay được giải ngân.<br/>
+
+1.1.4 Phí dịch vụ: Bao gồm nhưng không giới hạn ở phí xử lý, phí hỗ trợ kỹ thuật và các khoản lãi khác.<br/>
+
+1.2 Việc giải ngân khoản vay có thể cần một khoảng thời gian nhất định để hoàn tất chuyển khoản ngân hàng trực tuyến. Sau khi giải ngân, một tin nhắn SMS sẽ được gửi tới số điện thoại đã đăng ký của Bên vay để thông báo.<br/>
+
+1.3 Việc giải ngân khoản vay sẽ được thực hiện thông qua chuyển khoản ngân hàng trực tuyến hoặc nhận tiền mặt trực tiếp. Nếu chọn nhận tiền mặt trực tiếp, đơn vị chi trả có thể thu phí giao dịch theo điều khoản của họ.<br/>
+
+1.4 Sau khi Bên vay nộp đơn xin nhận tiền mặt trực tiếp:<br/>
+Bên cho vay sẽ gửi mã giao dịch sau khi phê duyệt. Mã này có hiệu lực trong thời hạn nhất định. Nếu Bên vay không hoàn tất quy trình nhận tiền mặt trong thời hạn đó, đơn vay sẽ được coi là tự động hủy <br/>
+
+2. Cơ Cấu Lại/ Gia Hạn/ Tái Cấp Vốn<br/>
+Không bên nào được phép cơ cấu lại, gia hạn hoặc tái cấp vốn khoản vay trong Thỏa thuận này nếu không có sự chấp thuận bằng văn bản từ đại diện có thẩm quyền của Bên cho vay và sự đồng ý tuân thủ các chính sách nội bộ của Bên cho vay từ Bên vay. Các chi phí liên quan sẽ do Bên vay chịu.<br/>
+
+3. Tiêu Chuẩn Đủ Điều Kiện<br/>
+Việc giải ngân khoản vay phụ thuộc vào việc Bên cho vay hoàn tất xác minh danh tính và các thông tin khác của Bên vay. Nếu không được chấp thuận, Bên cho vay sẽ thông báo quyết định từ chối khoản vay nhưng không cần nêu lý do cụ thể. Trong trường hợp đó, Thỏa thuận vay này sẽ tự động chấm dứt mà không cần thông báo thêm.<br/>
+
+4. Giải Ngân Khoản Vay<br/>
+Khoản vay chỉ được chuyển vào tài khoản ngân hàng do Bên vay chỉ định. Bên cho vay không chịu trách nhiệm nếu khoản vay được giải ngân sai tài khoản do Bên vay cung cấp thông tin sai. Nếu có sự chậm trễ hoặc các vấn đề khác do bên thứ ba cung cấp dịch vụ giải ngân, Bên cho vay cũng không chịu trách nhiệm.<br/>
+
+5. Điều Khoản Vi Phạm<br/>
+Trong bất kỳ trường hợp nào sau đây, Bên cho vay có quyền đơn phương yêu cầu thanh toán toàn bộ khoản vay ngay lập tức mà không cần thông báo thêm:<br/>
+
+5.1 Bên vay vi phạm bất kỳ điều khoản nào trong Thỏa thuận này;<br/>
+5.2 Không thanh toán đầy đủ vào ngày đến hạn theo hướng dẫn của Bên cho vay;<br/>
+5.3 Bên vay vi phạm điều khoản trong bất kỳ thỏa thuận nào khác với ngân hàng, cá nhân, công ty hoặc tổ chức;<br/>
+5.4 Có bất kỳ chủ nợ nào dùng biện pháp pháp lý để phong tỏa hoặc tịch thu tài sản hoặc khoản tiền của Bên vay do Bên cho vay nắm giữ;<br/>
+5.5 Bên vay tự yêu cầu bảo hộ phá sản hoặc bị đưa vào quy trình phá sản;<br/>
+5.6 Bên vay qua đời;<br/>
+5.7 Bên vay bị kết án hình sự và bản án có ảnh hưởng đến tài sản của họ;<br/>
+5.8 Có bất kỳ hành vi hay sự kiện nào làm giảm khả năng trả nợ của Bên vay theo đánh giá của Bên cho vay;<br/>
+5.9 Bên vay bị phát hiện đã khai báo sai thông tin để được chấp thuận vay.<br/>
+
+6. Hậu Quả Vi Phạm<br/>
+Khi Bên vay vi phạm:<br/>
+• Tài khoản của Bên vay sẽ được đánh dấu là "tài khoản quá hạn", và bị tính phí phạt theo Điều 7;<br/>
+• Bên cho vay có quyền từ chối bất kỳ đơn vay tiếp theo nào;<br/>
+• Bất kỳ tài liệu chứng minh số tiền chưa thanh toán nào do Bên cho vay cung cấp sẽ được coi là bằng chứng ban đầu;<br/>
+• Bên cho vay có thể ủy quyền cho đơn vị thu hồi nợ để xử lý việc thu hồi khoản vay vi phạm.<br/>
+
+7. Phí Phạt Trễ Hạn<br/>
+Nếu tài khoản của Bên vay quá hạn:<br/>
+• Mỗi ngày sẽ bị tính phí phạt trễ hạn theo tỷ lệ 【%%】 trên số tiền gốc;<br/>
+• Thêm phí cố định là 【】 đồng Việt Nam;<br/>
+• Tính từ ngày đến hạn đến ngày thanh toán đầy đủ.<br/>
+
+8. Thu Hồi Nợ<br/>
+Khi xảy ra tình trạng quá hạn:<br/>
+• Bên thu hồi nợ được ủy quyền thực hiện truy vết và nhắc nhở thanh toán;<br/>
+• Mọi chi phí phát sinh do việc thu hồi sẽ do Bên vay chịu trách nhiệm.<br/>
+
+9. Quy Trình Thu Hồi Nợ<br/>
+• Sau khi khoản vay đến hạn, đơn vị thu hồi nợ sẽ liên hệ Bên vay để nhắc nhở thanh toán;<br/>
+• Nếu không liên hệ được với Bên vay, sẽ thông báo cho người liên hệ khẩn cấp mà Bên vay đã cung cấp.<br/>
+
+9.1 Trong trường hợp vi phạm, đơn vị thu hồi sẽ liên hệ trước với Bên vay để thông báo về tình trạng khoản vay. Nếu không thể liên hệ, họ sẽ liên lạc với người liên hệ khẩn cấp do Bên vay cung cấp để nhờ hỗ trợ nhắc nhở trả nợ. Thông tin về khoản vay có thể được tiết lộ trong quá trình này.<br/>
+
+9.2 Điều khoản này cho phép tiết lộ thông tin đã được Bên vay ủy quyền trong Thỏa thuận này.<br/>
+
+10. Điều Khoản Bảo Mật Dữ Liệu<br/>
+10.1 Bên vay xác nhận và đồng ý rằng:<br/>
+• Bên cho vay hoặc người đại diện có thẩm quyền có thể xử lý dữ liệu cá nhân nhạy cảm của Bên vay;<br/>
+• Đồng ý rõ ràng cho phép Bên cho vay xử lý dữ liệu cá nhân;<br/>
+• Tất cả thông tin và dữ liệu do Bên vay cung cấp sẽ được sử dụng trực tiếp hoặc gián tiếp trong quá trình thực hiện Thỏa thuận này;<br/>
+• Bên vay cần thực hiện các biện pháp hợp lý để đảm bảo dữ liệu không bị rò rỉ, mất mát hoặc hư hỏng.<br/>
+
+10.2 Quyền của Bên cho vay:<br/>
+• Có quyền lưu trữ dữ liệu cá nhân của Bên vay trong suốt thời gian cần thiết cho mục đích thu thập;<br/>
+• Thời gian lưu trữ có thể được kéo dài để đáp ứng yêu cầu pháp lý, quản lý hoặc kinh doanh;<br/>
+• Việc xử lý dữ liệu tuân thủ luật pháp hiện hành.<br/>
+
+10.3 Bên cho vay cam kết tuân thủ các quy định của Luật Bảo Vệ Dữ Liệu Cá Nhân và các văn bản hướng dẫn liên quan.<br/>
+
+11. Điều Khoản Tách Rời<br/>
+Nếu bất kỳ điều khoản nào trong Thỏa thuận này bị tuyên bố vô hiệu hoặc bất hợp pháp thì điều đó sẽ không ảnh hưởng đến:<br/>
+• Hiệu lực của các điều khoản còn lại trong Thỏa thuận;<br/>
+• Các quyền hợp pháp mà Bên cho vay và đơn vị thu hồi nợ đã đạt được.<br/>
+
+12. Thuế và Phí<br/>
+Tất cả các khoản thuế và phí liên quan đến Thỏa thuận vay này (dù hiện tại hay phát sinh sau này) sẽ do Bên vay tự chịu trách nhiệm.<br/>
+
+13. Chuyển Nhượng Quyền Lợi<br/>
+Bên vay đồng ý rằng:<br/>
+• Bên cho vay có thể tự quyết định chuyển nhượng toàn bộ hoặc một phần quyền, lợi ích và nghĩa vụ theo Thỏa thuận này;<br/>
+• Bao gồm nhưng không giới hạn ở quyền bảo đảm, quyền chủ nợ…, &#8230;;<br/>
+• Đối tượng nhận chuyển nhượng có thể là bất kỳ bên thứ ba nào được Bên cho vay chỉ định;<br/>
+• Không cần phải thông báo hay được sự đồng ý trước từ Bên vay.<br/>
+
+Tuyên Bố Xác Nhận<br/>
+Tôi xác nhận rằng:<br/>
+
+Trước khi nộp đơn vay, tôi đã đọc kỹ và hoàn toàn đồng ý với Thỏa thuận vay này và toàn bộ các điều khoản của nó;<br/>
+
+Tôi tự nguyện chịu ràng buộc pháp lý bởi Thỏa thuận này;<br/>
+
+Tôi xác nhận số điện thoại đăng ký khoản vay là của tôi;<br/>
+
+Tôi cam kết mọi thông tin trong Thỏa thuận là đúng sự thật và đồng ý cho Bên cho vay thu thập thông tin liên quan đến đơn vay, kể cả khi không được phê duyệt;<br/>
+
+Nếu có bất kỳ khác biệt nào giữa thông tin trong Thỏa thuận này và hồ sơ lưu trữ của Bên cho vay, tôi đồng ý để Thỏa thuận này làm căn cứ cập nhật;<br/>
+
+Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gia đình, văn phòng hoặc di động.<br/>
+
+<font color="#D21E1E">%7$s</font><br/>
+ <font color="#D21E1E">%8$s</font><br/>hoàn tất ký điện tử sau khi đã đọc và đồng ý toàn bộ Thỏa thuận vay này.]]></string>
+    <string name="text146">*Khi khoản vay được chấp thuận, chúng tôi sẽ giải ngân ngay lập tức.</string>
+    <string name="text147">Thỏa Thuận Vay</string>
+    <string name="text148">Vui lòng nhập chính xác số điện thoại di động và mã xác minh </string>
+    <string name="text149">đồng ý</string>
+    <string name="text150">không đồng ý</string>
+    <string name="text152">Để xem xét điều kiện đủ của bạn và đẩy nhanh quá trình thanh toán khoản vay, chúng tôi yêu cầu những quyền sau.</string>
+    <string name="text153">Sự cho phép</string>
+    <string name="text154">Xóa tài khoản</string>
+    <string name="text155">Khoản vay đã duyệt,
+bấm “Rút tiền” để nhận tiền ngay!</string>
+</resources>

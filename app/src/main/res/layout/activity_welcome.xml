@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/welcome_bg"
+    tools:context=".ui.activity.WelcomeActivity">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="@dimen/space_95"
+        android:layout_height="@dimen/space_95"
+        android:layout_marginTop="@dimen/space_93"
+        android:src="@mipmap/tb2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_icon1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_45"
+        android:layout_marginTop="@dimen/space_50"
+        android:src="@mipmap/welcome_bg1"
+        android:layout_marginStart="@dimen/space_60"
+        android:layout_marginEnd="@dimen/space_60"
+        app:layout_constraintTop_toBottomOf="@id/iv_icon" />
+
+    <ImageView
+        android:id="@+id/iv_icon2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_150"
+        android:src="@mipmap/welcome_bg2"
+        android:layout_marginStart="@dimen/space_30"
+        android:layout_marginEnd="@dimen/space_30"
+        app:layout_constraintTop_toBottomOf="@id/iv_icon1" />
+
+    <ImageView
+        android:id="@+id/iv_icon3"
+        android:layout_width="@dimen/space_157"
+        android:layout_height="@dimen/space_32"
+        android:layout_marginTop="@dimen/space_f20"
+        android:src="@mipmap/welcome_bg4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_icon2" />
+
+    <ImageView
+        android:id="@+id/iv_icon4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_32"
+        android:layout_marginTop="@dimen/space_67"
+        android:src="@mipmap/welcome_bg3"
+        android:layout_marginStart="@dimen/space_60"
+        android:layout_marginEnd="@dimen/space_60"
+        app:layout_constraintTop_toBottomOf="@id/iv_icon3" />
+
+    <ImageView
+        android:id="@+id/iv_icon5"
+        android:layout_width="@dimen/space_44"
+        android:layout_height="@dimen/space_44"
+        android:layout_marginTop="@dimen/space_50"
+        android:src="@mipmap/tb1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_icon4" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

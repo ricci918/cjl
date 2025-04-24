@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_debc00_10"
+    android:padding="@dimen/space_20">
+
+    <TextView
+        android:id="@+id/close_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start|center_vertical"
+        android:text="@string/text139"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        android:layout_marginStart="@dimen/space_10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/confirm_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end|center_vertical"
+        android:text="@string/text140"
+        android:layout_marginEnd="@dimen/space_10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.github.gzuliyujiang.wheelview.widget.WheelView
+        android:id="@+id/wv_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_20"
+        android:layout_marginEnd="@dimen/space_20"
+        android:layout_weight="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/close_id"
+        app:wheel_cyclicEnabled="false"
+        app:wheel_indicatorEnabled="false"
+        app:wheel_itemSpace="@dimen/space_44"
+        app:wheel_itemTextColor="#9C9C9C"
+        app:wheel_itemTextColorSelected="@color/black"
+        app:wheel_itemTextSize="16sp"
+        app:wheel_itemTextSizeSelected="16sp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

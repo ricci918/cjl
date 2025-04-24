@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_debc00_10"
+    android:padding="@dimen/space_20">
+    <ImageView
+        android:id="@+id/iv1_id"
+        android:layout_width="@dimen/space_22"
+        android:layout_height="@dimen/space_22"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@mipmap/close_permission_window"
+        />
+    <TextView
+        android:id="@+id/tv1_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text133"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/space_30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv2_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_20"
+        android:text="@string/text134"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_14"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv1_id" />
+
+    <TextView
+        android:id="@+id/tv3_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_20"
+        android:text="@string/text135"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv2_id" />
+
+    <TextView
+        android:id="@+id/tv4_id"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_45"
+        android:layout_marginTop="@dimen/space_20"
+        android:background="@drawable/shape_006f11_5"
+        android:gravity="center"
+        android:text="@string/text136"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_18"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv3_id" />
+</androidx.constraintlayout.widget.ConstraintLayout>
