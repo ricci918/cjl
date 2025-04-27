@@ -86,7 +86,7 @@ open class AuthenticationActivity : BaseActivity() {
             if (Build.VERSION.SDK_INT > 24) {
                 imageUri = FileProvider.getUriForFile(
                     this,
-                    "com.example.study_android.fileprovider",
+                    "com.vaytree.antic.FileProvider",
                     imageTemp
                 )
             }

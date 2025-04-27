@@ -56,7 +56,7 @@ class WelcomeActivity : BaseActivity() {
                 }
 
                 4 -> {
-                    countDown(PersonalInformationActivity::class.java)
+                    countDown(MainActivity::class.java)
                 }
             }
         }

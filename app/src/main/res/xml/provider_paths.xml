@@ -1,5 +1,15 @@
 <paths xmlns:android="http://schemas.android.com/apk/res/android">
     <external-path
         name="image_path"
-        path="/"/>
+        path="/" />
+
+    <external-path
+        name="androidx.emoji2.text.EmojiCompatInitializer"
+        path="androidx.startup" />
+    <external-path
+        name="androidx.lifecycle.ProcessLifecycleInitializer"
+        path="androidx.startup" />
+    <external-path
+        name="androidx.profileinstaller.ProfileInstallerInitializer"
+        path="androidx.startup" />
 </paths>
