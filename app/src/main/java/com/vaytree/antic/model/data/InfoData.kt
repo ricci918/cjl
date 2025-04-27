@@ -39,7 +39,7 @@ data class InfoData(
     val zuMdHrO: String,
     val A5KHEV3: String,
     val zor90RW: String,
-    val ITEH5IP: Boolean,//tester
+    val AXVNSSH: Boolean,//tester
 )
 
 class DefaultPaymentMethod(

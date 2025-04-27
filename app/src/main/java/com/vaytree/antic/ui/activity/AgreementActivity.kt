@@ -29,17 +29,17 @@ class AgreementActivity : BaseActivity() {
             val simpleDateFormat: SimpleDateFormat =
                 SimpleDateFormat("yyyy-MM-dd")
             val date: Date = Date(System.currentTimeMillis())
-            val money = if (it.ITEH5IP) {
+            val money = if (it.AXVNSSH) {
                 SharedPreferencesUtil.getSystemInfoData()!!.AFDPdxb.qbK7vmw
             } else {
                 SharedPreferencesUtil.getSystemInfoData()!!.tAwimR7.qbK7vmw
             }
-            val interest = if (it.ITEH5IP) {
+            val interest = if (it.AXVNSSH) {
                 SharedPreferencesUtil.getSystemInfoData()!!.AFDPdxb.GggSYSF
             } else {
                 SharedPreferencesUtil.getSystemInfoData()!!.tAwimR7.GggSYSF
             }
-            val portend = if (it.ITEH5IP) {
+            val portend = if (it.AXVNSSH) {
                 SharedPreferencesUtil.getSystemInfoData()!!.AFDPdxb.DpdHKgJ.toString()
             } else {
                 SharedPreferencesUtil.getSystemInfoData()!!.tAwimR7.DpdHKgJ.toString()

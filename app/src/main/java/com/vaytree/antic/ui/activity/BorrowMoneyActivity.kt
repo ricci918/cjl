@@ -28,7 +28,7 @@ class BorrowMoneyActivity : BaseActivity() {
                 tvName.text = it.OP3wOGr.WUMJac5
                 tvAccountNumber.text = it.OP3wOGr.jji2py5
                 orderCreated = it.VrFTK75
-                if (it.ITEH5IP) {
+                if (it.AXVNSSH) {
                     tvMoney.text = SharedPreferencesUtil.getSystemInfoData()!!.AFDPdxb.qbK7vmw
                     tvPeriod.text =
                         SharedPreferencesUtil.getSystemInfoData()!!.AFDPdxb.DpdHKgJ.toString() + getString(
