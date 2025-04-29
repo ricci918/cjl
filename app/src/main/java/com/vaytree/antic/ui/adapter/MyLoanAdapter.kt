@@ -25,6 +25,7 @@ import com.vaytree.antic.ui.dialog.DialogUtils
 class MyLoanAdapter(
     private val result: MutableList<LoanListData>,
     private val activity: Activity,
+    private val check : Boolean,
     private val onSelectedListener: (String) -> Unit
 ) :
     RecyclerView.Adapter<MyLoanAdapter.ViewHolder>() {
@@ -47,137 +48,139 @@ class MyLoanAdapter(
                 val icon1 = holder.itemView.findViewById<ImageView>(R.id.iv1_icon)
                 val icon2 = holder.itemView.findViewById<ImageView>(R.id.iv2_icon)
                 val orderDetails = holder.itemView.findViewById<TextView>(R.id.order_details)
+                val tv6 = holder.itemView.findViewById<TextView>(R.id.tv6_id)
+                val tv7 = holder.itemView.findViewById<TextView>(R.id.tv7_id)
+                val iv = holder.itemView.findViewById<ImageView>(R.id.iv1_id)
                 Glide.with(context)
                     .load(OverallVariable.URL + "/api/app/hSe7zCj?id=" + it1.JqZZeKt)
                     .disallowHardwareConfig()
                     .into(icon)
                 tv1.text = it1.xzuxhTo
                 when (it1.xJxENI2) {
-                    "AUDITING" -> {
-                        tv2.setTextColor(context.getColor(R.color.black))
-                        tv3.setTextColor(context.getColor(R.color.black))
-                        tv4.setTextColor(context.getColor(R.color.black))
+                    "AUDITING" -> { //审核中
                         tv2.text = context.getString(R.string.text114)
-                        tv3.text = ToolUtils.getDateToString(
-                            it1.xe0CCJd.toString(),
-                            "yyyy-MM-dd"
-                        )
-                        tv5.visibility = View.GONE
-                    }
-
-                    "REJECT" -> {
-                        tv2.setTextColor(context.getColor(R.color.red))
-                        tv3.setTextColor(context.getColor(R.color.red))
-                        tv4.setTextColor(context.getColor(R.color.red))
-                        tv2.text = context.getString(R.string.text106)
-                        tv3.text =
-                            ToolUtils.getDateToString(it1.xe0CCJd.toString(), "yyyy-MM-dd")
-                        if (it1.plGytjI != 0) {
-                            tv4.visibility = View.VISIBLE
-                            tv4.text = context.getString(R.string.text105, "" + it1.plGytjI)
-                            tv5.visibility = View.GONE
-                            tv4.textSize = 9.toFloat()
-                        } else {
-                            tv4.visibility = View.GONE
+//                        tv2.setBackgroundResource(R.mipmap.order7)
+                        tv6.text = context.getString(R.string.text176)
+                        tv7.text = context.getString(R.string.text178)
+                        tv6.visibility = View.VISIBLE
+                        tv3.visibility = View.GONE
+                        tv4.visibility = View.GONE
+                        orderDetails.visibility = View.GONE
+                        if (check){
                             tv5.visibility = View.VISIBLE
-                            tv5.text = context.getString(R.string.text107)
+                            tv5.text = context.getString(R.string.text195)
                         }
                     }
 
-                    "WAIT_TO_WITHDRAW" -> {
-                        tv2.setTextColor(context.getColor(R.color.f006))
-                        tv3.setTextColor(context.getColor(R.color.f006))
-                        tv4.setTextColor(context.getColor(R.color.f006))
-                        tv2.text = context.getString(R.string.text108)
-                        tv3.text = context.getString(R.string.text109) + it1.lccwjfh
-                        tv4.text =  context.getString(R.string.text155)
+                    "REJECT" -> { //审核被拒绝
+                        tv2.text = context.getString(R.string.text182)
+//                        tv2.setBackgroundResource(R.mipmap.order7)
+                        if (it1.plGytjI != 0) {
+                            tv7.text =
+                                String.format(context.getString(R.string.text181), it1.plGytjI)
+                        } else {
+                            tv7.text = context.getString(R.string.text179)
+                        }
+
+                        tv6.text = context.getString(R.string.text176)
+                        tv6.visibility = View.VISIBLE
+                        tv3.visibility = View.GONE
+                        tv4.visibility = View.GONE
+                        orderDetails.visibility = View.GONE
+                        if (check){
+                            tv5.visibility = View.VISIBLE
+                            tv5.text = context.getString(R.string.text195)
+                        }
+                    }
+
+                    "WAIT_TO_WITHDRAW" -> { //待提现
+//                        tv2.setBackgroundResource(R.mipmap.order6)
+                        tv2.text = context.getString(R.string.text183)
+                        tv3.text = context.getString(R.string.text184) + it1.lccwjfh
                         tv5.text = context.getString(R.string.text21)
+                        tv6.text = context.getString(R.string.text186)
+                        tv7.text = context.getString(R.string.text185)
+                        tv4.visibility = View.GONE
+                        tv5.visibility = View.VISIBLE
+                        tv6.visibility = View.VISIBLE
                     }
 
-                    "PAYING" -> {
-                        tv2.setTextColor(context.getColor(R.color.black))
-                        tv3.setTextColor(context.getColor(R.color.black))
-                        tv4.setTextColor(context.getColor(R.color.black))
+                    "PAYING" -> { //打款中
                         tv2.text = context.getString(R.string.text115)
+//                        tv2.setBackgroundResource(R.mipmap.order6)
                         tv3.text = context.getString(R.string.text109) + it1.lccwjfh
-                        tv4.text = context.getString(R.string.text110) +
-                                ToolUtils.getDateToString(
-                                    it1.xe0CCJd.toString(),
-                                    "yyyy-MM-dd"
-                                )
+                        tv7.text = context.getString(R.string.text187)
                         tv5.visibility = View.GONE
+                        tv6.visibility = View.GONE
                     }
 
-                    "PAY_ERROR" -> {
-                        tv2.setTextColor(context.getColor(R.color.black))
-                        tv3.setTextColor(context.getColor(R.color.black))
-                        tv4.setTextColor(context.getColor(R.color.black))
-                        tv2.text = context.getString(R.string.text116)
+                    "PAY_ERROR" -> { //打款出错
+                        tv2.text = context.getString(R.string.text115)
+//                        tv2.setBackgroundResource(R.mipmap.order6)
                         tv3.text = context.getString(R.string.text109) + it1.lccwjfh
-                        tv4.text =
-                            ToolUtils.getDateToString(it1.xe0CCJd.toString(), "yyyy-MM-dd")
+                        tv7.text = context.getString(R.string.text187)
                         tv5.visibility = View.GONE
+                        tv6.visibility = View.GONE
                     }
 
-                    "OVERDUE" -> {
-                        tv2.setTextColor(context.getColor(R.color.red))
+                    "OVERDUE" -> { //已逾期
                         tv3.setTextColor(context.getColor(R.color.red))
                         tv4.setTextColor(context.getColor(R.color.red))
-                        tv3.text = context.getString(R.string.text119) + it1.lccwjfh
-                        tv2.text = context.getString(R.string.text113, it1.plGytjI)
-                        tv4.text = context.getString(R.string.text123) + ToolUtils.getDateToString(
+                        tv7.setTextColor(context.getColor(R.color.red))
+//                        tv2.setBackgroundResource(R.mipmap.order9)
+                        tv3.text = context.getString(R.string.text196) + it1.lccwjfh
+                        tv2.text = context.getString(R.string.text188)
+                        tv4.text = context.getString(R.string.text191) + ToolUtils.getDateToString(
                             it1.xe0CCJd.toString(),
                             "yyyy-MM-dd"
                         )
+//                        iv.visibility = View.VISIBLE
+                        tv3.textSize = 12F
                         tv5.visibility = View.VISIBLE
                         tv5.text = context.getString(R.string.text74)
+                        tv6.visibility = View.GONE
+                        tv7.text = context.getString(R.string.text189)
                     }
 
-                    "TO_REPAYMENT" -> {
-                        tv2.setTextColor(context.getColor(R.color.black))
-                        tv3.setTextColor(context.getColor(R.color.black))
-                        tv4.setTextColor(context.getColor(R.color.black))
-                        tv2.text = context.getString(R.string.text118)
-                        tv3.text = context.getString(R.string.text119) + it1.lccwjfh
-                        tv4.text = context.getString(R.string.text141) + ToolUtils.getDateToString(
-                            it1.xe0CCJd.toString(),
-                            "yyyy-MM-dd"
-                        )
+                    "TO_REPAYMENT" -> { //待还款
+                        tv4.setTextColor(context.getColor(R.color.red))
+                        tv2.text = context.getString(R.string.text190)
+//                        tv2.setBackgroundResource(R.mipmap.order6)
+                        tv3.text = context.getString(R.string.text196) + it1.lccwjfh
+                        tv4.text = context.getString(R.string.text191) +
+                                ToolUtils.getDateToString(it1.xe0CCJd.toString(), "yyyy-MM-dd")
                         tv5.visibility = View.VISIBLE
+                        tv3.textSize = 12F
                         tv5.text = context.getString(R.string.text74)
+                        tv6.visibility = View.GONE
+                        tv7.text = context.getString(R.string.text192)
                     }
 
-                    "CANCELED" -> {
-                        tv2.setTextColor(context.getColor(R.color.black))
-                        tv3.setTextColor(context.getColor(R.color.black))
-                        tv4.setTextColor(context.getColor(R.color.black))
-                        tv2.text = context.getString(R.string.text106)
-                        tv3.text =
-                            ToolUtils.getDateToString(it1.xe0CCJd.toString(), "yyyy-MM-dd")
-                        if (it1.plGytjI != 0) {
-                            tv4.visibility = View.VISIBLE
-                            tv4.text = context.getString(R.string.text105, "" + it1.plGytjI)
-                            tv5.visibility = View.GONE
-                        } else {
-                            tv4.visibility = View.GONE
+                    "CANCELED" -> { //订单被取消
+                        tv2.text = context.getString(R.string.text182)
+//                        tv2.setBackgroundResource(R.mipmap.order7)
+                        tv7.text = context.getString(R.string.text179)
+                        tv6.text = context.getString(R.string.text176)
+                        tv6.visibility = View.VISIBLE
+                        tv3.visibility = View.GONE
+                        tv4.visibility = View.GONE
+                        orderDetails.visibility = View.GONE
+                        if (check){
                             tv5.visibility = View.VISIBLE
-                            tv5.text = context.getString(R.string.text107)
+                            tv5.text = context.getString(R.string.text195)
                         }
                     }
 
-                    "END" -> {
+                    "END" -> { //已完成
                         tv2.setTextColor(context.getColor(R.color.black))
                         tv2.text = context.getString(R.string.text111)
                         tv5.text = context.getString(R.string.text112)
                         tv5.visibility = View.GONE
                     }
 
-                    "OTHER_ERROR" -> {
-                        tv2.setTextColor(context.getColor(R.color.red))
-                        tv3.setTextColor(context.getColor(R.color.red))
-                        tv4.setTextColor(context.getColor(R.color.red))
-                        tv2.text = context.getString(R.string.text117)
+                    "OTHER_ERROR" -> { //未知错误
                         tv5.visibility = View.GONE
+                        orderDetails.visibility = View.GONE
                     }
                 }
 

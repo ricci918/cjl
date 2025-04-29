@@ -24,7 +24,7 @@ class WithdrawDepositActivity : BaseActivity() {
     }
 
     private fun initData() {
-        observerCommon(viewModel)
+        observerCommon(viewModel, false)
         mBinding.apply {
             viewModel.orderDetail(orderCode)
             viewModel1.acquisition(this@WithdrawDepositActivity)

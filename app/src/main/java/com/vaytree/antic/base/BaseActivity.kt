@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.vaytree.antic.R
+import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.dialog.DialogUtils
 
 
@@ -33,7 +34,13 @@ open class BaseActivity : AppCompatActivity() {
     fun startActivity(cls: Class<*>) {
         startActivity(Intent(this, cls))
     }
-    fun observerCommon(viewModel: BaseViewModel) {
+
+    fun observerCommon(viewModel: BaseViewModel, isToast: Boolean) {
+        observe(viewModel.strErrorLiveData) {
+            if (isToast) {
+                ToolUtils.showToast(this, it)
+            }
+        }
         observe(viewModel.loadingLiveData) {
             if (it) {
                 showLoading()

@@ -33,7 +33,7 @@ class PersonalInformationActivity : BaseActivity() {
     }
 
     private fun initView() {
-        observerCommon(viewModel)
+        observerCommon(viewModel, false)
         mBinding.apply {
             tvReturn.setOnClickListener {
                 finish()

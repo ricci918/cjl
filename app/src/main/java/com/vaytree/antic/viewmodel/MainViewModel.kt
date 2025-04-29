@@ -19,9 +19,10 @@ class MainViewModel : BaseViewModel() {
     val repaymentWayData: MutableLiveData<RepaymentWayData> = MutableLiveData()
     val withdrawData: MutableLiveData<Boolean> = MutableLiveData()
     val renewData: MutableLiveData<Boolean> = MutableLiveData()
-
+    val checkData: MutableLiveData<Boolean> = MutableLiveData()
     init {
         loadingLiveData.value = true
+        check()
         loanList()
         auditList()
         repaymentList()
@@ -82,6 +83,13 @@ class MainViewModel : BaseViewModel() {
             val renew = ApiServiceResponse.renew(RenewReq(orderCode))
             renewData.value = true
             loadingLiveData.value = false
+        }
+    }
+
+    fun check() {
+        launchWithException {
+            val check = ApiServiceResponse.check()
+            checkData.value = check as Boolean
         }
     }
 }

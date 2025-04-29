@@ -1,23 +1,16 @@
 package com.vaytree.antic.ui.activity
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.google.android.gms.ads.identifier.AdvertisingIdClient
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityMainBinding
-import com.vaytree.antic.model.utils.DeviceInfoUtils
 import com.vaytree.antic.ui.adapter.MainTabAdapter
 import com.vaytree.antic.ui.fragment.ExplainFragment
 import com.vaytree.antic.ui.fragment.MineFragment
 import com.vaytree.antic.ui.fragment.OrderFragment
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class MainActivity : BaseActivity(), View.OnClickListener {
     private lateinit var mBinding: ActivityMainBinding

@@ -8,18 +8,70 @@
     android:background="#F2CD00"
     tools:context=".ui.activity.BorrowMoneyActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl1_id"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_30"
+        android:layout_marginStart="@dimen/space_20"
+        android:layout_marginTop="@dimen/space_30"
+        android:layout_marginEnd="@dimen/space_20"
+        android:background="@drawable/shape_white_20"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/space_20"
+            android:layout_height="@dimen/space_20"
+            android:layout_marginStart="@dimen/space_10"
+            android:flipInterval="1000"
+            android:src="@mipmap/trumpet"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ViewFlipper
+            android:id="@+id/vf_id"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginEnd="@dimen/space_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_icon"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/vf_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/vf_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/vf_tv3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp_12" />
+        </ViewFlipper>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/tv1_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_60"
+        android:layout_marginTop="@dimen/space_30"
         android:text="@string/text60"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_20"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/cl1_id" />
 
     <TextView
         android:id="@+id/tv_money"
@@ -213,6 +265,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll1_id" />
+    
+    <ImageView
+        android:layout_width="@dimen/space_27"
+        android:layout_height="@dimen/space_40"
+        app:layout_constraintTop_toTopOf="@id/tv_apply"
+        app:layout_constraintEnd_toEndOf="@id/tv_apply"
+        android:layout_marginTop="@dimen/space_15"
+        android:layout_marginEnd="@dimen/space_10"
+        android:src="@mipmap/hint"
+        android:visibility="gone"
+        />
 
     <TextView
         android:layout_width="match_parent"

@@ -3,8 +3,6 @@ package com.vaytree.antic.viewmodel
 import android.app.Activity
 import androidx.lifecycle.MutableLiveData
 import com.appsflyer.AppsFlyerLib
-import com.vaytree.antic.R
-import com.vaytree.antic.app.MyApplication
 import com.vaytree.antic.base.BaseViewModel
 import com.vaytree.antic.model.contract.ApiServiceResponse
 import com.vaytree.antic.model.data.LoginSmsReq
@@ -17,6 +15,7 @@ class LoginViewModel : BaseViewModel() {
     private var codeData: String = ""
     val isLogin: MutableLiveData<Boolean> = MutableLiveData()
     val step: MutableLiveData<Int> = MutableLiveData()
+    val channel: MutableLiveData<String> = MutableLiveData()
     fun sendCode(phone: String) {
         if (phone != "") {
             launchWithException {
@@ -49,6 +48,7 @@ class LoginViewModel : BaseViewModel() {
             )
             val loginSms = ApiServiceResponse.loginSms(loginSmsReq)
             UserConfig.saveUser(loginSms)
+            SharedPreferencesUtil.putPhone(phone)
             isLogin.value = true
             loadingLiveData.value = false
         }
@@ -59,6 +59,7 @@ class LoginViewModel : BaseViewModel() {
             loadingLiveData.value = true
             val queryStatus = ApiServiceResponse.queryStatus()
             step.value = queryStatus.LfDQGCj
+            channel.value = queryStatus.oBrKKWv
             loadingLiveData.value = false
         }
     }

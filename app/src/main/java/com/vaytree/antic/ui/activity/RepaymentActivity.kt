@@ -21,10 +21,10 @@ class RepaymentActivity : BaseActivity() {
     }
 
     private fun initData() {
-        observerCommon(viewModel)
+        observerCommon(viewModel, false)
         viewModel.orderDetail(orderCode)
         mBinding.apply {
-            observe(viewModel.orderDetailData){
+            observe(viewModel.orderDetailData) {
                 tv2Id.text = it.Osyn4Qq.toString()
                 tvPrincipal.text = it.POgXdfV.toString()
                 tvAdministrativeFee.text = it.cVgjvar.toString()

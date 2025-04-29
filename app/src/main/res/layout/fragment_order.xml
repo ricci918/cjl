@@ -24,49 +24,57 @@
             android:id="@+id/rb1_id"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/space_25"
+            android:layout_marginStart="@dimen/space_15"
             android:layout_weight="1"
             android:background="@drawable/shape_white_20"
             android:button="@null"
             android:checked="true"
             android:gravity="center"
+            android:padding="@dimen/space_5"
             android:text="@string/text70"
             android:textColor="@drawable/select_order_color"
-            android:textSize="@dimen/sp_12" />
+            android:textSize="@dimen/sp_12"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/rb2_id"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/space_15"
-            android:layout_marginEnd="@dimen/space_15"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginEnd="@dimen/space_10"
             android:layout_weight="1"
+            android:background="@drawable/shape_white_20_ww"
             android:button="@null"
             android:gravity="center"
+            android:padding="@dimen/space_5"
             android:text="@string/text71"
             android:textColor="@drawable/select_order_color"
-            android:textSize="@dimen/sp_12" />
+            android:textSize="@dimen/sp_12"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/rb3_id"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/space_25"
+            android:layout_marginEnd="@dimen/space_15"
             android:layout_weight="1"
+            android:background="@drawable/shape_white_20_ww"
             android:button="@null"
             android:gravity="center"
+            android:padding="@dimen/space_5"
             android:text="@string/text72"
             android:textColor="@drawable/select_order_color"
-            android:textSize="@dimen/sp_12" />
+            android:textSize="@dimen/sp_12"
+            android:textStyle="bold" />
     </RadioGroup>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/sfl_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/space_25"
+        android:layout_marginStart="@dimen/space_15"
         android:layout_marginTop="@dimen/space_20"
-        android:layout_marginEnd="@dimen/space_25"
+        android:layout_marginEnd="@dimen/space_15"
         app:layout_constrainedHeight="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rg_id">

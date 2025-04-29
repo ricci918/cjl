@@ -63,7 +63,7 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun initView() {
-        observerCommon(viewModel)
+        observerCommon(viewModel, false)
         mBinding.apply {
             tv4Id.text = Html.fromHtml(getString(R.string.text8))
             codeId.setOnClickListener {

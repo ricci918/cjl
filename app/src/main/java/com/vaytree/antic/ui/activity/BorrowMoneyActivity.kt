@@ -2,6 +2,7 @@ package com.vaytree.antic.ui.activity
 
 import android.os.Bundle
 import android.text.Html
+import android.view.animation.AnimationUtils
 import androidx.lifecycle.ViewModelProvider
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
@@ -72,7 +73,7 @@ class BorrowMoneyActivity : BaseActivity() {
     }
 
     private fun initView() {
-        observerCommon(viewModel)
+        observerCommon(viewModel, false)
         mBinding.apply {
             tv8Id.text = Html.fromHtml(getString(R.string.text61))
             tvApply.setOnClickListener {
@@ -81,6 +82,12 @@ class BorrowMoneyActivity : BaseActivity() {
             tv8Id.setOnClickListener {
                 startActivity(AgreementActivity::class.java)
             }
+            vfTv1.text = Html.fromHtml(getString(R.string.text173))
+            vfTv2.text = Html.fromHtml(getString(R.string.text174))
+            vfTv3.text = Html.fromHtml(getString(R.string.text175))
+            vfId.inAnimation = AnimationUtils.loadAnimation(this@BorrowMoneyActivity, R.anim.push_up_in)
+            vfId.outAnimation = AnimationUtils.loadAnimation(this@BorrowMoneyActivity, R.anim.push_up_out)
+            vfId.startFlipping()
         }
     }
 }

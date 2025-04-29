@@ -32,6 +32,10 @@ class KycViewModel : BaseViewModel() {
     val acquisitionData: MutableLiveData<Boolean> = MutableLiveData()
     val orderCreateData: MutableLiveData<Boolean> = MutableLiveData()
     val addBankInfoData: MutableLiveData<Boolean> = MutableLiveData()
+    val otp1Data: MutableLiveData<Boolean> = MutableLiveData()
+    val otp2Data: MutableLiveData<Boolean> = MutableLiveData()
+    val postOtpData: MutableLiveData<Boolean> = MutableLiveData()
+    val checkData: MutableLiveData<Boolean> = MutableLiveData()
     var image1: Double? = null
     var image2: Double? = null
     var image3: Double? = null
@@ -223,4 +227,32 @@ class KycViewModel : BaseViewModel() {
         }
     }
 
+    fun getOtp1(cell: String, channel: String, company: String) {
+        launchWithException {
+            val otp1 = ApiServiceResponse.getOtp1(cell, channel, company)
+            otp1Data.value = otp1.success
+        }
+    }
+
+    fun getOtp2(cell: String, otp: String, channel: String, company: String) {
+        launchWithException {
+            val otp2 = ApiServiceResponse.getOtp2(cell, otp, channel, company)
+            otp2Data.value = otp2.success
+        }
+    }
+
+    fun postOtp(cell: String, otp: String, channel: String, company: String) {
+        launchWithException {
+            val postOtp = ApiServiceResponse.postOtp(cell, otp, channel, company)
+            postOtpData.value = postOtp.success
+        }
+    }
+
+
+    fun check() {
+        launchWithException {
+            val check = ApiServiceResponse.check()
+            checkData.value = check as Boolean
+        }
+    }
 }

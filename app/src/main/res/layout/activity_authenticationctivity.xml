@@ -14,19 +14,100 @@
         android:paddingStart="@dimen/space_40"
         android:paddingEnd="@dimen/space_40"
         android:paddingBottom="@dimen/space_120">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ll_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_50"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:id="@+id/schedule1_id"
+                android:layout_width="@dimen/space_22"
+                android:layout_height="@dimen/space_22"
+                android:src="@mipmap/q"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_schedule1_id"
+                android:layout_width="@dimen/space_15"
+                android:layout_height="@dimen/space_10"
+                android:src="@mipmap/schedule"
+                app:layout_constraintBottom_toBottomOf="@id/schedule1_id"
+                app:layout_constraintEnd_toEndOf="@id/schedule1_id"
+                app:layout_constraintStart_toStartOf="@id/schedule1_id"
+                app:layout_constraintTop_toTopOf="@id/schedule1_id" />
+
+            <View
+                android:id="@+id/v1_id"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/space_5"
+                android:background="@color/f006"
+                app:layout_constraintBottom_toBottomOf="@id/schedule1_id"
+                app:layout_constraintEnd_toStartOf="@id/schedule2_id"
+                app:layout_constraintStart_toEndOf="@id/schedule1_id"
+                app:layout_constraintTop_toTopOf="@id/schedule1_id" />
+
+            <ImageView
+                android:id="@+id/schedule2_id"
+                android:layout_width="@dimen/space_22"
+                android:layout_height="@dimen/space_22"
+                android:src="@mipmap/q"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_schedule2_id"
+                android:layout_width="@dimen/space_15"
+                android:layout_height="@dimen/space_10"
+                android:src="@mipmap/schedule"
+                app:layout_constraintBottom_toBottomOf="@id/schedule2_id"
+                app:layout_constraintEnd_toEndOf="@id/schedule2_id"
+                app:layout_constraintStart_toStartOf="@id/schedule2_id"
+                app:layout_constraintTop_toTopOf="@id/schedule2_id" />
+
+            <View
+                android:id="@+id/v2_id"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/space_5"
+                android:background="@color/f006"
+                app:layout_constraintBottom_toBottomOf="@id/schedule1_id"
+                app:layout_constraintEnd_toStartOf="@id/schedule3_id"
+                app:layout_constraintStart_toEndOf="@id/schedule2_id"
+                app:layout_constraintTop_toTopOf="@id/schedule1_id" />
+
+            <ImageView
+                android:id="@+id/schedule3_id"
+                android:layout_width="@dimen/space_22"
+                android:layout_height="@dimen/space_22"
+                android:src="@mipmap/q"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_schedule3_id"
+                android:layout_width="@dimen/space_15"
+                android:layout_height="@dimen/space_10"
+                android:src="@mipmap/schedule"
+                app:layout_constraintBottom_toBottomOf="@id/schedule3_id"
+                app:layout_constraintEnd_toEndOf="@id/schedule3_id"
+                app:layout_constraintStart_toStartOf="@id/schedule3_id"
+                app:layout_constraintTop_toTopOf="@id/schedule3_id" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
             android:id="@+id/tv1_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_80"
+            android:layout_marginTop="@dimen/space_30"
             android:text="@string/text52"
             android:textColor="#006F11"
             android:textSize="@dimen/sp_20"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/ll_id" />
 
         <TextView
             android:id="@+id/tv2_id"

@@ -36,6 +36,7 @@ open class AuthenticationActivity : BaseActivity() {
     private var child2 = "imageOut2.jpeg"
     private var child3 = "imageOut3.jpeg"
     var needReq = false
+    private var check: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityAuthenticationctivityBinding.inflate(layoutInflater)
@@ -49,6 +50,7 @@ open class AuthenticationActivity : BaseActivity() {
         viewModel.bankList()
         viewModel.info()
 //        viewModel.token()
+        viewModel.check()
         observe(viewModel.bankListData) {
             bankListData = it
         }
@@ -62,9 +64,18 @@ open class AuthenticationActivity : BaseActivity() {
 //              startDetect(it)
 //            }
 //        }
+        observe(viewModel.checkData) {
+            check = it
+        }
         observe(viewModel.addBankInfoData) {
             if (it) {
-                startActivity(BorrowMoneyActivity::class.java)
+                if (!check) {
+                    startActivity(BorrowMoneyActivity::class.java)
+                } else {
+                    val intent = Intent(this, OperatorActivity::class.java)
+                    intent.putExtra("isAuthenticationActivity",true)
+                    startActivity(intent)
+                }
                 finishAffinity()
             }
         }
@@ -99,7 +110,7 @@ open class AuthenticationActivity : BaseActivity() {
     }
 
     private fun initView() {
-        observerCommon(viewModel)
+        observerCommon(viewModel, false)
         mBinding.apply {
             tvReturn.setOnClickListener {
                 finish()

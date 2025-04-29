@@ -13,6 +13,7 @@ object SharedPreferencesUtil {
     private const val FIELD_CODE = "userFieldCode"
     private const val IS_PRIVACY = "isPrivacy"
     private const val GAID = "gaid"
+    private const val PHONE = "phone"
     private lateinit var sharedPreferences: SharedPreferences
 
     fun init(context: Context) {
@@ -74,6 +75,15 @@ object SharedPreferencesUtil {
 
     fun getGaId(): String {
         return sharedPreferences.getString(GAID, "") ?: ""
+    }
+
+    fun putPhone(phone: String) {
+        editor.putString(PHONE, phone)
+        editor.apply()
+    }
+
+    fun getPhone(): String {
+        return sharedPreferences.getString(PHONE, "") ?: ""
     }
 
 }

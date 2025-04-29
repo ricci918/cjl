@@ -14,7 +14,6 @@ import com.bumptech.glide.Glide
 import com.vaytree.antic.R
 import com.vaytree.antic.model.data.Content
 import com.vaytree.antic.model.utils.OverallVariable
-import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.activity.OrderDetailsActivity
 import com.vaytree.antic.ui.activity.RepaymentActivity
@@ -40,6 +39,8 @@ class RepaymentRecordsAdapter(
                 val tv3 = holder.itemView.findViewById<TextView>(R.id.tv3_id)
                 val tv4 = holder.itemView.findViewById<TextView>(R.id.tv4_id)
                 val tv5 = holder.itemView.findViewById<TextView>(R.id.tv5_id)
+                val tv6 = holder.itemView.findViewById<TextView>(R.id.tv6_id)
+                val tv7 = holder.itemView.findViewById<TextView>(R.id.tv7_id)
                 val icon1 = holder.itemView.findViewById<ImageView>(R.id.iv1_icon)
                 val icon2 = holder.itemView.findViewById<ImageView>(R.id.iv2_icon)
                 val orderDetails = holder.itemView.findViewById<TextView>(R.id.order_details)
@@ -48,16 +49,16 @@ class RepaymentRecordsAdapter(
                     .disallowHardwareConfig()
                     .into(icon)
                 tv1.text = it1.QSP6ghs
-                tv2.setTextColor(context.getColor(R.color.black))
-                tv3.setTextColor(context.getColor(R.color.black))
-                tv4.setTextColor(context.getColor(R.color.black))
-                tv2.text = context.getString(R.string.text111)
+                tv2.text = context.getString(R.string.text193)
+//                tv2.setBackgroundResource(R.mipmap.order6)
                 tv3.text = context.getString(R.string.text127) + it1.yxgphaq
                 tv4.text = ToolUtils.getDateToString(
                     it1.iXJovfN.toString(),
                     "yyyy-MM-dd"
                 )
                 tv5.visibility = View.GONE
+                tv6.visibility = View.GONE
+                tv7.text = context.getString(R.string.text194)
                 tv5.setOnClickListener {
                     val intent = Intent(context, RepaymentActivity::class.java)
                     intent.putExtra("orderCode", it1.Depxaxs)

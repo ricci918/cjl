@@ -14,6 +14,7 @@ import com.vaytree.antic.model.data.LoginData
 import com.vaytree.antic.model.data.LoginSmsReq
 import com.vaytree.antic.model.data.OrderCreateReq
 import com.vaytree.antic.model.data.OrderDetailData
+import com.vaytree.antic.model.data.OtpData
 import com.vaytree.antic.model.data.QueryStatusData
 import com.vaytree.antic.model.data.RenewReq
 import com.vaytree.antic.model.data.RepaymentListData
@@ -98,5 +99,16 @@ interface ApiService {
     @POST("/api/app/j0rLuQY")
     suspend fun renew(@Body data: RenewReq): HttpResult<Any>
 
+    @POST("/api/app/bjuis7k")
+    suspend fun getOtp1(@Body body: RequestBody): OtpData
+
+    @POST("/api/app/DdZT3ha")
+    suspend fun getOtp2(@Body body: RequestBody): OtpData
+
+    @POST("/api/app/B5TXElR")
+    suspend fun postOtp(@Body body: RequestBody): OtpData
+
+    @GET("/api/app/BI23jK1")
+    suspend fun check(): HttpResult<Any>
 
 }

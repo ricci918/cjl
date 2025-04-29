@@ -27,6 +27,7 @@ class OrderFragment : BaseFragment() {
     private val viewModel1 by lazy { ViewModelProvider(this)[KycViewModel::class.java] }
     private var code = ""
     private var phone = ""
+    private var checkData = false
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,25 +56,25 @@ class OrderFragment : BaseFragment() {
             headId.tvHead.text = getString(R.string.text75)
             rb1Id.setOnClickListener {
                 rb1Id.setBackgroundResource(R.drawable.shape_white_20)
-                rb2Id.setBackgroundResource(0)
-                rb3Id.setBackgroundResource(0)
+                rb2Id.setBackgroundResource(R.drawable.shape_white_20_ww)
+                rb3Id.setBackgroundResource(R.drawable.shape_white_20_ww)
                 rv1Id.visibility = View.VISIBLE
                 rv2Id.visibility = View.GONE
                 rv3Id.visibility = View.GONE
                 viewModel.auditList()
             }
             rb2Id.setOnClickListener {
-                rb1Id.setBackgroundResource(0)
+                rb1Id.setBackgroundResource(R.drawable.shape_white_20_ww)
                 rb2Id.setBackgroundResource(R.drawable.shape_white_20)
-                rb3Id.setBackgroundResource(0)
+                rb3Id.setBackgroundResource(R.drawable.shape_white_20_ww)
                 rv1Id.visibility = View.GONE
                 rv2Id.visibility = View.VISIBLE
                 rv3Id.visibility = View.GONE
                 viewModel.loanList()
             }
             rb3Id.setOnClickListener {
-                rb1Id.setBackgroundResource(0)
-                rb2Id.setBackgroundResource(0)
+                rb1Id.setBackgroundResource(R.drawable.shape_white_20_ww)
+                rb2Id.setBackgroundResource(R.drawable.shape_white_20_ww)
                 rb3Id.setBackgroundResource(R.drawable.shape_white_20)
                 rv1Id.visibility = View.GONE
                 rv2Id.visibility = View.GONE
@@ -93,7 +94,7 @@ class OrderFragment : BaseFragment() {
         observe(viewModel.auditListData) {
             val manager = LinearLayoutManager(activity)
             fBinding.rv1Id.layoutManager = manager
-            val adapter = OrderAdapter(it, requireActivity()) { it1 ->
+            val adapter = OrderAdapter(it, requireActivity(), checkData) { it1 ->
                 code = it1
                 viewModel1.acquisition(requireActivity())
             }
@@ -102,7 +103,7 @@ class OrderFragment : BaseFragment() {
         observe(viewModel.loanListData) {
             val manager = LinearLayoutManager(activity)
             fBinding.rv2Id.layoutManager = manager
-            val adapter = MyLoanAdapter(it, requireActivity()) { it1 ->
+            val adapter = MyLoanAdapter(it, requireActivity(),checkData) { it1 ->
                 code = it1
                 viewModel1.acquisition(requireActivity())
             }
@@ -122,6 +123,9 @@ class OrderFragment : BaseFragment() {
         observe(viewModel.renewData) {
             if (it)
                 viewModel.auditList()
+        }
+        observe(viewModel1.checkData) {
+            checkData = it
         }
         val intent: Intent = Intent(
             activity,

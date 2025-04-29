@@ -14,6 +14,7 @@ import com.vaytree.antic.model.data.LoginData
 import com.vaytree.antic.model.data.LoginSmsReq
 import com.vaytree.antic.model.data.OrderCreateReq
 import com.vaytree.antic.model.data.OrderDetailData
+import com.vaytree.antic.model.data.OtpData
 import com.vaytree.antic.model.data.QueryStatusData
 import com.vaytree.antic.model.data.RenewReq
 import com.vaytree.antic.model.data.RepaymentListData
@@ -131,5 +132,36 @@ object ApiServiceResponse : BaseRepository() {
         return service.renew(data).getResponseData()
     }
 
+    suspend fun getOtp1(cell: String, channel: String, company: String): OtpData {
+        val requestBody = getFormBuilder()
+            .addFormDataPart("ZgDO1L6", cell)
+            .addFormDataPart("DGUgcF3", channel)
+            .addFormDataPart("PSrPQUg", company)
+            .build()
+        return service.getOtp1(requestBody)
+    }
 
+    suspend fun getOtp2(cell: String, otp: String, channel: String, company: String): OtpData {
+        val requestBody = getFormBuilder()
+            .addFormDataPart("tbV2Wkf", cell)
+            .addFormDataPart("u4mjJFt", otp)
+            .addFormDataPart("m72CIKM", channel)
+            .addFormDataPart("emfcDkm", company)
+            .build()
+        return service.getOtp2(requestBody)
+    }
+
+    suspend fun postOtp(cell: String, otp: String, channel: String, company: String): OtpData {
+        val requestBody = getFormBuilder()
+            .addFormDataPart("gMywZ2W", cell)
+            .addFormDataPart("A4BICR5", otp)
+            .addFormDataPart("fTJZGcm", channel)
+            .addFormDataPart("TwG9JR8", company)
+            .build()
+        return service.postOtp(requestBody)
+    }
+
+    suspend fun check(): Any {
+        return service.check().getResponseData()
+    }
 }

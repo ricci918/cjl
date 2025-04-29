@@ -9,17 +9,16 @@
         android:id="@+id/cl1_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape_white_20"
-        android:paddingStart="@dimen/space_10"
-        android:paddingTop="@dimen/space_15"
-        android:paddingEnd="@dimen/space_10"
-        android:paddingBottom="@dimen/space_15"
+        android:background="@drawable/shape_white_12"
+        android:paddingBottom="@dimen/space_30"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/iv_icon"
-            android:layout_width="@dimen/space_80"
-            android:layout_height="@dimen/space_80"
+            android:layout_width="@dimen/space_30"
+            android:layout_height="@dimen/space_30"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,49 +28,109 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_10"
             android:textColor="@color/black"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_16"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_icon"
             app:layout_constraintStart_toEndOf="@id/iv_icon"
             app:layout_constraintTop_toTopOf="@id/iv_icon" />
 
         <TextView
             android:id="@+id/tv2_id"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/space_30"
             android:layout_marginStart="@dimen/space_10"
+            android:layout_marginEnd="@dimen/space_10"
+            android:gravity="center"
             android:textColor="@color/black"
-            android:textSize="@dimen/sp_10"
+            android:textSize="@dimen/sp_11"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/v_id"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"
+            android:layout_marginTop="@dimen/space_10"
+            android:background="#CCCCCC"
+            app:layout_constraintTop_toBottomOf="@id/iv_icon" />
+
+        <TextView
+            android:id="@+id/tv6_id"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_18"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_3"
+            android:layout_marginEnd="@dimen/space_10"
+            android:drawableStart="@mipmap/order8"
+            android:drawablePadding="@dimen/space_10"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/space_5"
+            android:paddingEnd="@dimen/space_5"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_8"
             app:layout_constraintStart_toEndOf="@id/iv_icon"
-            app:layout_constraintTop_toBottomOf="@id/tv1_id" />
+            app:layout_constraintTop_toBottomOf="@id/v_id" />
 
         <TextView
             android:id="@+id/tv3_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_10"
             android:textColor="@color/black"
-            android:textSize="@dimen/sp_10"
-            app:layout_constraintStart_toEndOf="@id/iv_icon"
-            app:layout_constraintTop_toBottomOf="@id/tv2_id" />
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv6_id" />
 
         <TextView
             android:id="@+id/tv4_id"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginEnd="@dimen/space_10"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_10"
-            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/tv3_id"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_icon"
-            app:layout_constraintTop_toBottomOf="@id/tv3_id" />
+            app:layout_constraintTop_toTopOf="@id/tv3_id" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_12"
+            android:layout_marginEnd="@dimen/space_10"
+            app:layout_constraintTop_toBottomOf="@id/tv3_id">
+
+            <ImageView
+                android:id="@+id/iv1_id"
+                android:layout_width="@dimen/space_12"
+                android:layout_height="@dimen/space_12"
+                android:layout_marginTop="@dimen/space_1"
+                android:src="@mipmap/order4"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv7_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv1_id"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/iv1_icon"
         android:layout_width="@dimen/space_25"
         android:layout_height="@dimen/space_25"
-        android:layout_marginStart="@dimen/space_20"
+        android:layout_marginStart="@dimen/space_10"
         android:layout_marginTop="@dimen/space_10"
         android:src="@mipmap/order1"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,29 +150,30 @@
         android:id="@+id/order_details"
         android:layout_width="@dimen/space_100"
         android:layout_height="@dimen/space_25"
-        android:layout_marginStart="@dimen/space_5"
         android:layout_marginTop="@dimen/space_10"
-        android:background="@drawable/shape_white_10_"
+        android:layout_marginEnd="@dimen/space_5"
+        android:background="@drawable/shape_black_10"
         android:gravity="center"
         android:text="@string/text73"
-        android:textColor="#006F11"
+        android:textColor="@color/white"
         android:textSize="@dimen/sp_10"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@id/tv5_id"
         app:layout_constraintTop_toBottomOf="@id/cl1_id" />
 
     <TextView
         android:id="@+id/tv5_id"
         android:layout_width="@dimen/space_100"
         android:layout_height="@dimen/space_25"
+        android:layout_marginStart="@dimen/space_5"
         android:layout_marginTop="@dimen/space_10"
-        android:layout_marginEnd="@dimen/space_5"
-        android:background="@drawable/shape_black_10"
+        android:background="@drawable/shape_f2cd00_10"
         android:gravity="center"
-        android:textColor="@color/white"
+        android:textColor="@color/f006"
         android:textSize="@dimen/sp_10"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/order_details"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cl1_id" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

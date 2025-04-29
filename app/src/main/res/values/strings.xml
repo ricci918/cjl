@@ -4,7 +4,7 @@
     <string name="text2">đến 20.000.000 VND</string>
     <string name="text3">Số điện thoại </string>
     <string name="text4">Vui lòng nhập số điện thoại của bạn</string>
-    <string name="text5"> Vui lòng nhập mã xác minh </string>
+    <string name="text5">Vui lòng nhập mã xác minh</string>
     <string name="text6">Nhận mã xác minh </string>
     <string name="text7">Đăng ký ngay </string>
     <string name="text8"><![CDATA[Tôi đã đọc và đồng ý <font color="#F2CD00">Chính sách bảo mật</font>]]></string>
@@ -72,9 +72,9 @@
     <string name="text67">Đăng ký khoản vay</string>
     <string name="text68">*Số tiền giải ngân thực tế được xác định dựa trên tình hình tín dụng của bạn</string>
     <string name="text69">Quay lại </string>
-    <string name="text70">Kết quả xét duyệt</string>
-    <string name="text71">Khoản vay của tôi</string>
-    <string name="text72">Lịch sử trả nợ</string>
+    <string name="text70">Đang xét duyệt</string>
+    <string name="text71">Đơn trả nợ</string>
+    <string name="text72">Đã hoàn trả</string>
     <string name="text73">Chi tiết đơn hàng</string>
     <string name="text74">Hoàn trả</string>
     <string name="text75">Đơn hàng</string>
@@ -108,19 +108,19 @@
     <string name="text103">Thời hạn vay</string>
     <string name="text104">Phí quản lý tài khoản</string>
     <string name="text105">Đơn đăng ký của bạn tạm thời không thể thông qua. Vui lòng nộp lại đơn đăng ký của bạn sau %s ngày.</string>
-    <string name="text106">Trạng thái：xét duyệt thất bại</string>
+    <string name="text106">xét duyệt thất bại</string>
     <string name="text107">Đăng ký lại</string>
     <string name="text108">Tình trạng：xét duyệt thông qua </string>
     <string name="text109">Hạn mức phê duyệt：</string>
     <string name="text110">Thời gian phê duyệt：</string>
     <string name="text111">Tình trạng：Khoản vay đã được thanh toán</string>
     <string name="text112">Tiếp tục vay </string>
-    <string name="text113">Trạng thái：Khoản vay đã quá hạn %d ngày</string>
-    <string name="text114">Tình trạng： Đang xét duyệt </string>
-    <string name="text115">Trạng thái：Đang thanh toán</string>
-    <string name="text116">Trạng thái：Lỗi thanh toán</string>
-    <string name="text117">Trạng thái：Lỗi không xác định</string>
-    <string name="text118">Trạng thái：Đang chờ hoàn trả</string>
+    <string name="text113">Khoản vay đã quá hạn %d ngày</string>
+    <string name="text114">Đang xét duyệt</string>
+    <string name="text115">Đang thanh toán</string>
+    <string name="text116">Lỗi thanh toán</string>
+    <string name="text117">Lỗi không xác định</string>
+    <string name="text118">Đang chờ hoàn trả</string>
     <string name="text119">Số tiền phải trả：</string>
     <string name="text120">Cần sửa đổi liên hệ dịch vụ khách hàng</string>
     <string name="text121">Liên hệ với dịch vụ khách hàng để xóa</string>
@@ -143,7 +143,6 @@
     <string name="text139">Quay lại</string>
     <string name="text140">Xác nhận</string>
     <string name="text141">Ngày đến hạn：</string>
-
     <string name="text145"><![CDATA[Để bảo vệ quyền lợi hợp pháp của Quý khách, vui lòng đọc kỹ và tuân thủ Thỏa thuận vay này. Trước khi xác nhận và đồng ý với thỏa thuận này, Quý khách phải hiểu rõ đầy đủ tất cả thông tin liên quan đến sản phẩm vay. Việc nhấp vào “Đồng ý” và đăng ký khoản vay thông qua ứng dụng và/hoặc nền tảng này đồng nghĩa với việc Quý khách đã đọc, hiểu rõ và chấp nhận tất cả các điều khoản và điều kiện trong Thỏa thuận vay này, cũng như đồng ý chịu các nghĩa vụ và trách nhiệm pháp lý tương ứng theo các điều khoản của Thỏa thuận. Nếu không đồng ý, Quý khách phải ngay lập tức ngừng sử dụng dịch vụ được cung cấp theo Thỏa thuận này.<br/>
 
 Thỏa thuận này được ký kết vào ngày <font color="#D21E1E">%1$s</font>giữa các bên sau:<br/ >
@@ -276,8 +275,7 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text152">Để xem xét điều kiện đủ của bạn và đẩy nhanh quá trình thanh toán khoản vay, chúng tôi yêu cầu những quyền sau.</string>
     <string name="text153">Sự cho phép</string>
     <string name="text154">Xóa tài khoản</string>
-    <string name="text155">Khoản vay đã duyệt,
-bấm “Rút tiền” để nhận tiền ngay!</string>
+    <string name="text155">Khoản vay đã duyệt,bấm “Rút tiền” để nhận tiền ngay!</string>
     <string name="text156">Phí xử lý</string>
     <string name="text157">Bước 1: Rút tiền - Thanh toán
 \n\nPhê duyệt thành công, vui lòng chọn “Đơn hàng” - “Kết quả phê duyệt”. Khi đơn vay của bạn được duyệt thành công, bạn có thể chọn “Rút tiền” - Xác nhận rút tiền - Hệ thống sẽ chuyển tiền vào tài khoản của bạn ngay lập tức.
@@ -294,4 +292,41 @@ bấm “Rút tiền” để nhận tiền ngay!</string>
 
 \n\nNếu có bất kỳ thắc mắc nào, vui lòng liên hệ hotline: </string>
     <string name="text158">Ngày đến hạn</string>
+    <string name="text159">Vui lòng chọn nhà mạng ủy quyền</string>
+    <string name="text160">Viettel</string>
+    <string name="text161">MoBiFone</string>
+    <string name="text162">Vinaphone</string>
+    <string name="text163">Vietnamobile</string>
+    <string name="text164">SAYMEE</string>
+    <string name="text165">nhäp vào úy quyên</string>
+    <string name="text166">Vui lÃng nhañ mà xác minh truoé</string>
+    <string name="text167">NhÃap sÃ diªn thoai</string>
+    <string name="text168">NhÃap mǎ xác minh</string>
+    <string name="text169">Nhan mǎ xác minh</string>
+    <string name="text170">Buóc tiép theo</string>
+    <string name="text171">Cần lấy mã xác minh lần 2</string>
+    <string name="text172">Vui lòng chọn nhà mạng ủy quyền</string>
+    <string name="text173"><![CDATA[0777xxxx86 đã vay thành công <font color="#006F11">4.500.000</font>]]></string>
+    <string name="text174"><![CDATA[0976xxxx46 đã vay thành công <font color="#006F11">6.000.000</font>]]></string>
+    <string name="text175"><![CDATA[0912xxxx77 đã vay thành công <font color="#006F11">10.000.000</font>]]></string>
+    <string name="text176">Nhấp vào \'Bổ sung thông tin\' có thể nâng cao tỷ lệ phê duyệt của bạn.</string>
+    <string name="text178">Đơn hàng của bạn đang được xử lý gấp, vui lòng chờ trong giây lát&#8230;</string>
+    <string name="text179">Hạn mức hiện tại đã được khôi phục, bạn có thể nộp đơn lại.</string>
+    <string name="text180">Hạn mức hiện tại đã được khôi phục, bạn có thể nộp đơn lại.</string>
+    <string name="text181">Rất tiếc, hạn mức hiện tại đã được đăng ký hết. Mong bạn vui lòng chờ %1$d ngày để có thể nộp lại đơn.</string>
+    <string name="text182">Không được phê duyệt</string>
+    <string name="text183">Chờ rút tiền</string>
+    <string name="text184">Số tiền vay：</string>
+    <string name="text185">Khoản vay của bạn đã được phê duyệt. Vui lòng nhấp vào \'Rút tiền\' và chúng tôi sẽ giải ngân ngay lập tức!</string>
+    <string name="text186">Vui lòng nhấp \'Rút tiền\' kịp thời, đơn hàng sẽ đóng sau (xx).</string>
+    <string name="text187">Đang giải ngân, tiền sẽ vào tài khoản trong 10 phút, vui lòng chờ!</string>
+    <string name="text188">Vay quá hạn</string>
+    <string name="text189">Khoản vay đã quá hạn xx ngày, thanh toán ngay để tránh thêm phí phạt và ảnh hưởng đăng ký sau này!</string>
+    <string name="text190">Trong hạn trả nợ</string>
+    <string name="text191">Ngày phải trả：</string>
+    <string name="text192">Thanh toán ngay bây giờ để nhận hạn mức cao hơn và mở khóa thêm nhiều sản phẩm nhé!</string>
+    <string name="text193">Đã trả hết</string>
+    <string name="text194">Vui lòng tiếp tục duy trì tình trạng thanh toán tốt để đạt được tín dụng cao hơn!</string>
+    <string name="text195">Bổ sung thông tin</string>
+    <string name="text196">Số tiền phải trả：</string>
 </resources>

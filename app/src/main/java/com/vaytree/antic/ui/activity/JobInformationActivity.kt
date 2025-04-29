@@ -47,7 +47,7 @@ class JobInformationActivity : BaseActivity() {
     }
 
     private fun initView() {
-        observerCommon(viewModel)
+        observerCommon(viewModel, false)
         mBinding.apply {
             tvReturn.setOnClickListener {
                 finish()
@@ -114,7 +114,7 @@ class JobInformationActivity : BaseActivity() {
                     DialogUtils.showKycRegionDialog(
                         this@JobInformationActivity, it,
                         it1
-                    ) { it2, it3->
+                    ) { it2, it3 ->
                         areaList = it3
                         tvProvince.text = it2.guA26gW
                         county = ""
