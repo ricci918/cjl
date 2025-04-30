@@ -24,7 +24,7 @@ import com.vaytree.antic.ui.dialog.DialogUtils
 class OrderAdapter(
     private val result: MutableList<AuditListData>,
     private val activity: Activity,
-    private val check : Boolean,
+    private val check: Boolean,
     private val onSelectedListener: (String) -> Unit
 ) :
     RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
@@ -64,10 +64,10 @@ class OrderAdapter(
                         tv6.visibility = View.VISIBLE
                         tv3.visibility = View.GONE
                         tv4.visibility = View.GONE
-                        orderDetails.visibility = View.GONE
-                        if (check){
-                            tv5.visibility = View.VISIBLE
-                            tv5.text = context.getString(R.string.text195)
+                        tv5.visibility = View.GONE
+                        if (check) {
+                            orderDetails.visibility = View.VISIBLE
+                            orderDetails.text = context.getString(R.string.text195)
                         }
                     }
 
@@ -75,9 +75,11 @@ class OrderAdapter(
                         tv2.text = context.getString(R.string.text182)
 //                        tv2.setBackgroundResource(R.mipmap.order7)
                         if (it1.Tojtqk9 != 0) {
+                            tv5.visibility = View.GONE
                             tv7.text =
                                 String.format(context.getString(R.string.text181), it1.Tojtqk9)
                         } else {
+                            tv5.visibility = View.VISIBLE
                             tv7.text = context.getString(R.string.text179)
                         }
                         tv5.text = context.getString(R.string.text107)
@@ -85,10 +87,9 @@ class OrderAdapter(
                         tv6.visibility = View.VISIBLE
                         tv3.visibility = View.GONE
                         tv4.visibility = View.GONE
-                        orderDetails.visibility = View.GONE
-                        if (check){
-                            tv5.visibility = View.VISIBLE
-                            tv5.text = context.getString(R.string.text195)
+                        if (check) {
+                            orderDetails.visibility = View.VISIBLE
+                            orderDetails.text = context.getString(R.string.text195)
                         }
                     }
 
@@ -97,11 +98,12 @@ class OrderAdapter(
                         tv2.text = context.getString(R.string.text183)
                         tv3.text = context.getString(R.string.text184) + it1.N30drqp
                         tv5.text = context.getString(R.string.text21)
-                        tv6.text = context.getString(R.string.text186)
+                        tv6.text = String.format(context.getString(R.string.text186), it1.YcH32MK)
                         tv7.text = context.getString(R.string.text185)
                         tv4.visibility = View.GONE
                         tv5.visibility = View.VISIBLE
                         tv6.visibility = View.VISIBLE
+                        orderDetails.visibility = View.VISIBLE
                     }
 
                     "PAYING" -> { //打款中
@@ -111,6 +113,7 @@ class OrderAdapter(
                         tv7.text = context.getString(R.string.text187)
                         tv5.visibility = View.GONE
                         tv6.visibility = View.GONE
+                        orderDetails.visibility = View.VISIBLE
                     }
 
                     "PAY_ERROR" -> { //打款出错
@@ -120,6 +123,7 @@ class OrderAdapter(
                         tv7.text = context.getString(R.string.text187)
                         tv5.visibility = View.GONE
                         tv6.visibility = View.GONE
+                        orderDetails.visibility = View.VISIBLE
                     }
 
                     "OVERDUE" -> { //已逾期
@@ -138,11 +142,11 @@ class OrderAdapter(
                         tv5.visibility = View.VISIBLE
                         tv5.text = context.getString(R.string.text74)
                         tv6.visibility = View.GONE
-                        tv7.text = context.getString(R.string.text189)
+                        tv7.text = String.format(context.getString(R.string.text189), it1.TFCZLPO)
+                        orderDetails.visibility = View.VISIBLE
                     }
 
                     "TO_REPAYMENT" -> { //待还款
-                        tv4.setTextColor(context.getColor(R.color.red))
                         tv2.text = context.getString(R.string.text190)
 //                        tv2.setBackgroundResource(R.mipmap.order6)
                         tv3.text = context.getString(R.string.text196) + it1.E8RGNzn
@@ -153,21 +157,28 @@ class OrderAdapter(
                         tv5.text = context.getString(R.string.text74)
                         tv6.visibility = View.GONE
                         tv7.text = context.getString(R.string.text192)
+                        orderDetails.visibility = View.VISIBLE
                     }
 
                     "CANCELED" -> { //订单被取消
                         tv2.text = context.getString(R.string.text182)
 //                        tv2.setBackgroundResource(R.mipmap.order7)
-                        tv7.text = context.getString(R.string.text179)
+                        if (it1.Tojtqk9 != 0) {
+                            tv5.visibility = View.GONE
+                            tv7.text =
+                                String.format(context.getString(R.string.text181), it1.Tojtqk9)
+                        } else {
+                            tv5.visibility = View.VISIBLE
+                            tv7.text = context.getString(R.string.text179)
+                        }
                         tv5.text = context.getString(R.string.text107)
                         tv6.text = context.getString(R.string.text176)
                         tv6.visibility = View.VISIBLE
                         tv3.visibility = View.GONE
                         tv4.visibility = View.GONE
-                        orderDetails.visibility = View.GONE
-                        if (check){
-                            tv5.visibility = View.VISIBLE
-                            tv5.text = context.getString(R.string.text195)
+                        if (check) {
+                            orderDetails.visibility = View.VISIBLE
+                            orderDetails.text = context.getString(R.string.text195)
                         }
                     }
 
@@ -200,16 +211,17 @@ class OrderAdapter(
                     if (tv5.text.toString() == context.getString(R.string.text107)) {//重新申请
                         onSelectedListener.invoke(it1.zu3oAhX)
                     }
-                    if (tv5.text.toString() == context.getString(R.string.text195)) {//运行商
-                        val intent = Intent(context, OperatorActivity::class.java)
-                        context.startActivity(intent)
-                    }
 
                 }
                 orderDetails.setOnClickListener {
-                    val intent = Intent(context, OrderDetailsActivity::class.java)
-                    intent.putExtra("orderCode", it1.SyKwFNH)
-                    context.startActivity(intent)
+                    if (orderDetails.text.toString() == context.getString(R.string.text195)) {//运行商
+                        val intent = Intent(context, OperatorActivity::class.java)
+                        context.startActivity(intent)
+                    } else {
+                        val intent = Intent(context, OrderDetailsActivity::class.java)
+                        intent.putExtra("orderCode", it1.SyKwFNH)
+                        context.startActivity(intent)
+                    }
                 }
                 icon1.setOnClickListener {
                     DialogUtils.showCustomerServiceDialog(activity, it, it1.ZC8JVY3)

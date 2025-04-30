@@ -1,6 +1,7 @@
 package com.vaytree.antic.ui.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.lifecycle.ViewModelProvider
@@ -52,9 +53,16 @@ class WelcomeActivity : BaseActivity() {
                 }
 
                 3 -> {
-                    countDown(BorrowMoneyActivity::class.java)
+                    if (SharedPreferencesUtil.getSystemInfoData()?.qcFOge0 == true) {
+                        if (SharedPreferencesUtil.getSystemInfoData()?.upaPdXO == true) {
+                            countDown(MainActivity::class.java)
+                        } else {
+                            countDown(BorrowMoneyActivity::class.java)
+                        }
+                    } else {
+                        countDown(OperatorActivity::class.java)
+                    }
                 }
-
                 4 -> {
                     countDown(MainActivity::class.java)
                 }
@@ -66,7 +74,9 @@ class WelcomeActivity : BaseActivity() {
         countDownTimer = object : CountDownTimer(2000, 1000) {
             @SuppressLint("SetTextI18n")
             override fun onFinish() {
-                startActivity(cls)
+                val intent = Intent(this@WelcomeActivity, cls)
+                intent.putExtra("isAuthenticationActivity", true)
+                startActivity(intent)
                 finish()
             }
 

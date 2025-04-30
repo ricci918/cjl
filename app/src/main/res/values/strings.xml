@@ -281,7 +281,7 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
 \n\nPhê duyệt thành công, vui lòng chọn “Đơn hàng” - “Kết quả phê duyệt”. Khi đơn vay của bạn được duyệt thành công, bạn có thể chọn “Rút tiền” - Xác nhận rút tiền - Hệ thống sẽ chuyển tiền vào tài khoản của bạn ngay lập tức.
 
 \n\nBước 2: Thanh toán khoản vay
-\n\nVui lòng chọn “Đơn hàng” - “Khoản vay của tôi” - “Hoàn trả”. Lấy thông tin tài khoản thanh toán. Khách hàng có thể sử dụng ngân hàng trực tuyến hoặc chuyển khoản tại ngân hàng gần nhất hoặc điểm giao dịch Viettel.
+\n\nVui lòng chọn “Đơn hàng” - “Đơn trả nợg” - “Hoàn trả”. Lấy thông tin tài khoản thanh toán. Khách hàng có thể sử dụng ngân hàng trực tuyến hoặc chuyển khoản tại ngân hàng gần nhất hoặc điểm giao dịch Viettel.
 
 \n\nLưu ý: Hệ thống chỉ cung cấp duy nhất một tài khoản thanh toán hiển thị trong ứng dụng. Tất cả các tài khoản khác gửi cho khách hàng để thanh toán đều là giả mạo.
 
@@ -318,10 +318,10 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text183">Chờ rút tiền</string>
     <string name="text184">Số tiền vay：</string>
     <string name="text185">Khoản vay của bạn đã được phê duyệt. Vui lòng nhấp vào \'Rút tiền\' và chúng tôi sẽ giải ngân ngay lập tức!</string>
-    <string name="text186">Vui lòng nhấp \'Rút tiền\' kịp thời, đơn hàng sẽ đóng sau (xx).</string>
+    <string name="text186">Vui lòng nhấp vào ’rút tiền‘ kịp thời, đơn hàng sẽ đóng sau %1$d ngày.</string>
     <string name="text187">Đang giải ngân, tiền sẽ vào tài khoản trong 10 phút, vui lòng chờ!</string>
     <string name="text188">Vay quá hạn</string>
-    <string name="text189">Khoản vay đã quá hạn xx ngày, thanh toán ngay để tránh thêm phí phạt và ảnh hưởng đăng ký sau này!</string>
+    <string name="text189">Khoản vay đã quá hạn %1$d ngày, thanh toán ngay để tránh thêm phí phạt và ảnh hưởng đăng ký sau này!</string>
     <string name="text190">Trong hạn trả nợ</string>
     <string name="text191">Ngày phải trả：</string>
     <string name="text192">Thanh toán ngay bây giờ để nhận hạn mức cao hơn và mở khóa thêm nhiều sản phẩm nhé!</string>
@@ -329,4 +329,17 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text194">Vui lòng tiếp tục duy trì tình trạng thanh toán tốt để đạt được tín dụng cao hơn!</string>
     <string name="text195">Bổ sung thông tin</string>
     <string name="text196">Số tiền phải trả：</string>
+    <string name="text197">Ngày thanh toán xong：</string>
+    <string name="text198">Duy trì lịch sử thanh toán tốt sẽ giúp tăng điểm tín dụng và nhận được hạn mức vay cao hơn.</string>
+    <string name="text199">Xác thực thành công</string>
+    <string name="text200">Tên người liên hệ khẩn cấp</string>
+    <string name="text201">Số điện thoại của người liên hệ khẩn cấp</string>
+    <string name="text202">Mối quan hệ với người liên hệ khẩn cấp</string>
+    <string name="text203">Tên người thân</string>
+    <string name="text204">Số điện thoại của người thân</string>
+    <string name="text205">Mối quan hệ với người thân</string>
+    <string name="text206">Tên bạn bè</string>
+    <string name="text207">Số điện thoại của bạn bè</string>
+    <string name="text208">Mối quan hệ với bạn bè</string>
+    <string name="text209">Sai, kiểm tra mã hoặc số điện thoại</string>
 </resources>

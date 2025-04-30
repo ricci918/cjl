@@ -14,8 +14,8 @@ import com.bumptech.glide.Glide
 import com.vaytree.antic.R
 import com.vaytree.antic.model.data.LoanListData
 import com.vaytree.antic.model.utils.OverallVariable
-import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
+import com.vaytree.antic.ui.activity.OperatorActivity
 import com.vaytree.antic.ui.activity.OrderDetailsActivity
 import com.vaytree.antic.ui.activity.RepaymentActivity
 import com.vaytree.antic.ui.activity.WithdrawDepositActivity
@@ -57,72 +57,6 @@ class MyLoanAdapter(
                     .into(icon)
                 tv1.text = it1.xzuxhTo
                 when (it1.xJxENI2) {
-                    "AUDITING" -> { //审核中
-                        tv2.text = context.getString(R.string.text114)
-//                        tv2.setBackgroundResource(R.mipmap.order7)
-                        tv6.text = context.getString(R.string.text176)
-                        tv7.text = context.getString(R.string.text178)
-                        tv6.visibility = View.VISIBLE
-                        tv3.visibility = View.GONE
-                        tv4.visibility = View.GONE
-                        orderDetails.visibility = View.GONE
-                        if (check){
-                            tv5.visibility = View.VISIBLE
-                            tv5.text = context.getString(R.string.text195)
-                        }
-                    }
-
-                    "REJECT" -> { //审核被拒绝
-                        tv2.text = context.getString(R.string.text182)
-//                        tv2.setBackgroundResource(R.mipmap.order7)
-                        if (it1.plGytjI != 0) {
-                            tv7.text =
-                                String.format(context.getString(R.string.text181), it1.plGytjI)
-                        } else {
-                            tv7.text = context.getString(R.string.text179)
-                        }
-
-                        tv6.text = context.getString(R.string.text176)
-                        tv6.visibility = View.VISIBLE
-                        tv3.visibility = View.GONE
-                        tv4.visibility = View.GONE
-                        orderDetails.visibility = View.GONE
-                        if (check){
-                            tv5.visibility = View.VISIBLE
-                            tv5.text = context.getString(R.string.text195)
-                        }
-                    }
-
-                    "WAIT_TO_WITHDRAW" -> { //待提现
-//                        tv2.setBackgroundResource(R.mipmap.order6)
-                        tv2.text = context.getString(R.string.text183)
-                        tv3.text = context.getString(R.string.text184) + it1.lccwjfh
-                        tv5.text = context.getString(R.string.text21)
-                        tv6.text = context.getString(R.string.text186)
-                        tv7.text = context.getString(R.string.text185)
-                        tv4.visibility = View.GONE
-                        tv5.visibility = View.VISIBLE
-                        tv6.visibility = View.VISIBLE
-                    }
-
-                    "PAYING" -> { //打款中
-                        tv2.text = context.getString(R.string.text115)
-//                        tv2.setBackgroundResource(R.mipmap.order6)
-                        tv3.text = context.getString(R.string.text109) + it1.lccwjfh
-                        tv7.text = context.getString(R.string.text187)
-                        tv5.visibility = View.GONE
-                        tv6.visibility = View.GONE
-                    }
-
-                    "PAY_ERROR" -> { //打款出错
-                        tv2.text = context.getString(R.string.text115)
-//                        tv2.setBackgroundResource(R.mipmap.order6)
-                        tv3.text = context.getString(R.string.text109) + it1.lccwjfh
-                        tv7.text = context.getString(R.string.text187)
-                        tv5.visibility = View.GONE
-                        tv6.visibility = View.GONE
-                    }
-
                     "OVERDUE" -> { //已逾期
                         tv3.setTextColor(context.getColor(R.color.red))
                         tv4.setTextColor(context.getColor(R.color.red))
@@ -134,53 +68,27 @@ class MyLoanAdapter(
                             it1.xe0CCJd.toString(),
                             "yyyy-MM-dd"
                         )
-//                        iv.visibility = View.VISIBLE
                         tv3.textSize = 12F
+//                        iv.visibility = View.VISIBLE
                         tv5.visibility = View.VISIBLE
                         tv5.text = context.getString(R.string.text74)
                         tv6.visibility = View.GONE
-                        tv7.text = context.getString(R.string.text189)
+                        tv7.text = String.format(context.getString(R.string.text189), it1.plGytjI)
+                        orderDetails.visibility = View.VISIBLE
                     }
 
                     "TO_REPAYMENT" -> { //待还款
-                        tv4.setTextColor(context.getColor(R.color.red))
                         tv2.text = context.getString(R.string.text190)
 //                        tv2.setBackgroundResource(R.mipmap.order6)
                         tv3.text = context.getString(R.string.text196) + it1.lccwjfh
                         tv4.text = context.getString(R.string.text191) +
                                 ToolUtils.getDateToString(it1.xe0CCJd.toString(), "yyyy-MM-dd")
-                        tv5.visibility = View.VISIBLE
                         tv3.textSize = 12F
+                        tv5.visibility = View.VISIBLE
                         tv5.text = context.getString(R.string.text74)
                         tv6.visibility = View.GONE
                         tv7.text = context.getString(R.string.text192)
-                    }
-
-                    "CANCELED" -> { //订单被取消
-                        tv2.text = context.getString(R.string.text182)
-//                        tv2.setBackgroundResource(R.mipmap.order7)
-                        tv7.text = context.getString(R.string.text179)
-                        tv6.text = context.getString(R.string.text176)
-                        tv6.visibility = View.VISIBLE
-                        tv3.visibility = View.GONE
-                        tv4.visibility = View.GONE
-                        orderDetails.visibility = View.GONE
-                        if (check){
-                            tv5.visibility = View.VISIBLE
-                            tv5.text = context.getString(R.string.text195)
-                        }
-                    }
-
-                    "END" -> { //已完成
-                        tv2.setTextColor(context.getColor(R.color.black))
-                        tv2.text = context.getString(R.string.text111)
-                        tv5.text = context.getString(R.string.text112)
-                        tv5.visibility = View.GONE
-                    }
-
-                    "OTHER_ERROR" -> { //未知错误
-                        tv5.visibility = View.GONE
-                        orderDetails.visibility = View.GONE
+                        orderDetails.visibility = View.VISIBLE
                     }
                 }
 
@@ -205,9 +113,15 @@ class MyLoanAdapter(
                 }
 
                 orderDetails.setOnClickListener {
-                    val intent = Intent(context, OrderDetailsActivity::class.java)
-                    intent.putExtra("orderCode", it1.QiTkV9m)
-                    context.startActivity(intent)
+                    if (orderDetails.text.toString() == context.getString(R.string.text195)) {//运行商
+                        val intent = Intent(context, OperatorActivity::class.java)
+                        context.startActivity(intent)
+                    } else {
+                        val intent = Intent(context, OrderDetailsActivity::class.java)
+                        intent.putExtra("orderCode", it1.QiTkV9m)
+                        intent.putExtra("status", it1.xJxENI2)
+                        context.startActivity(intent)
+                    }
                 }
                 icon1.setOnClickListener {
                     DialogUtils.showCustomerServiceDialog(activity, it, it1.RhxPDcq)

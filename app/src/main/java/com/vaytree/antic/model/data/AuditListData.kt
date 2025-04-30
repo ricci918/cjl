@@ -20,4 +20,5 @@ data class AuditListData(
     val CGYFALN : String,//settlementTime
     val rfOc8X0 : Int,//commission
     val N30drqp : Int,//contractAmount
+    val YcH32MK : Int,//closeDays
 )

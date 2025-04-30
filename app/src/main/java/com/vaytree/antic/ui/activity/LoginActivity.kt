@@ -51,7 +51,19 @@ class LoginActivity : BaseActivity() {
                 }
 
                 3 -> {
-                    startActivity(BorrowMoneyActivity::class.java)
+                    if (SharedPreferencesUtil.getSystemInfoData()?.qcFOge0 == true) {
+                        if (SharedPreferencesUtil.getSystemInfoData()?.upaPdXO == true) {
+                            startActivity(MainActivity::class.java)
+                        } else {
+                            startActivity(BorrowMoneyActivity::class.java)
+                        }
+
+                    } else {
+                        val intent = Intent(this, OperatorActivity::class.java)
+                        intent.putExtra("isAuthenticationActivity", true)
+                        startActivity(intent)
+                    }
+
                 }
 
                 4 -> {
@@ -63,7 +75,7 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun initView() {
-        observerCommon(viewModel, false)
+        observerCommon(viewModel, true)
         mBinding.apply {
             tv4Id.text = Html.fromHtml(getString(R.string.text8))
             codeId.setOnClickListener {

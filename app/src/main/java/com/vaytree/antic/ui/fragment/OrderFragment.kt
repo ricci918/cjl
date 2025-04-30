@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseFragment
 import com.vaytree.antic.databinding.FragmentOrderBinding
+import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.activity.UpdateService
 import com.vaytree.antic.ui.adapter.MyLoanAdapter
 import com.vaytree.antic.ui.adapter.OrderAdapter
@@ -103,7 +104,7 @@ class OrderFragment : BaseFragment() {
         observe(viewModel.loanListData) {
             val manager = LinearLayoutManager(activity)
             fBinding.rv2Id.layoutManager = manager
-            val adapter = MyLoanAdapter(it, requireActivity(),checkData) { it1 ->
+            val adapter = MyLoanAdapter(it, requireActivity(), checkData) { it1 ->
                 code = it1
                 viewModel1.acquisition(requireActivity())
             }
@@ -124,7 +125,7 @@ class OrderFragment : BaseFragment() {
             if (it)
                 viewModel.auditList()
         }
-        observe(viewModel1.checkData) {
+        observe(viewModel.checkData) {
             checkData = it
         }
         val intent: Intent = Intent(
@@ -140,6 +141,9 @@ class OrderFragment : BaseFragment() {
             viewModel.auditList()
             viewModel.loanList()
             viewModel.repaymentList()
+            viewModel.check()
+        } else if (s == "operator_hint") {
+            ToolUtils.showToast(requireActivity(), getString(R.string.text199))
         }
     }
 

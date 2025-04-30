@@ -17,6 +17,8 @@ data class SystemInfoData(
     val AFDPdxb: AppTesterPortendProduct,//appTesterPortendProduct
 //    val HUgkQzy: MutableList<OrderStatus>,//orderStatus
     val rj0zRsY: String,//permissionPolicyUrl
+    val qcFOge0: Boolean,//skipOperateVerify
+    val upaPdXO: Boolean,//skipCheckProduct
 )
 
 class PortendProductData(

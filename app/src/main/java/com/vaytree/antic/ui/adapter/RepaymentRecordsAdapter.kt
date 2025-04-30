@@ -51,14 +51,17 @@ class RepaymentRecordsAdapter(
                 tv1.text = it1.QSP6ghs
                 tv2.text = context.getString(R.string.text193)
 //                tv2.setBackgroundResource(R.mipmap.order6)
-                tv3.text = context.getString(R.string.text127) + it1.yxgphaq
-                tv4.text = ToolUtils.getDateToString(
+                tv3.text = context.getString(R.string.text184) + it1.yxgphaq
+                tv3.textSize = 12F
+                tv4.text = context.getString(R.string.text197) + ToolUtils.getDateToString(
                     it1.iXJovfN.toString(),
                     "yyyy-MM-dd"
                 )
                 tv5.visibility = View.GONE
                 tv6.visibility = View.GONE
-                tv7.text = context.getString(R.string.text194)
+                icon1.visibility = View.GONE
+                icon2.visibility = View.GONE
+                tv7.text = context.getString(R.string.text198)
                 tv5.setOnClickListener {
                     val intent = Intent(context, RepaymentActivity::class.java)
                     intent.putExtra("orderCode", it1.Depxaxs)

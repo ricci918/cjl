@@ -48,7 +48,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_icon" />
 
-        <TextView
+        <EditText
             android:id="@+id/et1_id"
             android:layout_width="@dimen/space_200"
             android:layout_height="@dimen/space_35"
@@ -58,6 +58,7 @@
             android:hint="@string/text167"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_12"
+            android:inputType="number"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

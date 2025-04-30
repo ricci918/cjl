@@ -2,6 +2,8 @@ package com.vaytree.antic.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityOperatorBinding
 
@@ -17,6 +19,13 @@ class OperatorActivity : BaseActivity() {
     private fun initView() {
         val isAuthenticationActivity = intent.getBooleanExtra("isAuthenticationActivity", false)
         mBinding.apply {
+            if (isAuthenticationActivity){
+                headId.headId.visibility = View.GONE
+            }
+            headId.ivClose.text = getString(R.string.text37)
+            headId.ivClose.setOnClickListener {
+                finish()
+            }
             tv1Id.setOnClickListener {
                 val intent = Intent(this@OperatorActivity, DetailsOperator1Activity::class.java)
                 intent.putExtra("isAuthenticationActivity",isAuthenticationActivity)

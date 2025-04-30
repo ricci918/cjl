@@ -114,8 +114,13 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+        <service android:name=".ui.activity.UpdateService"/>
 
-        <service android:name=".ui.activity.UpdateService" />
+<!--        <service-->
+<!--            android:name="com.megvii.lv5.sdk.screen.service.MediaProjectionService"-->
+<!--            android:foregroundServiceType="mediaProjection" />-->
+
+<!--        <service android:name=".ui.activity.UpdateService" />-->
     </application>
 
 </manifest>

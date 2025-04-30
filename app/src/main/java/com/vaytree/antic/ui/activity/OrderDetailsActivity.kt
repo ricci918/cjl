@@ -55,6 +55,7 @@ class OrderDetailsActivity : BaseActivity() {
                     "yyyy-MM-dd"
                 )
                 tvCommissionCharge.text = it.SOlaQhz.toString()
+                tvOverdue.text = it.vnE3Jdy.toString()
             }
             observe(viewModel1.infoData) {
                 mBinding.tvShroffAccountNumber.text = it.EOG0xi9
@@ -64,6 +65,7 @@ class OrderDetailsActivity : BaseActivity() {
 
     private fun initView() {
         val order = intent.getStringExtra("orderCode") ?: ""
+        val status = intent.getStringExtra("status") ?: ""
         orderCode = order
         mBinding.apply {
             headId.tvHead.text = getString(R.string.text73)
@@ -71,7 +73,11 @@ class OrderDetailsActivity : BaseActivity() {
             headId.ivClose.setOnClickListener {
                 finish()
             }
+            if (status == "") {
+                tv14Id.visibility = View.VISIBLE
+                tvOverdue.visibility = View.VISIBLE
 
+            }
         }
     }
 }

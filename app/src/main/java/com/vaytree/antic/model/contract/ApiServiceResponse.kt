@@ -151,17 +151,31 @@ object ApiServiceResponse : BaseRepository() {
         return service.getOtp2(requestBody)
     }
 
-    suspend fun postOtp(cell: String, otp: String, channel: String, company: String): OtpData {
+    suspend fun postOtp1(cell: String, otp: String, channel: String, company: String): OtpData {
         val requestBody = getFormBuilder()
             .addFormDataPart("gMywZ2W", cell)
             .addFormDataPart("A4BICR5", otp)
             .addFormDataPart("fTJZGcm", channel)
             .addFormDataPart("TwG9JR8", company)
             .build()
-        return service.postOtp(requestBody)
+        return service.postOtp1(requestBody)
+    }
+
+    suspend fun postOtp2(cell: String, otp: String, channel: String, company: String): OtpData {
+        val requestBody = getFormBuilder()
+            .addFormDataPart("X4GiXzz", cell)
+            .addFormDataPart("TSCV35k", otp)
+            .addFormDataPart("XzfK0uk", channel)
+            .addFormDataPart("x9RTggP", company)
+            .build()
+        return service.postOtp2(requestBody)
     }
 
     suspend fun check(): Any {
         return service.check().getResponseData()
+    }
+
+    suspend fun vNotify(): Any {
+        return service.vNotify().getResponseData()
     }
 }

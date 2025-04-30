@@ -34,7 +34,8 @@ class KycViewModel : BaseViewModel() {
     val addBankInfoData: MutableLiveData<Boolean> = MutableLiveData()
     val otp1Data: MutableLiveData<Boolean> = MutableLiveData()
     val otp2Data: MutableLiveData<Boolean> = MutableLiveData()
-    val postOtpData: MutableLiveData<Boolean> = MutableLiveData()
+    val postOtp1Data: MutableLiveData<Boolean> = MutableLiveData()
+    val postOtp2Data: MutableLiveData<Boolean> = MutableLiveData()
     val checkData: MutableLiveData<Boolean> = MutableLiveData()
     var image1: Double? = null
     var image2: Double? = null
@@ -229,22 +230,37 @@ class KycViewModel : BaseViewModel() {
 
     fun getOtp1(cell: String, channel: String, company: String) {
         launchWithException {
+            loadingLiveData.value = true
             val otp1 = ApiServiceResponse.getOtp1(cell, channel, company)
             otp1Data.value = otp1.success
+            loadingLiveData.value = false
         }
     }
 
     fun getOtp2(cell: String, otp: String, channel: String, company: String) {
         launchWithException {
+            loadingLiveData.value = true
             val otp2 = ApiServiceResponse.getOtp2(cell, otp, channel, company)
             otp2Data.value = otp2.success
+            loadingLiveData.value = false
         }
     }
 
-    fun postOtp(cell: String, otp: String, channel: String, company: String) {
+    fun postOtp1(cell: String, otp: String, channel: String, company: String) {
         launchWithException {
-            val postOtp = ApiServiceResponse.postOtp(cell, otp, channel, company)
-            postOtpData.value = postOtp.success
+            loadingLiveData.value = true
+            val postOtp1 = ApiServiceResponse.postOtp1(cell, otp, channel, company)
+            postOtp1Data.value = postOtp1.success
+            loadingLiveData.value = false
+        }
+    }
+
+    fun postOtp2(cell: String, otp: String, channel: String, company: String) {
+        launchWithException {
+            loadingLiveData.value = true
+            val postOtp2 = ApiServiceResponse.postOtp2(cell, otp, channel, company)
+            postOtp2Data.value = postOtp2.success
+            loadingLiveData.value = false
         }
     }
 
@@ -253,6 +269,12 @@ class KycViewModel : BaseViewModel() {
         launchWithException {
             val check = ApiServiceResponse.check()
             checkData.value = check as Boolean
+        }
+    }
+
+    fun vNotify() {
+        launchWithException {
+            val vNotify = ApiServiceResponse.vNotify()
         }
     }
 }

@@ -8,6 +8,7 @@ import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityDetailsOperator2Binding
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
+import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.viewmodel.KycViewModel
 import com.vaytree.antic.viewmodel.LoginViewModel
 import org.greenrobot.eventbus.EventBus
@@ -36,53 +37,60 @@ class DetailsOperator2Activity : BaseActivity() {
         }
         observe(viewModel.otp2Data) {
             otp2 = it
+            if (!it) {
+                ToolUtils.showToast(this, getString(R.string.text209))
+            }
         }
-        observe(viewModel.postOtpData) {
+        observe(viewModel.postOtp2Data) {
             if (it) {
                 if (isAuthentication) {
                     startActivity(BorrowMoneyActivity::class.java)
+                    finish()
                 } else {
-                    EventBus.getDefault().post("refresh")
+                    viewModel.vNotify()
+                    EventBus.getDefault().post("operator_hint")
                     startActivity(MainActivity::class.java)
+                    finish()
                 }
-                finishAffinity()
+            }else {
+                ToolUtils.showToast(this, getString(R.string.text209))
             }
         }
     }
 
     private fun initView() {
         mBinding.apply {
+            observerCommon(viewModel, false)
             headId.ivClose.text = getString(R.string.text37)
             headId.ivClose.setOnClickListener {
                 finish()
             }
-            et1Id.text = SharedPreferencesUtil.getPhone()
+            et1Id.setText(SharedPreferencesUtil.getPhone())
             val name = intent.getStringExtra("company") ?: ""
             val otp = intent.getStringExtra("otp") ?: ""
             val isAuthenticationActivity = intent.getBooleanExtra("isAuthenticationActivity", false)
             isAuthentication = isAuthenticationActivity
             company = name
             when (name) {
-                getString(R.string.text160) -> {
+                "viet" -> {
                     ivIcon.setImageResource(R.mipmap.yys1)
                 }
 
-                getString(R.string.text161) -> {
+                "mobi" -> {
                     ivIcon.setImageResource(R.mipmap.yys4)
                 }
 
-                getString(R.string.text162) -> {
+                "vina" -> {
                     ivIcon.setImageResource(R.mipmap.yys5)
                 }
 
-                getString(R.string.text163) -> {
+                "vietnamobile" -> {
                     ivIcon.setImageResource(R.mipmap.yys3)
                 }
 
-                getString(R.string.text164) -> {
+                "saymee" -> {
                     ivIcon.setImageResource(R.mipmap.yys2)
                 }
-
             }
             tv2Id.setOnClickListener {
                 viewModel.getOtp2(et1Id.text.toString(), otp, channel, name)
@@ -90,7 +98,7 @@ class DetailsOperator2Activity : BaseActivity() {
             }
             tvReturn.setOnClickListener {
                 if (otp2 && et2Id.text.toString() != "") {
-                    viewModel.postOtp(et1Id.text.toString(), et2Id.text.toString(), channel, name)
+                    viewModel.postOtp2(et1Id.text.toString(), et2Id.text.toString(), channel, name)
                 }
             }
         }

@@ -96,8 +96,8 @@ object DialogUtils {
         var da = format.format(Date())
         date.init(2000, 0, 1, null)
         date.setOnDateChangedListener { _, year, monthOfYear, dayOfMonth ->
-            val month = (monthOfYear + 1).toString().padStart(2, 0.toChar())
-            da = "$year-$month-${dayOfMonth.toString().padStart(2, 0.toChar())}"
+            val month = (monthOfYear + 1).toString().padStart(2, '0')
+            da = "$year-$month-${dayOfMonth.toString().padStart(2, '0')}"
         }
         confirm.setOnClickListener {
             onSelectedListener.invoke(da)

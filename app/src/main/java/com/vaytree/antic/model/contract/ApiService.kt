@@ -106,9 +106,15 @@ interface ApiService {
     suspend fun getOtp2(@Body body: RequestBody): OtpData
 
     @POST("/api/app/B5TXElR")
-    suspend fun postOtp(@Body body: RequestBody): OtpData
+    suspend fun postOtp1(@Body body: RequestBody): OtpData
 
     @GET("/api/app/BI23jK1")
     suspend fun check(): HttpResult<Any>
+
+    @POST("/api/app/QbyrF3h")
+    suspend fun postOtp2(@Body body: RequestBody): OtpData
+
+    @GET("/api/app/v3KzRyr")
+    suspend fun vNotify(): HttpResult<Any>
 
 }
