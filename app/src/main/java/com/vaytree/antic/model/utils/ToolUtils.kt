@@ -12,6 +12,7 @@ import java.lang.reflect.Type
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Enumeration
+import java.util.TimeZone
 
 object ToolUtils {
 
@@ -126,6 +127,7 @@ object ToolUtils {
         if (milSecond != null && milSecond != "") {
             val date = Date(milSecond.toLong())
             val format = SimpleDateFormat(pattern)
+            format.timeZone = TimeZone.getTimeZone("Asia/Ho_Chi_Minh")
             return format.format(date)
         } else {
             return ""
