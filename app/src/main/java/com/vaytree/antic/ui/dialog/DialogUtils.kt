@@ -278,7 +278,7 @@ object DialogUtils {
         )
         val phone = view.findViewById<TextView>(R.id.phone_id)
         val copy = view.findViewById<TextView>(R.id.copy_id)
-        phone.text = phoneNumber
+        phone.text = phoneNumber ?: ""
         copy.setOnClickListener {
             val clipboard: ClipboardManager =
                 activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
