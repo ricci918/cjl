@@ -342,4 +342,9 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text207">Số điện thoại của bạn bè</string>
     <string name="text208">Mối quan hệ với bạn bè</string>
     <string name="text209">Sai, kiểm tra mã hoặc số điện thoại</string>
+    <string name="text210">Email</string>
+    <string name="text211">Nâng cấp phiên bản mới nhất để mở khóa thêm tính năng và ưu đãi giới hạn!</string>
+    <string name="text212">Đã có phiên bản mới, vui lòng cập nhật ngay để có trải nghiệm tốt hơn. Nâng cấp lên phiên bản mới nhất để mở khóa thêm nhiều tính năng và ưu đãi giới hạn!</string>
+    <string name="text213">Cập nhật</string>
+    <string name="text214">Định dạng email không hợp lệ</string>
 </resources>

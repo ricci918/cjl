@@ -20,6 +20,7 @@ import com.vaytree.antic.model.utils.DeviceInfoUtils
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
 import java.io.File
+import java.util.regex.Pattern
 
 class KycViewModel : BaseViewModel() {
     val basicInfoData: MutableLiveData<Boolean> = MutableLiveData()
@@ -48,11 +49,23 @@ class KycViewModel : BaseViewModel() {
         education: Int,
         marriage: Int,
         facebook: String,
-        zalo: String
+        zalo: String,
+        email: String,
 
-    ) {
+        ) {
         launchWithException {
-            if (name != "" && identity != "" && date != "" && sex != -1 && education != -1 && marriage != -1 && facebook != "" && zalo != "") {
+            if (name != "" && identity != "" && date != "" && sex != -1 && education != -1 && marriage != -1 && facebook != "" && zalo != "" && email != "") {
+                val isLocalEmail =
+                    Pattern.compile("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
+                        .matcher(email)
+                        .matches()
+                if (!isLocalEmail) {
+                    ToolUtils.showToast(
+                        MyApplication.instance,
+                        MyApplication.instance.getString(R.string.text214)
+                    )
+                    return@launchWithException
+                }
                 loadingLiveData.value = true
                 ApiServiceResponse.basicInfo(
                     BasicInfoReq(
@@ -63,7 +76,7 @@ class KycViewModel : BaseViewModel() {
                         education,
                         marriage,
                         facebook,
-                        zalo
+                        zalo, email
                     )
                 )
                 basicInfoData.value = true

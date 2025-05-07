@@ -68,6 +68,8 @@ class OrderAdapter(
                         if (check) {
                             orderDetails.visibility = View.VISIBLE
                             orderDetails.text = context.getString(R.string.text195)
+                        } else {
+                            tv6.visibility = View.GONE
                         }
                     }
 
@@ -90,6 +92,8 @@ class OrderAdapter(
                         if (check) {
                             orderDetails.visibility = View.VISIBLE
                             orderDetails.text = context.getString(R.string.text195)
+                        } else {
+                            tv6.visibility = View.GONE
                         }
                     }
 
@@ -179,6 +183,8 @@ class OrderAdapter(
                         if (check) {
                             orderDetails.visibility = View.VISIBLE
                             orderDetails.text = context.getString(R.string.text195)
+                        } else {
+                            tv6.visibility = View.GONE
                         }
                     }
 

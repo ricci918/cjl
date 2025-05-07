@@ -2,9 +2,16 @@ package com.vaytree.antic.model.utils
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.provider.Settings
 import android.text.TextUtils
+import android.util.DisplayMetrics
 import android.util.Log
+import android.view.MotionEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
 import com.google.gson.GsonBuilder
 import java.io.File
@@ -13,6 +20,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Enumeration
 import java.util.TimeZone
+
 
 object ToolUtils {
 
@@ -201,4 +209,53 @@ object ToolUtils {
             toast.show()
         }
     }
+
+    fun launchAppDetail(context: Activity, appPkg: String) {
+        try {
+            if (TextUtils.isEmpty(appPkg)) return
+            val uri = Uri.parse("https://play.google.com/store/apps/details?id=$appPkg")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun getScreenWidthPixels(context: Activity): Int {
+        val metric = DisplayMetrics()
+        context.windowManager.defaultDisplay.getMetrics(metric)
+        return metric.widthPixels
+    }
+    fun hideKeyboard(
+        event: MotionEvent, view: View?,
+        activity: Activity
+    ) {
+        try {
+            if (view != null && view is EditText) {
+                val location = intArrayOf(0, 0)
+                view.getLocationInWindow(location)
+                val left = location[0]
+                val top = location[1]
+                val right = (left
+                        + view.getWidth())
+                val bootom = top + view.getHeight()
+                // 判断焦点位置坐标是否在空间内，如果位置在控件外，则隐藏键盘
+                if (event.rawX < left || event.rawX > right || event.y < top || event.rawY > bootom) {
+                    // 隐藏键盘
+                    val token = view.getWindowToken()
+                    val inputMethodManager = activity
+                        .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    inputMethodManager.hideSoftInputFromWindow(
+                        token,
+                        InputMethodManager.HIDE_NOT_ALWAYS
+                    )
+                }
+            }
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
+    }
+
+
 }

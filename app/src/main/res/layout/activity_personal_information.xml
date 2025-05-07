@@ -344,6 +344,33 @@
             app:layout_constraintTop_toBottomOf="@id/tv9_id" />
 
         <TextView
+            android:id="@+id/tv10_id"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/space_18"
+            android:layout_marginStart="@dimen/space_5"
+            android:layout_marginTop="@dimen/space_10"
+            android:text="@string/text210"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_zalo" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_35"
+            android:layout_marginTop="@dimen/space_5"
+            android:background="@drawable/shape_white_5"
+            android:paddingStart="@dimen/space_14"
+            android:paddingTop="@dimen/space_9"
+            android:paddingEnd="@dimen/space_14"
+            android:paddingBottom="@dimen/space_9"
+            android:textColor="@color/black"
+            android:textColorHint="#949494"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintTop_toBottomOf="@id/tv10_id" />
+
+        <TextView
             android:id="@+id/tv_next"
             android:layout_width="match_parent"
             android:layout_height="@dimen/space_40"
@@ -355,7 +382,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/et_zalo" />
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
 
         <TextView
             android:id="@+id/tv_return"

@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.view.MotionEvent
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
@@ -33,8 +34,6 @@ open class AuthenticationActivity : BaseActivity() {
     private var child2 = "imageOut2.jpeg"
     private var child3 = "imageOut3.jpeg"
     private var needReq = false
-//    private var mRecordService: RecordService? = null
-//    private var modelPath = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityAuthenticationctivityBinding.inflate(layoutInflater)
@@ -56,11 +55,6 @@ open class AuthenticationActivity : BaseActivity() {
             mBinding.etBankAccount.setText(it.OP3wOGr.jji2py5)
             mBinding.tvBank.text = it.OP3wOGr.WUMJac5
         }
-//        observe(viewModel.tokenData) {
-//            if (it != "" && it != null) {
-//                startDetect(it, modelPath)
-//            }
-//        }
         observe(viewModel.addBankInfoData) {
             if (it) {
                 if (SharedPreferencesUtil.getSystemInfoData()?.qcFOge0 == true) {
@@ -109,7 +103,6 @@ open class AuthenticationActivity : BaseActivity() {
 
     private fun initView() {
         observerCommon(viewModel, false)
-//        modelPath = saveAssets("faceidmodel.bin", "model") ?: ""
         mBinding.apply {
             tvReturn.setOnClickListener {
                 finish()
@@ -249,5 +242,16 @@ open class AuthenticationActivity : BaseActivity() {
         } else {
             needReq = true
         }
+    }
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        when (ev.action) {
+            MotionEvent.ACTION_DOWN -> {
+                val view = currentFocus
+                ToolUtils.hideKeyboard(ev, view, this)
+            }
+
+            else -> {}
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }

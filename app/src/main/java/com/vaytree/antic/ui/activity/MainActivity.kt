@@ -7,7 +7,10 @@ import androidx.fragment.app.Fragment
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityMainBinding
+import com.vaytree.antic.model.utils.SharedPreferencesUtil
+import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.adapter.MainTabAdapter
+import com.vaytree.antic.ui.dialog.DialogUtils
 import com.vaytree.antic.ui.fragment.ExplainFragment
 import com.vaytree.antic.ui.fragment.MineFragment
 import com.vaytree.antic.ui.fragment.OrderFragment
@@ -39,6 +42,9 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     private fun initView() {
         mBinding.apply {
             viewOnClick(rb1Id, rb2Id, rb3Id)
+        }
+        if (SharedPreferencesUtil.getSystemInfoData()?.guxDxiV!! > ToolUtils.getVersionCode(this)) {
+            DialogUtils.showUpdateDialog(this, SharedPreferencesUtil.getSystemInfoData()?.xyL5ST9!!)
         }
     }
 

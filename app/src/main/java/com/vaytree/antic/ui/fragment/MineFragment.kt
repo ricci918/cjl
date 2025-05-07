@@ -1,5 +1,8 @@
 package com.vaytree.antic.ui.fragment
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -37,9 +40,19 @@ class MineFragment : BaseFragment() {
             headId.tvHead.text = getString(R.string.text25)
             tvHotline.text =
                 getString(R.string.text96) + SharedPreferencesUtil.getSystemInfoData()?.FmE4BgQ
+
+            tvEmail.text =
+                getString(R.string.text210) + "：" + SharedPreferencesUtil.getSystemInfoData()?.MMzyuiZ
             tvExit.setOnClickListener {
                 UserConfig.logout()
                 activity?.finish()
+            }
+            tvEmail.setOnClickListener {
+                val clipboard: ClipboardManager =
+                    activity?.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clip = ClipData.newPlainText("simple text", SharedPreferencesUtil.getSystemInfoData()?.MMzyuiZ)
+                clipboard.setPrimaryClip(clip)
+                ToolUtils.showToast(activity, activity?.getString(R.string.text124))
             }
             tvPersonalInformation.setOnClickListener {
                 ToolUtils.showToast(

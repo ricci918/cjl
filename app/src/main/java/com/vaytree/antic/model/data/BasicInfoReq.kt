@@ -9,4 +9,5 @@ data class BasicInfoReq(
     val QMxF2xd: Int,//marriage
     val jaWepfL: String,//facebook
     val ivneQOb: String,//zalo
+    val uailtf9: String,//email
 )

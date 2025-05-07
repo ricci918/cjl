@@ -363,4 +363,37 @@ object DialogUtils {
             dialog.dismiss()
         }
     }
+
+    fun showUpdateDialog(activity: Activity, isConstraint: Boolean) {
+        val inflater = LayoutInflater.from(activity)
+        val view: View = inflater.inflate(R.layout.update_dialog, null)
+        val dialog = Dialog(activity, R.style.MyDialogStyle)
+        val dialogWindow = dialog.window
+        dialog.setCancelable(true)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.setContentView(view)
+        val lp = dialogWindow!!.attributes
+        val mScreenWidth: Int = ToolUtils.getScreenWidthPixels(activity)
+        lp.width = (0.9 * mScreenWidth).toInt()
+        dialogWindow.attributes = lp
+        val iv = view.findViewById<ImageView>(R.id.iv1_id)
+        val tv3 = view.findViewById<TextView>(R.id.tv3_id)
+        val tv2 = view.findViewById<TextView>(R.id.tv2_id)
+        if (isConstraint) {
+            tv2.text = activity.getString(R.string.text212)
+        } else {
+            tv2.text = activity.getString(R.string.text211)
+        }
+        iv.setOnClickListener {
+            if (isConstraint) {
+                activity.finishAffinity()
+            } else {
+                dialog.dismiss()
+            }
+        }
+        tv3.setOnClickListener {
+            ToolUtils.launchAppDetail(activity, ToolUtils.getPageName(activity))
+        }
+        dialog.show()
+    }
 }

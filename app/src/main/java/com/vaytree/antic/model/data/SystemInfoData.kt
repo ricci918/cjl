@@ -19,6 +19,8 @@ data class SystemInfoData(
     val rj0zRsY: String,//permissionPolicyUrl
     val qcFOge0: Boolean,//skipOperateVerify
     val upaPdXO: Boolean,//skipCheckProduct
+    val xyL5ST9: Boolean,//useForceUpgrade
+    val guxDxiV: Int,//targetVersionCode
 )
 
 class PortendProductData(

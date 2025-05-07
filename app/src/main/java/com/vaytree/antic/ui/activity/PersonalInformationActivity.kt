@@ -2,12 +2,15 @@ package com.vaytree.antic.ui.activity
 
 import android.os.Build
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.lifecycle.ViewModelProvider
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityPersonalInformationBinding
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
+import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.dialog.DialogUtils
 import com.vaytree.antic.viewmodel.KycViewModel
+
 
 class PersonalInformationActivity : BaseActivity() {
     private lateinit var mBinding: ActivityPersonalInformationBinding
@@ -87,9 +90,22 @@ class PersonalInformationActivity : BaseActivity() {
                     education,
                     marriage,
                     etFaceBook.text.toString(),
-                    etZalo.text.toString()
+                    etZalo.text.toString(), etEmail.text.toString()
                 )
             }
         }
     }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        when (ev.action) {
+            MotionEvent.ACTION_DOWN -> {
+                val view = currentFocus
+                ToolUtils.hideKeyboard(ev, view, this)
+            }
+
+            else -> {}
+        }
+        return super.dispatchTouchEvent(ev)
+    }
+
 }

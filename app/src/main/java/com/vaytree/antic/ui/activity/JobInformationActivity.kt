@@ -1,6 +1,7 @@
 package com.vaytree.antic.ui.activity
 
 import android.os.Bundle
+import android.view.MotionEvent
 import androidx.lifecycle.ViewModelProvider
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityJobInformationBinding
@@ -8,6 +9,7 @@ import com.vaytree.antic.model.data.AreaList
 import com.vaytree.antic.model.data.AreaListData
 import com.vaytree.antic.model.data.Attach
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
+import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.dialog.DialogUtils
 import com.vaytree.antic.viewmodel.KycViewModel
 import java.util.ArrayList
@@ -172,5 +174,17 @@ class JobInformationActivity : BaseActivity() {
             }
 
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        when (ev.action) {
+            MotionEvent.ACTION_DOWN -> {
+                val view = currentFocus
+                ToolUtils.hideKeyboard(ev, view, this)
+            }
+
+            else -> {}
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }

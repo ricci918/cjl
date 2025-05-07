@@ -179,22 +179,20 @@ object DeviceInfoUtils {
             val timeMillis = System.currentTimeMillis()
             zgbl76v = timeMillis
             CwOTREo = ToolUtils.getVersionCode(context).toString()
-            if (SharedPreferencesUtil.getGaId() == "") {
+            if (SharedPreferencesUtil.getGaId() != "") {
+                OST7lhY = SharedPreferencesUtil.getGaId()
+            } else {
                 GlobalScope.launch(Dispatchers.IO) {
                     val idInfo: AdvertisingIdClient.Info
                     try {
                         idInfo = AdvertisingIdClient.getAdvertisingIdInfo(context)
                         OST7lhY = idInfo.id
-                        idInfo.id?.let { SharedPreferencesUtil.putGaId(it) }
                         //do sth with the id
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
                 }
-            } else {
-                OST7lhY = SharedPreferencesUtil.getGaId()
             }
-
             eqMtJs1 = System.currentTimeMillis()
         }
 
