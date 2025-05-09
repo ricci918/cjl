@@ -109,7 +109,8 @@
 
 -keep class com.vaytree.antic.ui.widget.** { *; } #自定义控件不参与混淆
 -dontshrink
-
-
+-keep class com.appsflyer.** { *; }
+-keep class kotlin.jvm.internal.** { *; }
+-keep public class com.android.installreferrer.** { *; }
 
 

@@ -69,6 +69,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.activity.AuthenticationActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
             android:exported="false" />
         <activity
             android:name=".ui.activity.BorrowMoneyActivity"
@@ -114,13 +115,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+        <meta-data android:name="com.appsflyer.FacebookApplicationId" android:value="@string/facebook_application_id" />
         <service android:name=".ui.activity.UpdateService"/>
 
-<!--        <service-->
-<!--            android:name="com.megvii.lv5.sdk.screen.service.MediaProjectionService"-->
-<!--            android:foregroundServiceType="mediaProjection" />-->
-
-<!--        <service android:name=".ui.activity.UpdateService" />-->
     </application>
 
 </manifest>

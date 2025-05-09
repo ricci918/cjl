@@ -1,7 +1,8 @@
 package com.vaytree.antic.app
 
 import android.app.Application
-import android.util.Log
+import com.android.installreferrer.api.InstallReferrerClient
+import com.android.installreferrer.api.InstallReferrerStateListener
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
 import com.google.android.gms.ads.identifier.AdvertisingIdClient
@@ -39,6 +40,7 @@ class MyApplication : Application() {
         AppsFlyerLib.getInstance().init("AYHfa9RGjC3xzxd3LCwQv", appsFlyerConversion, this);
         AppsFlyerLib.getInstance().start(this)
         initAgId()
+        installReferrer()
     }
 
     private fun initAgId() {
@@ -55,4 +57,31 @@ class MyApplication : Application() {
             }
         }
     }
+    private lateinit var referrerClient: InstallReferrerClient
+    private fun installReferrer(){
+        referrerClient = InstallReferrerClient.newBuilder(this).build()
+        referrerClient.startConnection(object : InstallReferrerStateListener {
+
+            override fun onInstallReferrerSetupFinished(responseCode: Int) {
+                when (responseCode) {
+                    InstallReferrerClient.InstallReferrerResponse.OK -> {
+                        // Connection established.
+                        val response = referrerClient.installReferrer
+                        referrerClient.endConnection()
+                    }
+                    InstallReferrerClient.InstallReferrerResponse.FEATURE_NOT_SUPPORTED -> {
+                        // API not available on the current Play Store app.
+                    }
+                    InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE -> {
+                        // Connection couldn't be established.
+                    }
+                }
+            }
+
+            override fun onInstallReferrerServiceDisconnected() {
+
+            }
+        })
+    }
+
 }

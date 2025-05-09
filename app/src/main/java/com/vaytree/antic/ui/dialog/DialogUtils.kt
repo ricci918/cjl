@@ -6,16 +6,21 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Build
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Gravity
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.DatePicker
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
+import android.widget.TextView.OnEditorActionListener
 import androidx.annotation.RequiresApi
 import com.github.gzuliyujiang.wheelview.widget.WheelView
 import com.vaytree.antic.R
@@ -222,11 +227,13 @@ object DialogUtils {
         bankListData: MutableList<BankListData>,
         onSelectedListener: (BankListData) -> Unit
     ): PopupWindow {
-        val view = LayoutInflater.from(activity).inflate(R.layout.kyc_message_dialog, null, false)
+        val view = LayoutInflater.from(activity).inflate(R.layout.kyc_message_dialog1, null, false)
         val popupWindow = PopupWindow(
             view,
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT, true
         )
+        popupWindow.inputMethodMode = PopupWindow.INPUT_METHOD_NEEDED
+        popupWindow.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
         popupWindow.setOnDismissListener {
             activity.window.apply {
                 attributes.alpha = 1f
@@ -236,14 +243,40 @@ object DialogUtils {
         val wv = view.findViewById<WheelView>(R.id.wv_id)
         val confirm = view.findViewById<TextView>(R.id.confirm_id)
         val close = view.findViewById<TextView>(R.id.close_id)
+        val et = view.findViewById<EditText>(R.id.et1_id)
         val calendar: Calendar = Calendar.getInstance()
         val nowYear: Int = calendar.get(Calendar.YEAR)
         val arrayListOf = arrayListOf<String>()
+        val arrayListOf1 = arrayListOf<String>()
         bankListData.forEach {
             arrayListOf.add("(" + it.oUHonxr + ")" + it.ReUIwgO)
         }
         wv.data = arrayListOf
         wv.setDefaultValue(nowYear)
+        et.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                arrayListOf1.clear()
+                if (et.text.toString() == "") {
+                    wv.data = arrayListOf
+                    wv.setDefaultValue(nowYear)
+                } else {
+                    bankListData.forEach {
+                        if (it.oUHonxr.contains(et.text.toString().uppercase())){
+                            arrayListOf1.add("(" + it.oUHonxr + ")" + it.ReUIwgO)
+                        }
+                    }
+                    wv.data = arrayListOf1
+                    wv.setDefaultValue(nowYear)
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
         confirm.setOnClickListener {
             val currentItem = wv.getCurrentItem<String>()
             bankListData.forEach {

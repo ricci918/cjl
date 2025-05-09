@@ -11,8 +11,8 @@ android {
         applicationId = "com.vaytree.antic"
         minSdk = 24
         targetSdk = 35
-        versionCode = 7
-        versionName = "1.0.7"
+        versionCode = 8
+        versionName = "1.0.8"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -90,4 +90,5 @@ dependencies {
     implementation("org.greenrobot:eventbus:3.3.1")
     implementation("com.yanzhenjie:permission:2.0.0-rc4")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.21")
+    implementation("com.android.installreferrer:installreferrer:2.2")
 }

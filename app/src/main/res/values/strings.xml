@@ -298,10 +298,10 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text162">Vinaphone</string>
     <string name="text163">Vietnamobile</string>
     <string name="text164">SAYMEE</string>
-    <string name="text165">nhäp vào úy quyên</string>
-    <string name="text166">Vui lÃng nhañ mà xác minh truoé</string>
-    <string name="text167">NhÃap sÃ diªn thoai</string>
-    <string name="text168">NhÃap mǎ xác minh</string>
+    <string name="text165">Nhập vào ủy quyền</string>
+    <string name="text166">Vui lòng nhập mã xác minh trước</string>
+    <string name="text167">Nhập số điện thoại</string>
+    <string name="text168">Nhận mã xác minh</string>
     <string name="text169">Nhan mǎ xác minh</string>
     <string name="text170">Buóc tiép theo</string>
     <string name="text171">Cần lấy mã xác minh lần 2</string>
@@ -347,4 +347,6 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text212">Đã có phiên bản mới, vui lòng cập nhật ngay để có trải nghiệm tốt hơn. Nâng cấp lên phiên bản mới nhất để mở khóa thêm nhiều tính năng và ưu đãi giới hạn!</string>
     <string name="text213">Cập nhật</string>
     <string name="text214">Định dạng email không hợp lệ</string>
+    <string name="facebook_application_id" translatable="false">989279906674760</string>
+    <string name="text215">Tìm kiếm</string>
 </resources>

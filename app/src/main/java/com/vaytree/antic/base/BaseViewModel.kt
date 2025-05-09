@@ -1,5 +1,6 @@
 package com.vaytree.antic.base
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -16,6 +17,7 @@ open class BaseViewModel : ViewModel() {
             try {
                 onSuccess.invoke()
             } catch (ex: Exception) {
+                Log.i("11111111111111", "launchWithException: "+ex.message)
                 ex.printStackTrace()
                 if (onFailed != null) {
                     onFailed.invoke()
