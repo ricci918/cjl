@@ -7,6 +7,7 @@ import com.vaytree.antic.model.data.AreaListData
 import com.vaytree.antic.model.data.AuditListData
 import com.vaytree.antic.model.data.BankListData
 import com.vaytree.antic.model.data.BasicInfoReq
+import com.vaytree.antic.model.data.CommitReq
 import com.vaytree.antic.model.data.HttpResult
 import com.vaytree.antic.model.data.InfoData
 import com.vaytree.antic.model.data.LoanListData
@@ -116,5 +117,8 @@ interface ApiService {
 
     @GET("/api/app/v3KzRyr")
     suspend fun vNotify(): HttpResult<Any>
+
+    @POST("/api/app/Nq8cXFV")
+    suspend fun commit(@Body data: CommitReq): HttpResult<Any>
 
 }

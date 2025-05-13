@@ -18,14 +18,13 @@ import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.activity.OperatorActivity
 import com.vaytree.antic.ui.activity.OrderDetailsActivity
 import com.vaytree.antic.ui.activity.RepaymentActivity
-import com.vaytree.antic.ui.activity.WithdrawDepositActivity
 import com.vaytree.antic.ui.dialog.DialogUtils
 
 class OrderAdapter(
     private val result: MutableList<AuditListData>,
     private val activity: Activity,
     private val check: Boolean,
-    private val onSelectedListener: (String) -> Unit
+    private val onSelectedListener: (String, Int) -> Unit
 ) :
     RecyclerView.Adapter<OrderAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
@@ -50,10 +49,17 @@ class OrderAdapter(
                 val icon2 = holder.itemView.findViewById<ImageView>(R.id.iv2_icon)
                 val iv = holder.itemView.findViewById<ImageView>(R.id.iv1_id)
                 val orderDetails = holder.itemView.findViewById<TextView>(R.id.order_details)
-                Glide.with(context)
-                    .load(OverallVariable.URL + "/api/app/hSe7zCj?id=" + it1.EQWXQi7)
-                    .disallowHardwareConfig()
-                    .into(icon)
+                if (ToolUtils.isNumericRegex(it1.EQWXQi7)) {
+                    Glide.with(context)
+                        .load(OverallVariable.URL + "/api/app/hSe7zCj?id=" + it1.EQWXQi7)
+                        .disallowHardwareConfig()
+                        .into(icon)
+                } else {
+                    Glide.with(context)
+                        .load(it1.EQWXQi7)
+                        .disallowHardwareConfig()
+                        .into(icon)
+                }
                 tv1.text = it1.LpWSDmI
                 when (it1.wPYI0pU) {
                     "AUDITING" -> { //审核中
@@ -202,9 +208,10 @@ class OrderAdapter(
                 }
                 tv5.setOnClickListener {
                     if (tv5.text.toString() == context.getString(R.string.text21)) { //提现
-                        val intent = Intent(context, WithdrawDepositActivity::class.java)
-                        intent.putExtra("orderCode", it1.SyKwFNH)
-                        context.startActivity(intent)
+//                        val intent = Intent(context, WithdrawDepositActivity::class.java)
+//                        intent.putExtra("orderCode", it1.SyKwFNH)
+//                        context.startActivity(intent)
+                        onSelectedListener.invoke(it1.SyKwFNH, 2)
                     }
                     if (tv5.text.toString() == context.getString(R.string.text74)) {//还款
                         val intent = Intent(context, RepaymentActivity::class.java)
@@ -212,10 +219,10 @@ class OrderAdapter(
                         context.startActivity(intent)
                     }
                     if (tv5.text.toString() == context.getString(R.string.text112)) { //续借
-                        onSelectedListener.invoke(it1.zu3oAhX)
+                        onSelectedListener.invoke(it1.zu3oAhX, 1)
                     }
                     if (tv5.text.toString() == context.getString(R.string.text107)) {//重新申请
-                        onSelectedListener.invoke(it1.zu3oAhX)
+                        onSelectedListener.invoke(it1.zu3oAhX, 1)
                     }
 
                 }

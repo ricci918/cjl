@@ -94,6 +94,8 @@ class LoginActivity : BaseActivity() {
                 intent.putExtra("name", "login")
                 startActivity(intent)
             }
+            tvEmail.text = SharedPreferencesUtil.getSystemInfoData()?.MMzyuiZ
+            tvPhone.text = SharedPreferencesUtil.getSystemInfoData()?.FmE4BgQ
         }
     }
 

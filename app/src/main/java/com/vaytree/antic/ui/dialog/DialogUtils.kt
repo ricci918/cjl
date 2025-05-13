@@ -19,16 +19,26 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.PopupWindow
+import android.widget.RatingBar
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.github.gzuliyujiang.wheelview.widget.WheelView
 import com.vaytree.antic.R
+import com.vaytree.antic.model.contract.ApiServiceResponse
 import com.vaytree.antic.model.data.AreaList
 import com.vaytree.antic.model.data.AreaListData
 import com.vaytree.antic.model.data.BankListData
+import com.vaytree.antic.model.data.CommitReq
 import com.vaytree.antic.model.data.ContentData
+import com.vaytree.antic.model.utils.RetrofitManager
 import com.vaytree.antic.model.utils.ToolUtils
+import com.vaytree.antic.ui.adapter.BankAdapter
+import com.vaytree.antic.ui.adapter.MyLoanAdapter
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -240,19 +250,22 @@ object DialogUtils {
                 attributes = attributes
             }
         }
-        val wv = view.findViewById<WheelView>(R.id.wv_id)
-        val confirm = view.findViewById<TextView>(R.id.confirm_id)
-        val close = view.findViewById<TextView>(R.id.close_id)
+        val rv = view.findViewById<RecyclerView>(R.id.rv_id)
+//        val confirm = view.findViewById<TextView>(R.id.confirm_id)
+//        val close = view.findViewById<TextView>(R.id.close_id)
         val et = view.findViewById<EditText>(R.id.et1_id)
-        val calendar: Calendar = Calendar.getInstance()
-        val nowYear: Int = calendar.get(Calendar.YEAR)
-        val arrayListOf = arrayListOf<String>()
-        val arrayListOf1 = arrayListOf<String>()
-        bankListData.forEach {
-            arrayListOf.add("(" + it.oUHonxr + ")" + it.ReUIwgO)
+//        val calendar: Calendar = Calendar.getInstance()
+//        val nowYear: Int = calendar.get(Calendar.YEAR)
+//        val arrayListOf = arrayListOf<String>()
+//        val arrayListOf1 = arrayListOf<String>()
+        val arrayListOf1 = arrayListOf<BankListData>()
+        val manager = LinearLayoutManager(activity)
+        rv.layoutManager = manager
+        val adapter = BankAdapter(bankListData) {
+            onSelectedListener.invoke(it)
+            popupWindow.dismiss()
         }
-        wv.data = arrayListOf
-        wv.setDefaultValue(nowYear)
+        rv.adapter = adapter
         et.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
@@ -260,16 +273,27 @@ object DialogUtils {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 arrayListOf1.clear()
                 if (et.text.toString() == "") {
-                    wv.data = arrayListOf
-                    wv.setDefaultValue(nowYear)
+                    val manager1 = LinearLayoutManager(activity)
+                    rv.layoutManager = manager1
+                    val adapter1 = BankAdapter(bankListData) {
+                        onSelectedListener.invoke(it)
+                        popupWindow.dismiss()
+                    }
+                    rv.adapter = adapter1
                 } else {
                     bankListData.forEach {
-                        if (it.oUHonxr.contains(et.text.toString().uppercase())){
-                            arrayListOf1.add("(" + it.oUHonxr + ")" + it.ReUIwgO)
+                        if (it.oUHonxr.contains(et.text.toString().uppercase())) {
+                            arrayListOf1.add(it)
                         }
                     }
-                    wv.data = arrayListOf1
-                    wv.setDefaultValue(nowYear)
+                    val manager2 = LinearLayoutManager(activity)
+                    rv.layoutManager = manager2
+                    val adapter2 = BankAdapter(arrayListOf1) {
+                        onSelectedListener.invoke(it)
+                        popupWindow.dismiss()
+                    }
+                    rv.adapter = adapter2
+
                 }
             }
 
@@ -277,18 +301,47 @@ object DialogUtils {
 
             }
         })
-        confirm.setOnClickListener {
-            val currentItem = wv.getCurrentItem<String>()
-            bankListData.forEach {
-                if ("(" + it.oUHonxr + ")" + it.ReUIwgO == currentItem) {
-                    onSelectedListener.invoke(it)
-                }
-            }
-            popupWindow.dismiss()
-        }
-        close.setOnClickListener {
-            popupWindow.dismiss()
-        }
+//        bankListData.forEach {
+//            arrayListOf.add("(" + it.oUHonxr + ")" + it.ReUIwgO)
+//        }
+//        wv.data = arrayListOf
+//        wv.setDefaultValue(nowYear)
+//        et.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+//            }
+//
+//            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//                arrayListOf1.clear()
+//                if (et.text.toString() == "") {
+//                    wv.data = arrayListOf
+//                    wv.setDefaultValue(nowYear)
+//                } else {
+//                    bankListData.forEach {
+//                        if (it.oUHonxr.contains(et.text.toString().uppercase())){
+//                            arrayListOf1.add("(" + it.oUHonxr + ")" + it.ReUIwgO)
+//                        }
+//                    }
+//                    wv.data = arrayListOf1
+//                    wv.setDefaultValue(nowYear)
+//                }
+//            }
+//
+//            override fun afterTextChanged(s: Editable?) {
+//
+//            }
+//        })
+//        confirm.setOnClickListener {
+////            val currentItem = wv.getCurrentItem<String>()
+////            bankListData.forEach {
+////                if ("(" + it.oUHonxr + ")" + it.ReUIwgO == currentItem) {
+////                    onSelectedListener.invoke(it)
+////                }
+////            }
+//            popupWindow.dismiss()
+//        }
+//        close.setOnClickListener {
+//            popupWindow.dismiss()
+//        }
         activity.window.apply {
             attributes.alpha = 0.4f
             attributes = attributes
@@ -426,6 +479,112 @@ object DialogUtils {
         }
         tv3.setOnClickListener {
             ToolUtils.launchAppDetail(activity, ToolUtils.getPageName(activity))
+        }
+        dialog.show()
+    }
+
+    fun showGoodReputationDialog(activity: Activity) {
+        val inflater = LayoutInflater.from(activity)
+        val view: View = inflater.inflate(R.layout.good_reputation_dialog, null)
+        val dialog = Dialog(activity, R.style.MyDialogStyle)
+        val dialogWindow = dialog.window
+        dialog.setCancelable(true)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.setContentView(view)
+        val lp = dialogWindow!!.attributes
+        val mScreenWidth: Int = ToolUtils.getScreenWidthPixels(activity)
+        lp.width = (0.9 * mScreenWidth).toInt()
+        dialogWindow.attributes = lp
+        val rb = view.findViewById<RatingBar>(R.id.rb_id)
+        val tv = view.findViewById<TextView>(R.id.tv2_id)
+        rb.onRatingBarChangeListener =
+            RatingBar.OnRatingBarChangeListener { _, rating, _ ->
+                if (rating >= 4.5) {
+                    showGoodReputation1Dialog(activity)
+                    dialog.dismiss()
+                } else {
+                    showGoodReputation2Dialog(activity, rating.toString())
+                    dialog.dismiss()
+                }
+            }
+        tv.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    private fun showGoodReputation1Dialog(activity: Activity) {
+        val inflater = LayoutInflater.from(activity)
+        val view: View = inflater.inflate(R.layout.good_reputation1_dialog, null)
+        val dialog = Dialog(activity, R.style.MyDialogStyle)
+        val dialogWindow = dialog.window
+        dialog.setCancelable(true)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.setContentView(view)
+        val lp = dialogWindow!!.attributes
+        val mScreenWidth: Int = ToolUtils.getScreenWidthPixels(activity)
+        lp.width = (0.9 * mScreenWidth).toInt()
+        dialogWindow.attributes = lp
+        val tv2 = view.findViewById<TextView>(R.id.tv2_id)
+        val tv3 = view.findViewById<TextView>(R.id.tv3_id)
+        tv2.setOnClickListener {
+            ToolUtils.launchAppDetail(activity, ToolUtils.getPageName(activity))
+            dialog.dismiss()
+        }
+        tv3.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    private fun showGoodReputation2Dialog(activity: Activity, rating: String) {
+        val inflater = LayoutInflater.from(activity)
+        val view: View = inflater.inflate(R.layout.good_reputation2_dialog, null)
+        val dialog = Dialog(activity, R.style.MyDialogStyle)
+        val dialogWindow = dialog.window
+        dialog.setCancelable(true)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.setContentView(view)
+        val lp = dialogWindow!!.attributes
+        val mScreenWidth: Int = ToolUtils.getScreenWidthPixels(activity)
+        lp.width = (0.9 * mScreenWidth).toInt()
+        dialogWindow.attributes = lp
+        val tv2 = view.findViewById<TextView>(R.id.tv2_id)
+        val tv3 = view.findViewById<TextView>(R.id.tv3_id)
+        tv2.setOnClickListener {
+            showGoodReputation3Dialog(activity, rating)
+            dialog.dismiss()
+        }
+        tv3.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    private fun showGoodReputation3Dialog(activity: Activity, rating: String) {
+        val inflater = LayoutInflater.from(activity)
+        val view: View = inflater.inflate(R.layout.good_reputation3_dialog, null)
+        val dialog = Dialog(activity, R.style.MyDialogStyle)
+        val dialogWindow = dialog.window
+        dialog.setCancelable(true)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.setContentView(view)
+        val lp = dialogWindow!!.attributes
+        val mScreenWidth: Int = ToolUtils.getScreenWidthPixels(activity)
+        lp.width = (0.9 * mScreenWidth).toInt()
+        dialogWindow.attributes = lp
+        val tv2 = view.findViewById<TextView>(R.id.tv2_id)
+        val tv3 = view.findViewById<TextView>(R.id.tv3_id)
+        val et = view.findViewById<TextView>(R.id.et1_id)
+        tv2.setOnClickListener {
+            RetrofitManager.launchWithException {
+                ApiServiceResponse.commit(CommitReq(rating, et.text.toString()))
+            }
+            ToolUtils.showToast(activity, activity.getString(R.string.text227))
+            dialog.dismiss()
+        }
+        tv3.setOnClickListener {
+            dialog.dismiss()
         }
         dialog.show()
     }

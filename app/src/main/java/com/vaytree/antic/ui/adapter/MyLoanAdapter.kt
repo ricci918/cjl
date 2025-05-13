@@ -18,15 +18,12 @@ import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.activity.OperatorActivity
 import com.vaytree.antic.ui.activity.OrderDetailsActivity
 import com.vaytree.antic.ui.activity.RepaymentActivity
-import com.vaytree.antic.ui.activity.WithdrawDepositActivity
 import com.vaytree.antic.ui.dialog.DialogUtils
 
 
 class MyLoanAdapter(
     private val result: MutableList<LoanListData>,
-    private val activity: Activity,
-    private val check : Boolean,
-    private val onSelectedListener: (String) -> Unit
+    private val activity: Activity
 ) :
     RecyclerView.Adapter<MyLoanAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
@@ -51,10 +48,17 @@ class MyLoanAdapter(
                 val tv6 = holder.itemView.findViewById<TextView>(R.id.tv6_id)
                 val tv7 = holder.itemView.findViewById<TextView>(R.id.tv7_id)
                 val iv = holder.itemView.findViewById<ImageView>(R.id.iv1_id)
-                Glide.with(context)
-                    .load(OverallVariable.URL + "/api/app/hSe7zCj?id=" + it1.JqZZeKt)
-                    .disallowHardwareConfig()
-                    .into(icon)
+                if (ToolUtils.isNumericRegex(it1.JqZZeKt)) {
+                    Glide.with(context)
+                        .load(OverallVariable.URL + "/api/app/hSe7zCj?id=" + it1.JqZZeKt)
+                        .disallowHardwareConfig()
+                        .into(icon)
+                } else {
+                    Glide.with(context)
+                        .load(it1.JqZZeKt)
+                        .disallowHardwareConfig()
+                        .into(icon)
+                }
                 tv1.text = it1.xzuxhTo
                 when (it1.xJxENI2) {
                     "OVERDUE" -> { //已逾期
@@ -93,25 +97,12 @@ class MyLoanAdapter(
                 }
 
                 tv5.setOnClickListener {
-                    if (tv5.text.toString() == context.getString(R.string.text21)) { //提现
-                        val intent = Intent(context, WithdrawDepositActivity::class.java)
-                        intent.putExtra("orderCode", it1.QiTkV9m)
-                        context.startActivity(intent)
-                    }
                     if (tv5.text.toString() == context.getString(R.string.text74)) {//还款
                         val intent = Intent(context, RepaymentActivity::class.java)
                         intent.putExtra("orderCode", it1.QiTkV9m)
                         context.startActivity(intent)
                     }
-                    if (tv5.text.toString() == context.getString(R.string.text112)) { //续借
-                        onSelectedListener.invoke(it1.QiTkV9m)
-                    }
-                    if (tv5.text.toString() == context.getString(R.string.text107)) {//重新申请
-                        onSelectedListener.invoke(it1.QiTkV9m)
-                    }
-
                 }
-
                 orderDetails.setOnClickListener {
                     if (orderDetails.text.toString() == context.getString(R.string.text195)) {//运行商
                         val intent = Intent(context, OperatorActivity::class.java)

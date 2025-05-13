@@ -1,6 +1,7 @@
 package com.vaytree.antic.ui.fragment
 
 import android.os.Bundle
+import android.text.Html
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -30,8 +31,12 @@ class ExplainFragment : Fragment() {
             headId.ivClose.visibility = View.GONE
             headId.tvHead.visibility = View.VISIBLE
             headId.tvHead.text = getString(R.string.text24)
-            tv3Id.text =
-                getString(R.string.text157) + SharedPreferencesUtil.getSystemInfoData()?.FmE4BgQ + "."
+            tv3Id.text = Html.fromHtml(
+                String.format(
+                    getString(R.string.text157),
+                    SharedPreferencesUtil.getSystemInfoData()?.FmE4BgQ,SharedPreferencesUtil.getSystemInfoData()?.MMzyuiZ
+                )
+            )
         }
     }
 

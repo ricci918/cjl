@@ -6,4 +6,5 @@ data class BankListData(
     val ReUIwgO : String,
     val Keq9MIq : String,
     val szqp6TG : Int,
+    val qNyLBrc : String,
 )

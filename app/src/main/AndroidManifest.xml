@@ -69,16 +69,17 @@
             android:exported="false" />
         <activity
             android:name=".ui.activity.AuthenticationActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden"
             android:exported="false" />
         <activity
             android:name=".ui.activity.BorrowMoneyActivity"
             android:exported="false" />
         <activity
             android:name=".ui.activity.JobInformationActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
             android:name=".ui.activity.PersonalInformationActivity"
+            android:windowSoftInputMode="adjustPan"
             android:exported="false" />
         <activity
             android:name=".ui.activity.UnverifiedActivity"

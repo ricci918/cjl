@@ -277,20 +277,22 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text154">Xóa tài khoản</string>
     <string name="text155">Khoản vay đã duyệt,bấm “Rút tiền” để nhận tiền ngay!</string>
     <string name="text156">Phí xử lý</string>
-    <string name="text157">Bước 1: Rút tiền - Thanh toán
-\n\nPhê duyệt thành công, vui lòng chọn “Đơn hàng” - “Kết quả phê duyệt”. Khi đơn vay của bạn được duyệt thành công, bạn có thể chọn “Rút tiền” - Xác nhận rút tiền - Hệ thống sẽ chuyển tiền vào tài khoản của bạn ngay lập tức.
+    <string name="text157"><![CDATA[Bước 1: Rút tiền - Thanh toán
+<br/><br/>Phê duyệt thành công, vui lòng chọn “Đơn hàng” - “Kết quả phê duyệt”. Khi đơn vay của bạn được duyệt thành công, bạn có thể chọn “Rút tiền” - Xác nhận rút tiền - Hệ thống sẽ chuyển tiền vào tài khoản của bạn ngay lập tức.
 
-\n\nBước 2: Thanh toán khoản vay
-\n\nVui lòng chọn “Đơn hàng” - “Đơn trả nợg” - “Hoàn trả”. Lấy thông tin tài khoản thanh toán. Khách hàng có thể sử dụng ngân hàng trực tuyến hoặc chuyển khoản tại ngân hàng gần nhất hoặc điểm giao dịch Viettel.
+<br/><br/>Bước 2: Thanh toán khoản vay
+<br/><br/>Vui lòng chọn “Đơn hàng” - “Đơn trả nợg” - “Hoàn trả”. Lấy thông tin tài khoản thanh toán. Khách hàng có thể sử dụng ngân hàng trực tuyến hoặc chuyển khoản tại ngân hàng gần nhất hoặc điểm giao dịch Viettel.
 
-\n\nLưu ý: Hệ thống chỉ cung cấp duy nhất một tài khoản thanh toán hiển thị trong ứng dụng. Tất cả các tài khoản khác gửi cho khách hàng để thanh toán đều là giả mạo.
+<br/><br/>Lưu ý: Hệ thống chỉ cung cấp duy nhất một tài khoản thanh toán hiển thị trong ứng dụng. Tất cả các tài khoản khác gửi cho khách hàng để thanh toán đều là giả mạo.
 
-\n\nBước 3: Vay lại
-\n\nSau khi khách hàng hoàn tất việc thanh toán, hệ thống sẽ tự động gửi đơn đăng ký vay tiếp theo của khách hàng đến công ty tài chính. Khách hàng sẽ nhận được hạn mức vay cao hơn. Khách hàng quay lại bước “Kết quả phê duyệt” để chờ kết quả từ công ty tài chính.
+<br/><br/>Bước 3: Vay lại
+<br/><br/>Sau khi khách hàng hoàn tất việc thanh toán, hệ thống sẽ tự động gửi đơn đăng ký vay tiếp theo của khách hàng đến công ty tài chính. Khách hàng sẽ nhận được hạn mức vay cao hơn. Khách hàng quay lại bước “Kết quả phê duyệt” để chờ kết quả từ công ty tài chính.
 
-\n\nVui lòng duy trì thói quen thanh toán tốt – điều này sẽ giúp tăng điểm tín dụng – và hạn mức vay lần sau sẽ cao hơn.
+<br/><br/>Vui lòng duy trì thói quen thanh toán tốt – điều này sẽ giúp tăng điểm tín dụng – và hạn mức vay lần sau sẽ cao hơn.
 
-\n\nNếu có bất kỳ thắc mắc nào, vui lòng liên hệ hotline: </string>
+<br/><br/>Nếu có bất kỳ thắc mắc nào, vui lòng liên hệ hotline: %1$s
+<br/><br/>Lưu ý:
+<br/><br/>Trong quá trình xử lý khoản vay, nếu bạn phát hiện bất kỳ hành vi không đúng mực nào từ nhân viên hoặc có trải nghiệm không hài lòng, xin vui lòng gửi phản ánh đến email: %2$s để chúng tôi kịp thời tiếp nhận và xử lý.]]></string>
     <string name="text158">Ngày đến hạn</string>
     <string name="text159">Vui lòng chọn nhà mạng ủy quyền</string>
     <string name="text160">Viettel</string>
@@ -318,7 +320,7 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text183">Chờ rút tiền</string>
     <string name="text184">Số tiền vay：</string>
     <string name="text185">Khoản vay của bạn đã được phê duyệt. Vui lòng nhấp vào \'Rút tiền\' và chúng tôi sẽ giải ngân ngay lập tức!</string>
-    <string name="text186">Vui lòng nhấp vào ’rút tiền‘ kịp thời, đơn hàng sẽ đóng sau %1$d ngày.</string>
+    <string name="text186">Nhanh tay rút tiền – Đừng bỏ lỡ! Đơn sẽ tự đóng sau %1$d ngày!</string>
     <string name="text187">Đang giải ngân, tiền sẽ vào tài khoản trong 10 phút, vui lòng chờ!</string>
     <string name="text188">Vay quá hạn</string>
     <string name="text189">Khoản vay đã quá hạn %1$d ngày, thanh toán ngay để tránh thêm phí phạt và ảnh hưởng đăng ký sau này!</string>
@@ -349,4 +351,19 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text214">Định dạng email không hợp lệ</string>
     <string name="facebook_application_id" translatable="false">989279906674760</string>
     <string name="text215">Tìm kiếm</string>
+    <string name="text216">Không thể đăng nhập, hãy liên hệ hỗ trợ.</string>
+    <string name="text217">Rút tiền thành công!</string>
+    <string name="text218">Số tiền cần trả</string>
+    <string name="text219">Chúc mừng! Bạn đã đăng ký khoản vay thành công.\nBạn cảm thấy thế nào về trải nghiệm với VayTree?</string>
+    <string name="text220">Để sau</string>
+    <string name="text221">Hãy đánh giá 5 sao cho VayTree trên Google Play!\nMỗi phản hồi tích cực là động lực để chúng tôi cải thiện quy trình duyệt vay và phục vụ bạn tốt hơn.</string>
+    <string name="text222">Gửi đánh giá</string>
+    <string name="text223">Không, cảm ơn</string>
+    <string name="text224">Chúng tôi rất tiếc vì đã mang đến trải nghiệm chưa tốt cho bạn.\nVui lòng chia sẻ ý kiến để chúng tôi cải thiện dịch vụ.\nMọi phản hồi của bạn đều được trân trọng ghi nhận.</string>
+    <string name="text225">Gửi phản hồi</string>
+    <string name="text226">Góp ý của bạn sẽ giúp chúng tôi nâng cấp trải nghiệm vay tiền ngày càng tốt hơn.\nBạn đang gặp vấn đề gì? Hãy chia sẻ nhé!</string>
+    <string name="text227">Cảm ơn bạn đã phản hồi!</string>
+    <string name="text228">+5.000.000 hạn mức</string>
+    <string name="text229">+10.000.000 hạn mức</string>
+    <string name="text230">+15.000.000 hạn mức</string>
 </resources>

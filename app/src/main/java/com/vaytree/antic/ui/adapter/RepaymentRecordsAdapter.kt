@@ -44,10 +44,17 @@ class RepaymentRecordsAdapter(
                 val icon1 = holder.itemView.findViewById<ImageView>(R.id.iv1_icon)
                 val icon2 = holder.itemView.findViewById<ImageView>(R.id.iv2_icon)
                 val orderDetails = holder.itemView.findViewById<TextView>(R.id.order_details)
-                Glide.with(context)
-                    .load(OverallVariable.URL + "/api/app/hSe7zCj?id=" + it1.e9ObHWN)
-                    .disallowHardwareConfig()
-                    .into(icon)
+                if (ToolUtils.isNumericRegex(it1.e9ObHWN)) {
+                    Glide.with(context)
+                        .load(OverallVariable.URL + "/api/app/hSe7zCj?id=" + it1.e9ObHWN)
+                        .disallowHardwareConfig()
+                        .into(icon)
+                } else {
+                    Glide.with(context)
+                        .load(it1.e9ObHWN)
+                        .disallowHardwareConfig()
+                        .into(icon)
+                }
                 tv1.text = it1.QSP6ghs
                 tv2.text = context.getString(R.string.text193)
 //                tv2.setBackgroundResource(R.mipmap.order6)

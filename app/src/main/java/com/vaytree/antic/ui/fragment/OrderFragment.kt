@@ -95,19 +95,22 @@ class OrderFragment : BaseFragment() {
         observe(viewModel.auditListData) {
             val manager = LinearLayoutManager(activity)
             fBinding.rv1Id.layoutManager = manager
-            val adapter = OrderAdapter(it, requireActivity(), checkData) { it1 ->
-                code = it1
-                viewModel1.acquisition(requireActivity())
+            val adapter = OrderAdapter(it, requireActivity(), checkData) { it1, it2 ->
+                if (it2 == 1) {
+                    code = it1
+                    viewModel1.acquisition(requireActivity())
+                } else if (it2 == 2) {
+                    viewModel1.acquisition1(requireActivity())
+                    viewModel.withdraw(it1)
+                }
+
             }
             fBinding.rv1Id.adapter = adapter
         }
         observe(viewModel.loanListData) {
             val manager = LinearLayoutManager(activity)
             fBinding.rv2Id.layoutManager = manager
-            val adapter = MyLoanAdapter(it, requireActivity(), checkData) { it1 ->
-                code = it1
-                viewModel1.acquisition(requireActivity())
-            }
+            val adapter = MyLoanAdapter(it, requireActivity())
             fBinding.rv2Id.adapter = adapter
         }
         observe(viewModel.repaymentListData) {
@@ -127,6 +130,12 @@ class OrderFragment : BaseFragment() {
         }
         observe(viewModel.checkData) {
             checkData = it
+        }
+        observe(viewModel.withdrawData) {
+            if (it) {
+                EventBus.getDefault().post("refresh")
+                ToolUtils.showToast(requireActivity(),getString(R.string.text217))
+            }
         }
         val intent: Intent = Intent(
             activity,

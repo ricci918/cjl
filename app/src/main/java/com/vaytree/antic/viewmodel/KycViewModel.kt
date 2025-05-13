@@ -54,18 +54,7 @@ class KycViewModel : BaseViewModel() {
 
         ) {
         launchWithException {
-            if (name != "" && identity != "" && date != "" && sex != -1 && education != -1 && marriage != -1 && facebook != "" && zalo != "" && email != "") {
-                val isLocalEmail =
-                    Pattern.compile("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
-                        .matcher(email)
-                        .matches()
-                if (!isLocalEmail) {
-                    ToolUtils.showToast(
-                        MyApplication.instance,
-                        MyApplication.instance.getString(R.string.text214)
-                    )
-                    return@launchWithException
-                }
+            if (name != "" && identity != "" && date != "" && sex != -1 && education != -1 && marriage != -1 && facebook != "" && zalo != "") {
                 loadingLiveData.value = true
                 ApiServiceResponse.basicInfo(
                     BasicInfoReq(
@@ -196,6 +185,13 @@ class KycViewModel : BaseViewModel() {
         }
     }
 
+    fun addVay1() {
+        launchWithException {
+            val addVay = ApiServiceResponse.addVay()
+            addVayData.value = true
+        }
+    }
+
     fun acquisition(activity: Activity) {
         launchWithException {
             val acquisition = ApiServiceResponse.acquisition(
@@ -213,11 +209,34 @@ class KycViewModel : BaseViewModel() {
         }
     }
 
+    fun acquisition1(activity: Activity) {
+        launchWithException {
+            val acquisition = ApiServiceResponse.acquisition(
+                AcquisitionReq(
+                    UserDeviceInfo(null, null, null, DeviceInfoUtils.getDeviceInfo(activity)),
+                    null,
+                    null,
+                    null,
+                    null,
+                    DeviceInfoUtils.getUserApplications(activity),
+                    null
+                )
+            )
+        }
+    }
+
     fun orderCreate() {
         launchWithException {
             val orderCreate = ApiServiceResponse.orderCreate(OrderCreateReq())
             orderCreateData.value = true
             loadingLiveData.value = false
+        }
+    }
+
+    fun orderCreate1() {
+        launchWithException {
+            val orderCreate = ApiServiceResponse.orderCreate(OrderCreateReq())
+            orderCreateData.value = true
         }
     }
 

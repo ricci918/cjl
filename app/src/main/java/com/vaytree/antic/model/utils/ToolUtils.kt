@@ -227,6 +227,7 @@ object ToolUtils {
         context.windowManager.defaultDisplay.getMetrics(metric)
         return metric.widthPixels
     }
+
     fun hideKeyboard(
         event: MotionEvent, view: View?,
         activity: Activity
@@ -255,6 +256,11 @@ object ToolUtils {
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
         }
+    }
+
+    fun isNumericRegex(str: String?): Boolean {
+        if (str.isNullOrEmpty()) return false
+        return str.matches("^\\d+$".toRegex())
     }
 
 

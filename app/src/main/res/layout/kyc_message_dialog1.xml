@@ -14,6 +14,7 @@
         android:gravity="start|center_vertical"
         android:text="@string/text139"
         android:textColor="@color/black"
+        android:visibility="gone"
         android:textSize="@dimen/sp_16"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +27,7 @@
         android:layout_marginEnd="@dimen/space_10"
         android:gravity="end|center_vertical"
         android:text="@string/text140"
+        android:visibility="gone"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_16"
         android:textStyle="bold"
@@ -36,34 +38,43 @@
         android:id="@+id/et1_id"
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_35"
-        android:inputType="text"
-        android:paddingStart="@dimen/space_14"
         android:layout_marginStart="@dimen/space_10"
-        android:layout_marginEnd="10dp"
-        android:hint="@string/text215"
-        android:paddingTop="@dimen/space_9"
         android:layout_marginTop="@dimen/space_5"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/shape_white_5"
+        android:hint="@string/text215"
+        android:inputType="text"
+        android:drawableEnd="@mipmap/ss"
+        android:paddingStart="@dimen/space_14"
+        android:paddingTop="@dimen/space_9"
         android:paddingEnd="@dimen/space_14"
         android:paddingBottom="@dimen/space_9"
         android:textSize="@dimen/sp_12"
-        android:background="@drawable/shape_white_5"
         app:layout_constraintTop_toBottomOf="@id/confirm_id" />
 
-    <com.github.gzuliyujiang.wheelview.widget.WheelView
-        android:id="@+id/wv_id"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_20"
-        android:layout_marginEnd="@dimen/space_20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et1_id"
-        app:wheel_cyclicEnabled="false"
-        app:wheel_indicatorEnabled="false"
-        app:wheel_itemSpace="@dimen/space_50"
-        app:wheel_itemTextColor="#9C9C9C"
-        app:wheel_itemTextColorSelected="@color/black"
-        app:wheel_itemTextSize="16sp"
-        app:wheel_itemTextSizeSelected="16sp"
-        app:wheel_visibleItemCount="7" />
+    <!--    <com.github.gzuliyujiang.wheelview.widget.WheelView-->
+    <!--        android:id="@+id/wv_id"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="@dimen/space_20"-->
+    <!--        android:layout_marginEnd="@dimen/space_20"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/et1_id"-->
+    <!--        app:wheel_cyclicEnabled="false"-->
+    <!--        app:wheel_indicatorEnabled="false"-->
+    <!--        app:wheel_itemSpace="@dimen/space_50"-->
+    <!--        app:wheel_itemTextColor="#9C9C9C"-->
+    <!--        app:wheel_itemTextColorSelected="@color/black"-->
+    <!--        app:wheel_itemTextSize="16sp"-->
+    <!--        app:wheel_itemTextSizeSelected="16sp"-->
+    <!--        app:wheel_visibleItemCount="7" />-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_id"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginStart="@dimen/space_10"
+        android:layout_marginTop="@dimen/space_10"
+        android:layout_marginEnd="@dimen/space_10"
+        app:layout_constraintTop_toBottomOf="@id/et1_id" />
 </androidx.constraintlayout.widget.ConstraintLayout>

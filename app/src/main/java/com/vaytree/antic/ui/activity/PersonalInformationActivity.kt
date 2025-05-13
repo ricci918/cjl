@@ -2,14 +2,20 @@ package com.vaytree.antic.ui.activity
 
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.MotionEvent
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import com.vaytree.antic.R
+import com.vaytree.antic.app.MyApplication
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityPersonalInformationBinding
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.dialog.DialogUtils
 import com.vaytree.antic.viewmodel.KycViewModel
+import java.util.regex.Pattern
 
 
 class PersonalInformationActivity : BaseActivity() {
@@ -93,6 +99,31 @@ class PersonalInformationActivity : BaseActivity() {
                     etZalo.text.toString(), etEmail.text.toString()
                 )
             }
+            etEmail.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence?,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                }
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    val isLocalEmail =
+                        Pattern.compile("[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
+                            .matcher(etEmail.text.toString())
+                            .matches()
+                    if (isLocalEmail) {
+                        tv11Id.visibility = View.GONE
+                    } else {
+                        tv11Id.visibility = View.VISIBLE
+                    }
+                }
+
+                override fun afterTextChanged(s: Editable?) {
+
+                }
+            })
         }
     }
 

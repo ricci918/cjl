@@ -29,20 +29,6 @@ class OrderDetailsActivity : BaseActivity() {
             viewModel.orderDetail(orderCode)
             viewModel1.info()
             observe(viewModel.orderDetailData) {
-                when (it.tyxPXMr) {
-                    "PAYING" -> {
-                        cl2Id.visibility = View.VISIBLE
-                    }
-
-                    "REJECT", "CANCELED", "OTHER_ERROR" -> {
-                        cl1Id.visibility = View.VISIBLE
-                    }
-
-                    else -> {
-                        clId.visibility = View.VISIBLE
-                    }
-                }
-
                 tvLoanCommitment.text = it.ILilVJQ.toString()
                 tvCollectionAmount.text = it.POgXdfV.toString()
                 tvAccountManagementFee.text = it.cVgjvar.toString()
@@ -56,6 +42,32 @@ class OrderDetailsActivity : BaseActivity() {
                 )
                 tvCommissionCharge.text = it.SOlaQhz.toString()
                 tvOverdue.text = it.vnE3Jdy.toString()
+                when (it.tyxPXMr) {
+                    "PAYING" -> {
+                        cl2Id.visibility = View.VISIBLE
+                    }
+
+                    "REJECT", "CANCELED", "OTHER_ERROR" -> {
+                        cl1Id.visibility = View.VISIBLE
+                    }
+
+                    "TO_REPAYMENT", "OVERDUE" -> {
+                        clId.visibility = View.VISIBLE
+                        tvRefund.text = it.Osyn4Qq.toString()
+                    }
+
+                    "WAIT_TO_WITHDRAW" -> {
+                        clId.visibility = View.VISIBLE
+                        tv10Id.visibility = View.GONE
+                        tvRepaymentTime.visibility = View.GONE
+                        tvRefund.text = it.Kx9qLCK.toString()
+                    }
+
+                    else -> {
+                        clId.visibility = View.VISIBLE
+                    }
+                }
+
             }
             observe(viewModel1.infoData) {
                 mBinding.tvShroffAccountNumber.text = it.EOG0xi9

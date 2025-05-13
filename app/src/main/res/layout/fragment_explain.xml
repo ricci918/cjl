@@ -11,77 +11,85 @@
         android:id="@+id/head_id"
         layout="@layout/head_layout" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_30"
-        android:layout_marginTop="@dimen/space_30"
-        android:layout_marginEnd="@dimen/space_30"
-        android:background="@drawable/shape_white_20"
-        android:paddingStart="@dimen/space_30"
-        android:paddingTop="@dimen/space_15"
-        android:paddingEnd="@dimen/space_10"
-        android:paddingBottom="@dimen/space_30"
-        app:layout_constraintTop_toBottomOf="@id/head_id">
-
-        <ImageView
-            android:id="@+id/iv_icon"
-            android:layout_width="@dimen/space_84"
-            android:layout_height="@dimen/space_84"
-            android:src="@mipmap/explain"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv1_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_20"
-            android:text="@string/text98"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_18"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/iv_icon"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv2_id"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_20"
-            android:layout_marginTop="@dimen/space_5"
-            android:text="@string/text99"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_12"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iv_icon"
-            app:layout_constraintTop_toBottomOf="@id/tv1_id" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/space_20"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cl_id">
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/head_id">
 
-        <TextView
-            android:id="@+id/tv3_id"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/space_30"
-            android:layout_marginTop="@dimen/space_30"
-            android:layout_marginEnd="@dimen/space_30"
-            android:background="@drawable/shape_white_20"
-            android:paddingStart="@dimen/space_10"
-            android:paddingTop="@dimen/space_20"
-            android:paddingEnd="@dimen/space_10"
-            android:paddingBottom="@dimen/space_20"
-            android:text="@string/text157"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_10" />
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/space_100">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_30"
+                android:layout_marginTop="@dimen/space_30"
+                android:layout_marginEnd="@dimen/space_30"
+                android:background="@drawable/shape_white_20"
+                android:paddingStart="@dimen/space_30"
+                android:paddingTop="@dimen/space_15"
+                android:paddingEnd="@dimen/space_10"
+                android:paddingBottom="@dimen/space_20"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_icon"
+                    android:layout_width="@dimen/space_84"
+                    android:layout_height="@dimen/space_84"
+                    android:src="@mipmap/explain"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv1_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_20"
+                    android:text="@string/text98"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_18"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/iv_icon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv2_id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_20"
+                    android:layout_marginTop="@dimen/space_5"
+                    android:text="@string/text99"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_12"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/iv_icon"
+                    app:layout_constraintTop_toBottomOf="@id/tv1_id" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv3_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_30"
+                android:layout_marginTop="@dimen/space_30"
+                android:layout_marginEnd="@dimen/space_30"
+                android:background="@drawable/shape_white_20"
+                android:paddingStart="@dimen/space_10"
+                android:paddingTop="@dimen/space_20"
+                android:paddingEnd="@dimen/space_10"
+                android:paddingBottom="@dimen/space_20"
+                android:text="@string/text157"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_10"
+                app:layout_constraintTop_toBottomOf="@id/cl_id" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </ScrollView>
 
 

@@ -38,6 +38,7 @@ class UnverifiedActivity : BaseActivity() {
                 }
             }
             tv9Id.text = SharedPreferencesUtil.getSystemInfoData()?.FmE4BgQ ?: ""
+            tv18Id.text = SharedPreferencesUtil.getSystemInfoData()?.MMzyuiZ ?: ""
         }
     }
 }

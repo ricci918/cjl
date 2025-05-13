@@ -1,5 +1,6 @@
 package com.vaytree.antic.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Html
 import android.view.animation.AnimationUtils
@@ -65,7 +66,9 @@ class BorrowMoneyActivity : BaseActivity() {
             }
             observe(viewModel.orderCreateData) {
                 if (it) {
-                    startActivity(MainActivity::class.java)
+                    val intent = Intent(this@BorrowMoneyActivity, MainActivity::class.java)
+                    intent.putExtra("goodReputation","goodReputation")
+                    startActivity(intent)
                     finish()
                 }
             }

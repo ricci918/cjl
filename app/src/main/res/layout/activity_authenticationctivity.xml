@@ -85,6 +85,16 @@
                 android:src="@mipmap/q"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/tv10_id"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_18"
+                android:layout_marginTop="@dimen/space_5"
+                android:text="@string/text230"
+                android:textColor="#006F11"
+                android:textSize="@dimen/sp_10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/schedule3_id" />
 
             <ImageView
                 android:id="@+id/iv_schedule3_id"
@@ -188,6 +198,8 @@
             android:paddingStart="@dimen/space_14"
             android:paddingTop="@dimen/space_9"
             android:paddingEnd="@dimen/space_14"
+            android:maxLines="1"
+            android:singleLine="true"
             android:paddingBottom="@dimen/space_9"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_12"

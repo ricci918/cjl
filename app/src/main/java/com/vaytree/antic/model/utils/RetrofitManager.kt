@@ -1,6 +1,12 @@
 package com.vaytree.antic.model.utils
 
+import android.text.TextUtils
+import android.widget.Toast
 import com.vaytree.antic.app.MyApplication
+import com.vaytree.antic.base.BaseActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -49,5 +55,33 @@ object RetrofitManager {
         val request = builder.build()
 
         return@Interceptor chain.proceed(request)
+    }
+
+    fun launchWithException(
+        scope: CoroutineScope = GlobalScope,
+        needToast: Boolean = false,
+        onException: (() -> Unit)? = null,
+        func: (suspend () -> Unit)? = null
+    ) {
+        scope.launch {
+            try {
+                func?.invoke()
+            } catch (ex: Exception) {
+                when (ex) {
+                    is BaseActivity.NetException -> {
+                        if (needToast) {
+                            Toast.makeText(
+                                MyApplication.instance, if (TextUtils.isEmpty(ex.msg)) {
+                                    ""
+                                } else {
+                                    ex.msg
+                                }, Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                }
+                onException?.invoke()
+            }
+        }
     }
 }

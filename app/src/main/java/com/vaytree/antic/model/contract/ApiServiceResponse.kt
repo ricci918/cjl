@@ -8,6 +8,7 @@ import com.vaytree.antic.model.data.AreaListData
 import com.vaytree.antic.model.data.AuditListData
 import com.vaytree.antic.model.data.BankListData
 import com.vaytree.antic.model.data.BasicInfoReq
+import com.vaytree.antic.model.data.CommitReq
 import com.vaytree.antic.model.data.InfoData
 import com.vaytree.antic.model.data.LoanListData
 import com.vaytree.antic.model.data.LoginData
@@ -177,5 +178,9 @@ object ApiServiceResponse : BaseRepository() {
 
     suspend fun vNotify(): Any {
         return service.vNotify().getResponseData()
+    }
+
+    suspend fun commit(data: CommitReq): Any {
+        return service.commit(data).getResponseData()
     }
 }

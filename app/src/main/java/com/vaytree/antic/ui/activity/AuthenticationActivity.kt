@@ -3,9 +3,11 @@ package com.vaytree.antic.ui.activity
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap.CompressFormat
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.view.MotionEvent
 import androidx.core.content.ContextCompat
@@ -24,6 +26,7 @@ import com.yanzhenjie.permission.AndPermission
 import java.io.File
 import java.io.FileNotFoundException
 
+
 open class AuthenticationActivity : BaseActivity() {
     private lateinit var mBinding: ActivityAuthenticationctivityBinding
     private val viewModel by lazy { ViewModelProvider(this)[KycViewModel::class.java] }
@@ -34,6 +37,7 @@ open class AuthenticationActivity : BaseActivity() {
     private var child2 = "imageOut2.jpeg"
     private var child3 = "imageOut3.jpeg"
     private var needReq = false
+    private var orderCreated: Boolean? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityAuthenticationctivityBinding.inflate(layoutInflater)
@@ -54,12 +58,13 @@ open class AuthenticationActivity : BaseActivity() {
             mBinding.etName.text = it.Wtkf9L1
             mBinding.etBankAccount.setText(it.OP3wOGr.jji2py5)
             mBinding.tvBank.text = it.OP3wOGr.WUMJac5
+            orderCreated = it.VrFTK75
         }
         observe(viewModel.addBankInfoData) {
             if (it) {
                 if (SharedPreferencesUtil.getSystemInfoData()?.qcFOge0 == true) {
                     if (SharedPreferencesUtil.getSystemInfoData()?.upaPdXO == true) {
-                        startActivity(MainActivity::class.java)
+                        viewModel.addVay1()
                     } else {
                         startActivity(BorrowMoneyActivity::class.java)
                     }
@@ -68,6 +73,25 @@ open class AuthenticationActivity : BaseActivity() {
                     intent.putExtra("isAuthenticationActivity", true)
                     startActivity(intent)
                 }
+                finishAffinity()
+            }
+        }
+
+        observe(viewModel.addVayData) {
+            if (it) {
+                if (orderCreated == false) {
+                    viewModel.acquisition(this)
+                }
+            }
+        }
+        observe(viewModel.acquisitionData) {
+            if (it) {
+                viewModel.orderCreate1()
+            }
+        }
+        observe(viewModel.orderCreateData) {
+            if (it) {
+                startActivity(MainActivity::class.java)
                 finishAffinity()
             }
         }
@@ -196,8 +220,15 @@ open class AuthenticationActivity : BaseActivity() {
             try {
                 val convertPathToFile =
                     ToolUtils.convertPathToFile("$externalCacheDir/$child1")
-                val newFile =
-                    CompressHelper.getDefault(this).compressToFile(convertPathToFile)
+                val newFile = CompressHelper.Builder(this)
+                    .setMaxWidth(1920f)
+                    .setMaxHeight(1080f)
+                    .setQuality(95)
+                    .setCompressFormat(CompressFormat.JPEG)
+                    .build()
+                    .compressToFile(convertPathToFile)
+//                val newFile =
+//                    CompressHelper.getDefault(this).compressToFile(convertPathToFile)
                 viewModel.identity(newFile, 1)
                 mBinding.iv2Id.setImageResource(R.mipmap.succeed)
             } catch (e: FileNotFoundException) {
@@ -210,8 +241,13 @@ open class AuthenticationActivity : BaseActivity() {
             try {
                 val convertPathToFile =
                     ToolUtils.convertPathToFile("$externalCacheDir/$child2")
-                val newFile =
-                    CompressHelper.getDefault(this).compressToFile(convertPathToFile)
+                val newFile = CompressHelper.Builder(this)
+                    .setMaxWidth(1920f)
+                    .setMaxHeight(1080f)
+                    .setQuality(95)
+                    .setCompressFormat(CompressFormat.JPEG)
+                    .build()
+                    .compressToFile(convertPathToFile)
                 viewModel.identity(newFile, 2)
                 mBinding.iv4Id.setImageResource(R.mipmap.succeed)
             } catch (e: FileNotFoundException) {
@@ -223,8 +259,13 @@ open class AuthenticationActivity : BaseActivity() {
             try {
                 val convertPathToFile =
                     ToolUtils.convertPathToFile("$externalCacheDir/$child3")
-                val newFile =
-                    CompressHelper.getDefault(this).compressToFile(convertPathToFile)
+                val newFile = CompressHelper.Builder(this)
+                    .setMaxWidth(1920f)
+                    .setMaxHeight(1080f)
+                    .setQuality(95)
+                    .setCompressFormat(CompressFormat.JPEG)
+                    .build()
+                    .compressToFile(convertPathToFile)
                 viewModel.identity(newFile, 3)
                 mBinding.iv6Id.setImageResource(R.mipmap.succeed)
             } catch (e: FileNotFoundException) {
@@ -232,6 +273,7 @@ open class AuthenticationActivity : BaseActivity() {
             }
         }
     }
+
     private fun isJurisdiction() {
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -243,6 +285,7 @@ open class AuthenticationActivity : BaseActivity() {
             needReq = true
         }
     }
+
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
         when (ev.action) {
             MotionEvent.ACTION_DOWN -> {

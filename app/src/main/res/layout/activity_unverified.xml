@@ -167,7 +167,7 @@
                 android:layout_height="@dimen/space_24"
                 android:layout_marginTop="@dimen/space_20"
                 android:layout_marginEnd="@dimen/space_5"
-                android:src="@mipmap/tb2"
+                android:src="@mipmap/kf1"
                 app:layout_constraintEnd_toStartOf="@id/tv9_id"
                 app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
@@ -184,19 +184,42 @@
                 app:layout_constraintStart_toEndOf="@id/iv_id"
                 app:layout_constraintTop_toBottomOf="@id/tv8_id" />
 
+            <ImageView
+                android:id="@+id/iv1_id"
+                android:layout_width="@dimen/space_21"
+                android:layout_height="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_10"
+                android:layout_marginEnd="@dimen/space_5"
+                android:src="@mipmap/yx1"
+                app:layout_constraintEnd_toStartOf="@id/tv18_id"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv9_id" />
+
+            <TextView
+                android:id="@+id/tv18_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_10"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv1_id"
+                app:layout_constraintTop_toBottomOf="@id/tv9_id" />
+
 
             <TextView
                 android:id="@+id/tv10_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_30"
+                android:layout_marginTop="@dimen/space_20"
                 android:text="@string/text15"
                 android:textColor="#69000000"
                 android:gravity="center"
                 android:textSize="@dimen/sp_12"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv9_id" />
+                app:layout_constraintTop_toBottomOf="@id/tv18_id" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView

@@ -46,9 +46,8 @@ class MyApplication : Application() {
     private fun initAgId() {
         if (SharedPreferencesUtil.getGaId() == "") {
             GlobalScope.launch(Dispatchers.IO) {
-                val idInfo: AdvertisingIdClient.Info
                 try {
-                    idInfo = AdvertisingIdClient.getAdvertisingIdInfo(this@MyApplication)
+                    val idInfo: AdvertisingIdClient.Info = AdvertisingIdClient.getAdvertisingIdInfo(this@MyApplication)
                     SharedPreferencesUtil.putGaId(idInfo.id ?: "")
                     //do sth with the id
                 } catch (e: Exception) {
@@ -57,8 +56,9 @@ class MyApplication : Application() {
             }
         }
     }
+
     private lateinit var referrerClient: InstallReferrerClient
-    private fun installReferrer(){
+    private fun installReferrer() {
         referrerClient = InstallReferrerClient.newBuilder(this).build()
         referrerClient.startConnection(object : InstallReferrerStateListener {
 
@@ -69,9 +69,11 @@ class MyApplication : Application() {
                         val response = referrerClient.installReferrer
                         referrerClient.endConnection()
                     }
+
                     InstallReferrerClient.InstallReferrerResponse.FEATURE_NOT_SUPPORTED -> {
                         // API not available on the current Play Store app.
                     }
+
                     InstallReferrerClient.InstallReferrerResponse.SERVICE_UNAVAILABLE -> {
                         // Connection couldn't be established.
                     }

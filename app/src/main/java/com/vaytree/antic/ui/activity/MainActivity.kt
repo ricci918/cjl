@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityMainBinding
@@ -14,9 +15,11 @@ import com.vaytree.antic.ui.dialog.DialogUtils
 import com.vaytree.antic.ui.fragment.ExplainFragment
 import com.vaytree.antic.ui.fragment.MineFragment
 import com.vaytree.antic.ui.fragment.OrderFragment
+import com.vaytree.antic.viewmodel.MainViewModel
 
 class MainActivity : BaseActivity(), View.OnClickListener {
     private lateinit var mBinding: ActivityMainBinding
+    private val viewModel by lazy { ViewModelProvider(this)[MainViewModel::class.java] }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -42,6 +45,10 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     private fun initView() {
         mBinding.apply {
             viewOnClick(rb1Id, rb2Id, rb3Id)
+            val goodReputation = intent.getStringExtra("goodReputation")
+            if (goodReputation == "goodReputation"){
+                DialogUtils.showGoodReputationDialog(this@MainActivity)
+            }
         }
         if (SharedPreferencesUtil.getSystemInfoData()?.guxDxiV!! > ToolUtils.getVersionCode(this)) {
             DialogUtils.showUpdateDialog(this, SharedPreferencesUtil.getSystemInfoData()?.xyL5ST9!!)

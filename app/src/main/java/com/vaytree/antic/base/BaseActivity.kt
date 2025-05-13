@@ -28,7 +28,7 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
-
+    class NetException(val code: Int, val msg: String) : Exception("code = $code msg = $msg")
     fun <T> observe(liveData: LiveData<T>, observer: Observer<T>) {
         liveData.observe(this, observer)
     }
