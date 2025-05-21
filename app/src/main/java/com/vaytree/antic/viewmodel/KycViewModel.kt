@@ -106,30 +106,22 @@ class KycViewModel : BaseViewModel() {
         list: List<Attach>
     ) {
         launchWithException {
-            if (companyName != "" && companyPhone != "" && companyAddr != "" && job != -1 && salary != -1 && livingProvince != "" && livingCity != "" && livingAddress != "") {
-                loadingLiveData.value = true
-                ApiServiceResponse.addAttachInfo(
-                    AddAttachInfoReq(
-                        job,
-                        salary,
-                        companyName,
-                        companyPhone,
-                        companyAddr,
-                        livingProvince,
-                        livingCity,
-                        livingAddress,
-                        list
-                    )
+            loadingLiveData.value = true
+            ApiServiceResponse.addAttachInfo(
+                AddAttachInfoReq(
+                    job,
+                    salary,
+                    companyName,
+                    companyPhone,
+                    companyAddr,
+                    livingProvince,
+                    livingCity,
+                    livingAddress,
+                    list
                 )
-                addAttachInfoData.value = true
-                loadingLiveData.value = false
-            } else {
-                ToolUtils.showToast(
-                    MyApplication.instance,
-                    MyApplication.instance.getString(R.string.text138)
-                )
-            }
-
+            )
+            addAttachInfoData.value = true
+            loadingLiveData.value = false
         }
     }
 
@@ -242,21 +234,29 @@ class KycViewModel : BaseViewModel() {
 
     fun addBankInfo(paymentNumber: String, paymentType: String) {
         launchWithException {
-            loadingLiveData.value = true
-            val addBankInfo = ApiServiceResponse.addBankInfo(
-                AddBankInfoReq(
-                    paymentNumber,
-                    paymentType,
-                    null,
-                    null,
-                    image1!!.toInt().toString(),
-                    image2!!.toInt().toString(),
-                    image3!!.toInt().toString(),
-                    false
+            if (paymentNumber != "" && paymentType != "" && image1 != null && image2 != null && image3 != null) {
+                loadingLiveData.value = true
+                val addBankInfo = ApiServiceResponse.addBankInfo(
+                    AddBankInfoReq(
+                        paymentNumber,
+                        paymentType,
+                        null,
+                        null,
+                        image1!!.toInt().toString(),
+                        image2!!.toInt().toString(),
+                        image3!!.toInt().toString(),
+                        false
+                    )
                 )
-            )
-            addBankInfoData.value = true
-            loadingLiveData.value = false
+                addBankInfoData.value = true
+                loadingLiveData.value = false
+            } else {
+                ToolUtils.showToast(
+                    MyApplication.instance,
+                    MyApplication.instance.getString(R.string.text138)
+                )
+            }
+
         }
     }
 

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.text.Html
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
@@ -12,10 +13,13 @@ import com.vaytree.antic.databinding.ActivityLoginBinding
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.viewmodel.LoginViewModel
 
+
 class LoginActivity : BaseActivity() {
     private lateinit var mBinding: ActivityLoginBinding
     private val viewModel by lazy { ViewModelProvider(this)[LoginViewModel::class.java] }
     private lateinit var countDownTimer: CountDownTimer
+    private var fbc = ""
+    private var fbp = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityLoginBinding.inflate(layoutInflater)
@@ -76,6 +80,20 @@ class LoginActivity : BaseActivity() {
 
     private fun initView() {
         observerCommon(viewModel, true)
+        if (intent != null && intent.extras != null) {
+            val extras = intent.extras
+            // 获取_fbc参数
+            val _fbc = extras!!.getString("_fbc")
+            if (_fbc != null) {
+                fbc = _fbc
+            }
+            // 获取_fbp参数
+            val _fbp = extras.getString("_fbp")
+            if (_fbp != null) {
+                fbp = _fbp
+            }
+
+        }
         mBinding.apply {
             tv4Id.text = Html.fromHtml(getString(R.string.text8))
             codeId.setOnClickListener {
@@ -86,7 +104,7 @@ class LoginActivity : BaseActivity() {
                 viewModel.login(
                     this@LoginActivity,
                     mBinding.etPhone.text.toString(),
-                    mBinding.etCode.text.toString()
+                    mBinding.etCode.text.toString(),fbc, fbp
                 )
             }
             tv4Id.setOnClickListener {

@@ -75,9 +75,9 @@ data class AcquisitionReq(
         var Vg6FHDJ //cpu名称
                 : String? = null
         var vbMbtiv //cpu当前频率
-                : Int? = null
+                : Long? = null
         var C1tWG7I //cpu最大频率
-                : Int? = null
+                : Long? = null
         var zgbl76v //设备当前时间
                 : Long? = null
         var BXz8UfX //手机信号强度
@@ -155,9 +155,9 @@ data class AcquisitionReq(
         var uH9X8os //手机出厂时间戳
                 : Int? = null
         var kxkhIH4 //总内存大小
-                : Int? = null
+                : Long? = null
         var S01TVt3 //可用内存大小
-                : Int? = null
+                : Long? = null
         var SBQEiTa //系统版本
                 : String? = null
         var FlZGH7U //屏幕分辨率

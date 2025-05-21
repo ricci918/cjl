@@ -12,4 +12,6 @@ data class LoginSmsReq(
     val oHAZFwm: String,//campaignId
     val gHB9NXg: String,//advertisingId
     val ZJXRICr: Long,//installTime
+    val mIpw0i3: String,//fbc
+    val SG3LcWG: String,//fbp
 )

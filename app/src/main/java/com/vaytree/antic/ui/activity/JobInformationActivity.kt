@@ -3,6 +3,8 @@ package com.vaytree.antic.ui.activity
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.lifecycle.ViewModelProvider
+import com.vaytree.antic.R
+import com.vaytree.antic.app.MyApplication
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityJobInformationBinding
 import com.vaytree.antic.model.data.AreaList
@@ -12,7 +14,6 @@ import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.dialog.DialogUtils
 import com.vaytree.antic.viewmodel.KycViewModel
-import java.util.ArrayList
 
 class JobInformationActivity : BaseActivity() {
     private val viewModel by lazy { ViewModelProvider(this)[KycViewModel::class.java] }
@@ -25,7 +26,6 @@ class JobInformationActivity : BaseActivity() {
     private var relation3 = -1
     private var province = ""
     private var county = ""
-    private var arrayList: ArrayList<Attach>? = null
     private var areaList: MutableList<AreaList>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -136,41 +136,52 @@ class JobInformationActivity : BaseActivity() {
                 }
             }
             tvNext.setOnClickListener {
-                arrayList = arrayListOf()
-                arrayList?.add(
+                val arrayList = arrayListOf<Attach>()
+                arrayList.add(
                     Attach(
                         etFamilyName1.text.toString(),
                         etFamilyPhone1.text.toString(),
                         relation1, 0
                     )
                 )
-                arrayList?.add(
+                arrayList.add(
                     Attach(
                         etFamilyName2.text.toString(),
                         etFamilyPhone2.text.toString(),
                         relation2, 1
                     )
                 )
-                arrayList?.add(
+                arrayList.add(
                     Attach(
                         etFamilyName3.text.toString(),
                         etFamilyPhone3.text.toString(),
                         relation3, 2
                     )
                 )
-                arrayList?.let { it1 ->
-                    viewModel.addAttachInfo(
-                        job,
-                        salary,
-                        etCompanyName.text.toString(),
-                        etCompanyPhone.text.toString(),
-                        etSite.text.toString(),
-                        province,
-                        county,
-                        etSpecificAddress.text.toString(),
-                        it1
+                if (etCompanyName.text.toString() != "" && etCompanyPhone.text.toString() != "" && etSpecificAddress.text.toString() != "" && job != -1 && salary != -1 && province != "" && county != "" && etSite.text.toString() != ""
+                    && etFamilyName1.text.toString() != "" && etFamilyName2.text.toString() != "" && etFamilyName3.text.toString() != "" && etFamilyPhone1.text.toString() != "" && etFamilyPhone2.text.toString() != "" && etFamilyPhone3.text.toString() != ""
+                    && relation1 != -1 && relation2 != -1 && relation3 != -1
+                ) {
+                    arrayList.let { it1 ->
+                        viewModel.addAttachInfo(
+                            job,
+                            salary,
+                            etCompanyName.text.toString(),
+                            etCompanyPhone.text.toString(),
+                            etSite.text.toString(),
+                            province,
+                            county,
+                            etSpecificAddress.text.toString(),
+                            it1
+                        )
+                    }
+                } else {
+                    ToolUtils.showToast(
+                        MyApplication.instance,
+                        MyApplication.instance.getString(R.string.text138)
                     )
                 }
+
             }
 
         }

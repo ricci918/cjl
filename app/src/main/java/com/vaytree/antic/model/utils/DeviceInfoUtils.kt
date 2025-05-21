@@ -2,6 +2,7 @@ package com.vaytree.antic.model.utils
 
 import android.Manifest
 import android.app.Activity
+import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
@@ -10,6 +11,8 @@ import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
 import android.location.LocationListener
 import android.location.LocationManager
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.wifi.WifiManager
 import android.os.BatteryManager
 import android.os.Build
@@ -21,7 +24,6 @@ import android.provider.Settings.SettingNotFoundException
 import android.telephony.TelephonyManager
 import android.text.TextUtils
 import android.util.DisplayMetrics
-import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import com.google.android.gms.ads.identifier.AdvertisingIdClient
@@ -32,6 +34,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.BufferedReader
 import java.io.File
+import java.io.FileReader
 import java.io.IOException
 import java.io.InputStreamReader
 import java.net.NetworkInterface
@@ -151,6 +154,11 @@ object DeviceInfoUtils {
             NoynuwU = totalSize.toString()
             j75vbfM = availableSize.toString()
             rwxPzwx = TimeZone.getDefault().id
+            val cm: ConnectivityManager =
+                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val capabilities: NetworkCapabilities = cm.getNetworkCapabilities(cm.activeNetwork)!!
+
+
             val mWifiManager =
                 context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
             if (PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
@@ -158,8 +166,6 @@ object DeviceInfoUtils {
                     Manifest.permission.ACCESS_WIFI_STATE
                 )
             ) {
-                val mWifiManager =
-                    context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
                 val mWifiConfiguration = mWifiManager.configuredNetworks
                 mWifiConfiguration.map {
                     Da0PAkm = it.SSID
@@ -168,13 +174,14 @@ object DeviceInfoUtils {
                 VtLe2Wc = IpUtil.getIp()
                 val mWifiInfo = mWifiManager.connectionInfo
                 m73lc1G = mWifiInfo.macAddress
-                nBSi0A2 = mWifiManager.scanResults.size
                 val wifi = AcquisitionReq.Wifi()
                 wifi.yKT5shP = mWifiInfo.bssid
                 wifi.vERh7Mx = Da0PAkm
                 wifi.OQKEra1 = m73lc1G
                 wifi.wwWip6b = mWifiInfo.ssid
                 FlfFzfO = wifi
+                nBSi0A2 = mWifiManager.scanResults.size
+
             }
             val timeMillis = System.currentTimeMillis()
             zgbl76v = timeMillis
@@ -194,22 +201,72 @@ object DeviceInfoUtils {
                 }
             }
             eqMtJs1 = System.currentTimeMillis()
+            try {
+                val activityManager: ActivityManager =
+                    context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+                val memoryInfo: ActivityManager.MemoryInfo = ActivityManager.MemoryInfo()
+                activityManager.getMemoryInfo(memoryInfo)
+                val totalMemory: Long = memoryInfo.totalMem
+                val availableMemory: Long = memoryInfo.availMem
+                kxkhIH4 = totalMemory
+                S01TVt3 = availableMemory
+            } catch (_: Exception) {
+            }
+            MKItaVW = Runtime.getRuntime().availableProcessors()
+            Vg6FHDJ = Build.HARDWARE
+            vbMbtiv = getCurrentCpuFreq(0)
+            C1tWG7I = getMaxCpuFreq(0)
+            EsbPCmO = getNetworkType(context)
         }
 
         return deviceInfo
     }
 
-    private fun getUnit(size: Float): String {
-        var size = size
-        var index = 0
-        while (size > 1024 && index < 4) {
-            size /= 1024
-            index++
-        }
-        return java.lang.String.format(Locale.getDefault(), " %.2f %s", size, units.get(index))
-    }
+    fun getNetworkType(context: Context): String {
 
-    private val units = arrayOf("B", "KB", "MB", "GB", "TB")
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+        val networkInfo = connectivityManager?.activeNetworkInfo
+        if (networkInfo != null && networkInfo.isConnected) {
+            val networkType = networkInfo.type
+            if (networkType == ConnectivityManager.TYPE_WIFI) {
+                // 当前网络为WiFi网络
+                // ...
+                return "wifi"
+            } else if (networkType == ConnectivityManager.TYPE_MOBILE) {
+//                // 当前网络为移动网络
+//                // ...
+//                val telephonyManager =
+//                    context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager?
+//                val networkType = telephonyManager?.networkType
+//                when (networkType) {
+//                    TelephonyManager.NETWORK_TYPE_GPRS, TelephonyManager.NETWORK_TYPE_EDGE, TelephonyManager.NETWORK_TYPE_CDMA, TelephonyManager.NETWORK_TYPE_1xRTT, TelephonyManager.NETWORK_TYPE_IDEN -> {
+//                        return "2g"
+//                    }
+//
+//                    TelephonyManager.NETWORK_TYPE_UMTS, TelephonyManager.NETWORK_TYPE_EVDO_0, TelephonyManager.NETWORK_TYPE_EVDO_A, TelephonyManager.NETWORK_TYPE_HSDPA, TelephonyManager.NETWORK_TYPE_HSUPA, TelephonyManager.NETWORK_TYPE_HSPA, TelephonyManager.NETWORK_TYPE_EVDO_B, TelephonyManager.NETWORK_TYPE_EHRPD, TelephonyManager.NETWORK_TYPE_HSPAP -> {
+//                        return "3g"
+//                    }
+//
+//                    TelephonyManager.NETWORK_TYPE_LTE -> {
+//                        return "4g"
+//                    }
+//
+//                    TelephonyManager.NETWORK_TYPE_NR -> {
+//                        return "5g"
+//                    }
+//
+//                    else -> {
+//                        return "other"
+//                    }
+//                }
+                return "mobile"
+            }
+        } else {
+            return "none"
+        }
+        return ""
+    }
 
     /*
      * 判断设备 是否使用代理上网
@@ -330,5 +387,29 @@ object DeviceInfoUtils {
 
         return listOf.distinct()
     }
+    fun getCurrentCpuFreq(coreIndex: Int): Long {
+        val path = "/sys/devices/system/cpu/cpu$coreIndex/cpufreq/scaling_cur_freq"
+        try {
+            val br = BufferedReader(FileReader(path))
+            val freq = br.readLine()
+            br.close()
+            return freq.toLong()
+        } catch (e: java.lang.Exception) {
+            return -1 // 文件不存在或读取失败
+        }
+    }
+
+    fun getMaxCpuFreq(coreIndex: Int): Long {
+        val path = "/sys/devices/system/cpu/cpu$coreIndex/cpufreq/cpuinfo_max_freq"
+        try {
+            val br = BufferedReader(FileReader(path))
+            val freq = br.readLine()
+            br.close()
+            return freq.toLong()
+        } catch (e: java.lang.Exception) {
+            return -1
+        }
+    }
+
 
 }

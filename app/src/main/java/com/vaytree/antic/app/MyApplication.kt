@@ -5,7 +5,10 @@ import com.android.installreferrer.api.InstallReferrerClient
 import com.android.installreferrer.api.InstallReferrerStateListener
 import com.appsflyer.AppsFlyerConversionListener
 import com.appsflyer.AppsFlyerLib
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsLogger
 import com.google.android.gms.ads.identifier.AdvertisingIdClient
+import com.vaytree.antic.R
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
 import kotlinx.coroutines.Dispatchers
@@ -20,6 +23,10 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+        FacebookSdk.setApplicationId(getString(R.string.facebook_application_id))
+        FacebookSdk.setClientToken(getString(R.string.facebook_client_token))
+        FacebookSdk.sdkInitialize(this)
+        AppEventsLogger.activateApp(this)
         SharedPreferencesUtil.init(instance)
         ToolUtils.init(instance)
         val appsFlyerConversion = object : AppsFlyerConversionListener {
@@ -41,6 +48,7 @@ class MyApplication : Application() {
         AppsFlyerLib.getInstance().start(this)
         initAgId()
         installReferrer()
+
     }
 
     private fun initAgId() {
