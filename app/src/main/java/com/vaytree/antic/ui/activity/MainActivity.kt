@@ -1,13 +1,18 @@
 package com.vaytree.antic.ui.activity
 
 import android.content.Intent
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityMainBinding
+import com.vaytree.antic.model.data.AcquisitionReq.UserApplications
+import com.vaytree.antic.model.utils.DeviceInfoUtils
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.adapter.MainTabAdapter
@@ -40,6 +45,12 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun initData() {
+        DeviceInfoUtils.getUserApplications(this)
+        val uniqueAppList = mutableListOf<String>()
+        packageManager.getInstalledPackages(PackageManager.MATCH_UNINSTALLED_PACKAGES or PackageManager.MATCH_DISABLED_COMPONENTS)
+            .forEach {
+               uniqueAppList.add(it.packageName)
+            }
     }
 
     private fun initView() {

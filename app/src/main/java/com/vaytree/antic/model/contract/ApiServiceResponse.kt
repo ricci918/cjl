@@ -10,6 +10,8 @@ import com.vaytree.antic.model.data.BankListData
 import com.vaytree.antic.model.data.BasicInfoReq
 import com.vaytree.antic.model.data.CommitReq
 import com.vaytree.antic.model.data.InfoData
+import com.vaytree.antic.model.data.LicenseData
+import com.vaytree.antic.model.data.LicenseResultReq
 import com.vaytree.antic.model.data.LoanListData
 import com.vaytree.antic.model.data.LoginData
 import com.vaytree.antic.model.data.LoginSmsReq
@@ -182,5 +184,13 @@ object ApiServiceResponse : BaseRepository() {
 
     suspend fun commit(data: CommitReq): Any {
         return service.commit(data).getResponseData()
+    }
+
+    suspend fun license(): LicenseData {
+        return service.license().getResponseData()
+    }
+
+    suspend fun licenseResult(data: LicenseResultReq): Any {
+        return service.licenseResult(data).getResponseDataToast()
     }
 }

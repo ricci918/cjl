@@ -92,4 +92,9 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:2.0.21")
     implementation("com.android.installreferrer:installreferrer:2.2")
     implementation("com.facebook.android:facebook-android-sdk:18.0.3")
+    implementation("com.trustdecision.android:mobrisk:4.8.0.2"){
+        exclude(group = "com.trustdecision.android", module = "packagelist")
+    }
+    implementation("com.trustdecision.android:liveness-lite:2.5.1")
+
 }

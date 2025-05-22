@@ -10,6 +10,8 @@ import com.vaytree.antic.model.data.BasicInfoReq
 import com.vaytree.antic.model.data.CommitReq
 import com.vaytree.antic.model.data.HttpResult
 import com.vaytree.antic.model.data.InfoData
+import com.vaytree.antic.model.data.LicenseData
+import com.vaytree.antic.model.data.LicenseResultReq
 import com.vaytree.antic.model.data.LoanListData
 import com.vaytree.antic.model.data.LoginData
 import com.vaytree.antic.model.data.LoginSmsReq
@@ -120,5 +122,11 @@ interface ApiService {
 
     @POST("/api/app/Nq8cXFV")
     suspend fun commit(@Body data: CommitReq): HttpResult<Any>
+
+    @GET("/api/app/DtzJVcE")
+    suspend fun license(): HttpResult<LicenseData>
+
+    @POST("/api/app/cMwXSjh")
+    suspend fun licenseResult(@Body data: LicenseResultReq): HttpResult<Any>
 
 }

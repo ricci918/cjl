@@ -243,7 +243,7 @@ data class AcquisitionReq(
         var LbFjKqZ//版本
                 : String? = null,
         var w2yRtja//版本号
-                : Int? = null,
+                : Long? = null,
         var GLEXpI6//是否为系统应用
                 : Int? = null
 

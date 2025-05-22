@@ -112,5 +112,79 @@
 -keep class com.appsflyer.** { *; }
 -keep class kotlin.jvm.internal.** { *; }
 -keep public class com.android.installreferrer.** { *; }
+#trustdecision
+-keep class com.trustdecision.**{*;}
+-keep class cn.tongdun.**{*;}
+# Please add these rules to your existing keep rules in order to suppress warnings.
+# This is generated automatically by the Android Gradle plugin.
+-dontwarn cn.cloudwalk.jni.WatermarkSdk
+-dontwarn cn.cloudwalk.sdk.entity.beauty.BeautyInputImage
+-dontwarn cn.cloudwalk.sdk.entity.beauty.BeautyOutputImage
+-dontwarn cn.cloudwalk.sdk.gldisplay.CWGLDisplay
+-dontwarn cn.cloudwalk.sdk.gldisplay.GLFrameSurface
+-dontwarn cn.cloudwalk.sdk.sdk.beauty.BeautySdk
+-dontwarn cn.cloudwalk.videorecord.AudioRecorder
+-dontwarn cn.cloudwalk.videorecord.IMediaRecorder
+-dontwarn cn.cloudwalk.videorecord.jniinterface.FFmpegBridge$FFmpegStateListener
+-dontwarn cn.cloudwalk.videorecord.jniinterface.FFmpegBridge
+-dontwarn cn.cloudwalk.videorecord.model.MediaObject$MediaPart
+-dontwarn cn.cloudwalk.videorecord.model.MediaObject
+-dontwarn cn.cloudwalk.videorecord.util.SystemUtil
+-dontwarn cn.com.westone.wcspsdk.impl.jni.Utils
+-dontwarn cn.keyou.api.utils.Hex
+-dontwarn cn.keyou.ssm.client.Algorithm
+-dontwarn cn.keyou.ssm.client.AsymmetricKey
+-dontwarn cn.keyou.ssm.client.Envelope
+-dontwarn com.westone.wvcm.jce.ext.WVCMDataFactory
+-dontwarn com.westone.wvcm.jce.key.KeyFactoryExt
+-dontwarn com.westone.wvcm.jce.key.WVCMHMACKey
+-dontwarn com.westone.wvcm.jce.key.WVCMSessionKey
+-dontwarn com.westone.wvcm.jce.skf.WVCMProvider
+-dontwarn com.westone.wvcm.jce.skf.spec.WVCMBLOCKCIPHERParameterSpec
+-dontwarn com.westone.wvcm.jce.skf.spec.WVCMGenKeySpec
+-dontwarn com.westone.wvcm.jce.skf.wrapper.WVCMSKFApi
+-dontwarn org.bouncycastle.asn1.x9.ECNamedCurveTable
+-dontwarn org.bouncycastle.asn1.x9.X9ECParameters
+-dontwarn org.bouncycastle.crypto.AsymmetricCipherKeyPair
+-dontwarn org.bouncycastle.crypto.CipherParameters
+-dontwarn org.bouncycastle.crypto.CryptoException
+-dontwarn org.bouncycastle.crypto.CryptoServicesRegistrar
+-dontwarn org.bouncycastle.crypto.Digest
+-dontwarn org.bouncycastle.crypto.InvalidCipherTextException
+-dontwarn org.bouncycastle.crypto.KeyGenerationParameters
+-dontwarn org.bouncycastle.crypto.Signer
+-dontwarn org.bouncycastle.crypto.digests.SM3Digest
+-dontwarn org.bouncycastle.crypto.engines.SM2Engine$Mode
+-dontwarn org.bouncycastle.crypto.engines.SM2Engine
+-dontwarn org.bouncycastle.crypto.generators.ECKeyPairGenerator
+-dontwarn org.bouncycastle.crypto.macs.HMac
+-dontwarn org.bouncycastle.crypto.params.AsymmetricKeyParameter
+-dontwarn org.bouncycastle.crypto.params.ECDomainParameters
+-dontwarn org.bouncycastle.crypto.params.ECKeyGenerationParameters
+-dontwarn org.bouncycastle.crypto.params.ECKeyParameters
+-dontwarn org.bouncycastle.crypto.params.ECPrivateKeyParameters
+-dontwarn org.bouncycastle.crypto.params.ECPublicKeyParameters
+-dontwarn org.bouncycastle.crypto.params.KeyParameter
+-dontwarn org.bouncycastle.crypto.params.ParametersWithID
+-dontwarn org.bouncycastle.crypto.params.ParametersWithRandom
+-dontwarn org.bouncycastle.crypto.signers.DSAEncoding
+-dontwarn org.bouncycastle.crypto.signers.DSAKCalculator
+-dontwarn org.bouncycastle.crypto.signers.PlainDSAEncoding
+-dontwarn org.bouncycastle.crypto.signers.RandomDSAKCalculator
+-dontwarn org.bouncycastle.crypto.signers.StandardDSAEncoding
+-dontwarn org.bouncycastle.jcajce.provider.asymmetric.ec.BCECPrivateKey
+-dontwarn org.bouncycastle.jcajce.provider.asymmetric.util.ECUtil
+-dontwarn org.bouncycastle.jce.provider.BouncyCastleProvider
+-dontwarn org.bouncycastle.math.ec.ECAlgorithms
+-dontwarn org.bouncycastle.math.ec.ECConstants
+-dontwarn org.bouncycastle.math.ec.ECCurve
+-dontwarn org.bouncycastle.math.ec.ECFieldElement
+-dontwarn org.bouncycastle.math.ec.ECMultiplier
+-dontwarn org.bouncycastle.math.ec.ECPoint
+-dontwarn org.bouncycastle.math.ec.FixedPointCombMultiplier
+-dontwarn org.bouncycastle.pqc.math.linearalgebra.ByteUtils
+-dontwarn org.bouncycastle.util.Arrays
+-dontwarn org.bouncycastle.util.encoders.Base64
+-dontwarn org.bouncycastle.util.encoders.Hex
 
 

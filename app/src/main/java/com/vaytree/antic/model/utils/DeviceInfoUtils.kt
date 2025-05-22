@@ -8,7 +8,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
-import android.content.pm.ResolveInfo
 import android.location.LocationListener
 import android.location.LocationManager
 import android.net.ConnectivityManager
@@ -24,6 +23,7 @@ import android.provider.Settings.SettingNotFoundException
 import android.telephony.TelephonyManager
 import android.text.TextUtils
 import android.util.DisplayMetrics
+import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import com.google.android.gms.ads.identifier.AdvertisingIdClient
@@ -352,41 +352,86 @@ object DeviceInfoUtils {
         return false
     }
 
+//    fun getUserApplications(
+//        context: Activity
+//    ): List<UserApplications> {
+//        val intent = Intent().apply {
+//            action = Intent.ACTION_MAIN
+//        }
+//        val listOf = arrayListOf<UserApplications>()
+//        val uniqueAppList = mutableListOf<UserApplications>()
+//        val pm: PackageManager = context.packageManager
+//        val resolveInfos =
+//            pm.queryIntentActivities(intent, PackageManager.MATCH_ALL)
+//        resolveInfos.forEach { resolve->
+//            val userApplications = UserApplications()
+//            userApplications.apply {
+//                // 处理用户安装的应用
+//                val packageInfo = pm.getPackageInfo(resolve.activityInfo.packageName, 0)
+//                gLQTq6p = resolve.loadLabel(pm).toString()
+//                woPaooB = resolve.activityInfo.packageName
+//                OwW9DeP = packageInfo.firstInstallTime
+//                YlC7moa = packageInfo.lastUpdateTime
+//                LbFjKqZ = packageInfo.versionName
+//                w2yRtja = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+//                    packageInfo.longVersionCode
+//                } else {
+//                    0
+//                }
+//                val appInfo: ApplicationInfo =
+//                    context.packageManager.getApplicationInfo(resolve.activityInfo.packageName, 0)
+//                val isSystemApp = (appInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0
+//                GLEXpI6 = if (isSystemApp) {
+//                    1
+//                } else {
+//                    0
+//                }
+//                listOf.add(userApplications)
+//            }
+//        }
+//        uniqueAppList.addAll(listOf.distinctBy { it.woPaooB })
+//        return uniqueAppList
+//    }
+//
+
     fun getUserApplications(
         context: Activity
     ): List<UserApplications> {
-        val intent = Intent().apply {
-            action = Intent.ACTION_MAIN
-        }
         val listOf = arrayListOf<UserApplications>()
+        val uniqueAppList = mutableListOf<UserApplications>()
         val pm: PackageManager = context.packageManager
-        val resolveInfos: List<ResolveInfo> =
-            pm.queryIntentActivities(intent, PackageManager.MATCH_ALL)
-        for (info in resolveInfos) {
-            val userApplications = UserApplications()
-            userApplications.apply {
-                // 处理用户安装的应用
-                val packageInfo = pm.getPackageInfo(info.activityInfo.packageName, 0)
-                gLQTq6p = info.loadLabel(pm).toString()
-                woPaooB = info.activityInfo.packageName
-                OwW9DeP = packageInfo.firstInstallTime
-                YlC7moa = packageInfo.lastUpdateTime
-                LbFjKqZ = packageInfo.versionName
-                w2yRtja = packageInfo.versionCode
-                val appInfo: ApplicationInfo =
-                    context.packageManager.getApplicationInfo(info.activityInfo.packageName, 0)
-                val isSystemApp = (appInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0
-                GLEXpI6 = if (isSystemApp) {
-                    1
-                } else {
-                    0
-                }
-                listOf.add(userApplications)
-            }
-        }
+        pm.getInstalledPackages(0)
+            .forEach { resolve ->
+                val userApplications = UserApplications()
+                userApplications.apply {
+                    // 处理用户安装的应用
+                    val packageInfo = pm.getPackageInfo(resolve.packageName, 0)
+                    gLQTq6p = resolve.applicationInfo?.loadLabel(pm).toString()
+                    woPaooB = resolve.packageName
+                    OwW9DeP = packageInfo.firstInstallTime
+                    YlC7moa = packageInfo.lastUpdateTime
+                    LbFjKqZ = packageInfo.versionName
+                    w2yRtja = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        packageInfo.longVersionCode
+                    } else {
+                        0
+                    }
+                    val appInfo: ApplicationInfo =
+                        context.packageManager.getApplicationInfo(resolve.packageName, 0)
+                    val isSystemApp = (appInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0
+                    GLEXpI6 = if (isSystemApp) {
+                        1
+                    } else {
+                        0
+                    }
+                    listOf.add(userApplications)
 
-        return listOf.distinct()
+                }
+            }
+        uniqueAppList.addAll(listOf.distinctBy { it.woPaooB })
+        return uniqueAppList
     }
+
     fun getCurrentCpuFreq(coreIndex: Int): Long {
         val path = "/sys/devices/system/cpu/cpu$coreIndex/cpufreq/scaling_cur_freq"
         try {

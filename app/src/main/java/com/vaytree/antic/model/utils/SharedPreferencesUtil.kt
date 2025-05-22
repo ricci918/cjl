@@ -15,6 +15,7 @@ object SharedPreferencesUtil {
     private const val GAID = "gaid"
     private const val CAMPAIGNID = "campaignId"
     private const val PHONE = "phone"
+    private const val LICENCE = "licence "
     private lateinit var sharedPreferences: SharedPreferences
 
     fun init(context: Context) {
@@ -94,6 +95,15 @@ object SharedPreferencesUtil {
 
     fun getPhone(): String {
         return sharedPreferences.getString(PHONE, "") ?: ""
+    }
+
+    fun putLicence (phone: String) {
+        editor.putString(LICENCE, phone)
+        editor.apply()
+    }
+
+    fun getLicence (): String {
+        return sharedPreferences.getString(LICENCE, "") ?: ""
     }
 
 }

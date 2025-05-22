@@ -16,6 +16,7 @@ import com.vaytree.antic.model.data.Attach
 import com.vaytree.antic.model.data.BankListData
 import com.vaytree.antic.model.data.BasicInfoReq
 import com.vaytree.antic.model.data.InfoData
+import com.vaytree.antic.model.data.LicenseResultReq
 import com.vaytree.antic.model.utils.DeviceInfoUtils
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
@@ -38,6 +39,7 @@ class KycViewModel : BaseViewModel() {
     val postOtp1Data: MutableLiveData<Boolean> = MutableLiveData()
     val postOtp2Data: MutableLiveData<Boolean> = MutableLiveData()
     val checkData: MutableLiveData<Boolean> = MutableLiveData()
+    val licenseResultData: MutableLiveData<Boolean> = MutableLiveData()
     var image1: Double? = null
     var image2: Double? = null
     var image3: Double? = null
@@ -153,9 +155,9 @@ class KycViewModel : BaseViewModel() {
                         image2 = identity as Double
                     }
 
-                    3 -> {
-                        image3 = identity as Double
-                    }
+//                    3 -> {
+//                        image3 = identity as Double
+//                    }
                 }
             }
             loadingLiveData.value = false
@@ -307,6 +309,18 @@ class KycViewModel : BaseViewModel() {
     fun vNotify() {
         launchWithException {
             val vNotify = ApiServiceResponse.vNotify()
+        }
+    }
+
+    fun licenseResult(licenseId : String) {
+        launchWithException {
+            loadingLiveData.value = true
+            val licenseResult = ApiServiceResponse.licenseResult(LicenseResultReq(licenseId))
+            if (licenseResult != null && licenseResult !=""){
+                image3 = licenseResult as Double
+            }
+            licenseResultData.value = true
+            loadingLiveData.value = false
         }
     }
 }

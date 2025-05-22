@@ -7,17 +7,20 @@ import android.graphics.Bitmap.CompressFormat
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
 import android.provider.MediaStore
+import android.util.Log
 import android.view.MotionEvent
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
 import com.nanchen.compresshelper.CompressHelper
+import com.trustdecision.mobrisk.TDRisk
+import com.trustdecision.mobrisk.TDRiskLivenessCallback
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityAuthenticationctivityBinding
 import com.vaytree.antic.model.data.BankListData
+import com.vaytree.antic.model.data.LicenseSuccessData
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.dialog.DialogUtils
@@ -35,7 +38,6 @@ open class AuthenticationActivity : BaseActivity() {
     private var imageUri: Uri? = null
     private var child1 = "imageOut1.jpeg"
     private var child2 = "imageOut2.jpeg"
-    private var child3 = "imageOut3.jpeg"
     private var needReq = false
     private var orderCreated: Boolean? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -95,12 +97,16 @@ open class AuthenticationActivity : BaseActivity() {
                 finishAffinity()
             }
         }
+        observe(viewModel.licenseResultData) {
+            if (it) {
+                mBinding.iv6Id.setImageResource(R.mipmap.succeed)
+            }
+        }
     }
 
     private var CAPTURE: Int? = null
     private val REQUEST_IMAGE_CAPTURE1: Int = 1
     private val REQUEST_IMAGE_CAPTURE2: Int = 2
-    private val REQUEST_IMAGE_CAPTURE3: Int = 3
 
     private fun dispatchTakePictureIntent(action: Int, child: String) {
         try {
@@ -183,13 +189,12 @@ open class AuthenticationActivity : BaseActivity() {
             }
 
             iv6Id.setOnClickListener {
-                CAPTURE = REQUEST_IMAGE_CAPTURE3
                 if (!needReq) {
                     DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
                         AndPermission.with(this@AuthenticationActivity)
                             .permission(Manifest.permission.CAMERA)
                             .onGranted {
-                                dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
+                                loginClick()
                                 needReq = true
                             }
                             .onDenied {
@@ -198,7 +203,7 @@ open class AuthenticationActivity : BaseActivity() {
                             .start()
                     }
                 } else {
-                    dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE3, child3)
+                    loginClick()
                 }
             }
             tvNext.setOnClickListener {
@@ -209,7 +214,18 @@ open class AuthenticationActivity : BaseActivity() {
             }
         }
     }
+    fun loginClick() {
+        val licence: String = SharedPreferencesUtil.getLicence()
+        TDRisk.showLiveness(licence, object : TDRiskLivenessCallback {
+            override fun onSuccess(result: String) {
+                val licenseSuccessData = ToolUtils.fromJson(result, LicenseSuccessData::class.java)
+                licenseSuccessData?.let { viewModel.licenseResult(it.liveness_id) }
+            }
 
+            override fun onError(errorCode: String, errorMsg: String, sequenceId: String) {
+            }
+        })
+    }
     override fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
@@ -227,8 +243,6 @@ open class AuthenticationActivity : BaseActivity() {
                     .setCompressFormat(CompressFormat.JPEG)
                     .build()
                     .compressToFile(convertPathToFile)
-//                val newFile =
-//                    CompressHelper.getDefault(this).compressToFile(convertPathToFile)
                 viewModel.identity(newFile, 1)
                 mBinding.iv2Id.setImageResource(R.mipmap.succeed)
             } catch (e: FileNotFoundException) {
@@ -250,24 +264,6 @@ open class AuthenticationActivity : BaseActivity() {
                     .compressToFile(convertPathToFile)
                 viewModel.identity(newFile, 2)
                 mBinding.iv4Id.setImageResource(R.mipmap.succeed)
-            } catch (e: FileNotFoundException) {
-                e.printStackTrace()
-            }
-        } else if (
-            requestCode == REQUEST_IMAGE_CAPTURE3 && resultCode == RESULT_OK
-        ) {
-            try {
-                val convertPathToFile =
-                    ToolUtils.convertPathToFile("$externalCacheDir/$child3")
-                val newFile = CompressHelper.Builder(this)
-                    .setMaxWidth(1920f)
-                    .setMaxHeight(1080f)
-                    .setQuality(95)
-                    .setCompressFormat(CompressFormat.JPEG)
-                    .build()
-                    .compressToFile(convertPathToFile)
-                viewModel.identity(newFile, 3)
-                mBinding.iv6Id.setImageResource(R.mipmap.succeed)
             } catch (e: FileNotFoundException) {
                 e.printStackTrace()
             }

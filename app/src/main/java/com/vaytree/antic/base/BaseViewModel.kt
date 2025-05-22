@@ -17,7 +17,6 @@ open class BaseViewModel : ViewModel() {
             try {
                 onSuccess.invoke()
             } catch (ex: Exception) {
-                Log.i("11111111111111", "launchWithException: "+ex.message)
                 ex.printStackTrace()
                 if (onFailed != null) {
                     onFailed.invoke()
