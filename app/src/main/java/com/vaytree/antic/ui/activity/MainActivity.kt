@@ -45,12 +45,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun initData() {
-        DeviceInfoUtils.getUserApplications(this)
-        val uniqueAppList = mutableListOf<String>()
-        packageManager.getInstalledPackages(PackageManager.MATCH_UNINSTALLED_PACKAGES or PackageManager.MATCH_DISABLED_COMPONENTS)
-            .forEach {
-               uniqueAppList.add(it.packageName)
-            }
     }
 
     private fun initView() {

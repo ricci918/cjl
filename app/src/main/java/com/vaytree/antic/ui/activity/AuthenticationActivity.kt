@@ -69,13 +69,14 @@ open class AuthenticationActivity : BaseActivity() {
                         viewModel.addVay1()
                     } else {
                         startActivity(BorrowMoneyActivity::class.java)
+                        finishAffinity()
                     }
                 } else {
                     val intent = Intent(this, OperatorActivity::class.java)
                     intent.putExtra("isAuthenticationActivity", true)
                     startActivity(intent)
+                    finishAffinity()
                 }
-                finishAffinity()
             }
         }
 
