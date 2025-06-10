@@ -52,11 +52,7 @@ class BorrowMoneyActivity : BaseActivity() {
             }
             observe(viewModel.addVayData) {
                 if (it) {
-                    if (orderCreated == false) {
-                        viewModel.acquisition(this@BorrowMoneyActivity)
-                    } else {
-                        viewModel.loadingLiveData.value = false
-                    }
+                    viewModel.acquisition(this@BorrowMoneyActivity)
                 }
             }
             observe(viewModel.acquisitionData) {
