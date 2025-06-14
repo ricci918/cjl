@@ -45,6 +45,9 @@ class BankAdapter(
                 name.text = it1.oUHonxr
                 name1.text = it1.ReUIwgO
                 setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     onSelectedListener.invoke(it1)
                 }
             }

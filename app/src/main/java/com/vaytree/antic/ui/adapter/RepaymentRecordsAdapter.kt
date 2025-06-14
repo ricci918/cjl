@@ -70,19 +70,31 @@ class RepaymentRecordsAdapter(
                 icon2.visibility = View.GONE
                 tv7.text = context.getString(R.string.text198)
                 tv5.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     val intent = Intent(context, RepaymentActivity::class.java)
                     intent.putExtra("orderCode", it1.Depxaxs)
                     context.startActivity(intent)
                 }
                 orderDetails.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     val intent = Intent(context, OrderDetailsActivity::class.java)
                     intent.putExtra("orderCode", it1.Depxaxs)
                     context.startActivity(intent)
                 }
                 icon1.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     DialogUtils.showCustomerServiceDialog(activity, it, it1.W2frQgy)
                 }
                 icon2.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     val Intent = Intent(
                         Intent.ACTION_DIAL,
                         ("tel:" + it1.W2frQgy).toUri()

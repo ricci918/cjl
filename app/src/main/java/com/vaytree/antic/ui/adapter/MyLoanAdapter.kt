@@ -97,6 +97,9 @@ class MyLoanAdapter(
                 }
 
                 tv5.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     if (tv5.text.toString() == context.getString(R.string.text74)) {//还款
                         val intent = Intent(context, RepaymentActivity::class.java)
                         intent.putExtra("orderCode", it1.QiTkV9m)
@@ -104,6 +107,9 @@ class MyLoanAdapter(
                     }
                 }
                 orderDetails.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     if (orderDetails.text.toString() == context.getString(R.string.text195)) {//运行商
                         val intent = Intent(context, OperatorActivity::class.java)
                         context.startActivity(intent)
@@ -115,9 +121,15 @@ class MyLoanAdapter(
                     }
                 }
                 icon1.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     DialogUtils.showCustomerServiceDialog(activity, it, it1.RhxPDcq)
                 }
                 icon2.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     val Intent = Intent(
                         Intent.ACTION_DIAL,
                         ("tel:" + it1.RhxPDcq).toUri()
