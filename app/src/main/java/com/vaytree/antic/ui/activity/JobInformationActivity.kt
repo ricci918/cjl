@@ -136,6 +136,9 @@ class JobInformationActivity : BaseActivity() {
                 }
             }
             tvNext.setOnClickListener {
+                if (ToolUtils.isFastClick(800)) {
+                    return@setOnClickListener
+                }
                 val arrayList = arrayListOf<Attach>()
                 arrayList.add(
                     Attach(

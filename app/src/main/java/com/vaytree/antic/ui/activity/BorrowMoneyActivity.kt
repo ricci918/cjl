@@ -9,6 +9,7 @@ import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityBorrowMoneyBinding
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
+import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.viewmodel.KycViewModel
 
 class BorrowMoneyActivity : BaseActivity() {
@@ -76,9 +77,15 @@ class BorrowMoneyActivity : BaseActivity() {
         mBinding.apply {
             tv8Id.text = Html.fromHtml(getString(R.string.text61))
             tvApply.setOnClickListener {
+                if (ToolUtils.isFastClick(800)) {
+                    return@setOnClickListener
+                }
                 viewModel.addVay()
             }
             tv8Id.setOnClickListener {
+                if (ToolUtils.isFastClick(800)) {
+                    return@setOnClickListener
+                }
                 startActivity(AgreementActivity::class.java)
             }
             vfTv1.text = Html.fromHtml(getString(R.string.text173))

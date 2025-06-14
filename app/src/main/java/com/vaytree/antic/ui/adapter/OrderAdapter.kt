@@ -207,6 +207,9 @@ class OrderAdapter(
                     }
                 }
                 tv5.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     if (tv5.text.toString() == context.getString(R.string.text21)) { //提现
 //                        val intent = Intent(context, WithdrawDepositActivity::class.java)
 //                        intent.putExtra("orderCode", it1.SyKwFNH)
@@ -227,6 +230,9 @@ class OrderAdapter(
 
                 }
                 orderDetails.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     if (orderDetails.text.toString() == context.getString(R.string.text195)) {//运行商
                         val intent = Intent(context, OperatorActivity::class.java)
                         context.startActivity(intent)
@@ -237,9 +243,15 @@ class OrderAdapter(
                     }
                 }
                 icon1.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     DialogUtils.showCustomerServiceDialog(activity, it, it1.ZC8JVY3)
                 }
                 icon2.setOnClickListener {
+                    if (ToolUtils.isFastClick(800)) {
+                        return@setOnClickListener
+                    }
                     val Intent = Intent(
                         Intent.ACTION_DIAL,
                         ("tel:" + it1.ZC8JVY3).toUri()

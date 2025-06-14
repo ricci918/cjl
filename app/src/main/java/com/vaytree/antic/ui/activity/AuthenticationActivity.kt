@@ -150,6 +150,9 @@ open class AuthenticationActivity : BaseActivity() {
                 }
             }
             iv2Id.setOnClickListener {
+                if (ToolUtils.isFastClick(800)) {
+                    return@setOnClickListener
+                }
                 CAPTURE = REQUEST_IMAGE_CAPTURE1
                 if (!needReq) {
                     DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
@@ -170,6 +173,9 @@ open class AuthenticationActivity : BaseActivity() {
 
             }
             iv4Id.setOnClickListener {
+                if (ToolUtils.isFastClick(800)) {
+                    return@setOnClickListener
+                }
                 CAPTURE = REQUEST_IMAGE_CAPTURE2
                 if (!needReq) {
                     DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
@@ -190,6 +196,9 @@ open class AuthenticationActivity : BaseActivity() {
             }
 
             iv6Id.setOnClickListener {
+                if (ToolUtils.isFastClick(800)) {
+                    return@setOnClickListener
+                }
                 if (!needReq) {
                     DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
                         AndPermission.with(this@AuthenticationActivity)
@@ -208,6 +217,9 @@ open class AuthenticationActivity : BaseActivity() {
                 }
             }
             tvNext.setOnClickListener {
+                if (ToolUtils.isFastClick(800)) {
+                    return@setOnClickListener
+                }
                 viewModel.addBankInfo(
                     etBankAccount.text.toString(),
                     tvBank.text.toString()
@@ -215,7 +227,7 @@ open class AuthenticationActivity : BaseActivity() {
             }
         }
     }
-    fun loginClick() {
+    private fun loginClick() {
         val licence: String = SharedPreferencesUtil.getLicence()
         TDRisk.showLiveness(licence, object : TDRiskLivenessCallback {
             override fun onSuccess(result: String) {

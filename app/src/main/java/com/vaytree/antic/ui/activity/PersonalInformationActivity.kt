@@ -88,6 +88,9 @@ class PersonalInformationActivity : BaseActivity() {
                 }
             }
             tvNext.setOnClickListener {
+                if (ToolUtils.isFastClick(800)) {
+                    return@setOnClickListener
+                }
                 viewModel.basicInfo(
                     etName.text.toString(),
                     etIdentity.text.toString(),
