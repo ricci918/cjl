@@ -94,7 +94,9 @@ open class AuthenticationActivity : BaseActivity() {
         }
         observe(viewModel.orderCreateData) {
             if (it) {
-                startActivity(MainActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("goodReputation","goodReputation")
+                startActivity(intent)
                 finishAffinity()
             }
         }
