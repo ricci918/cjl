@@ -58,7 +58,7 @@
     <string name="text56">Vui lòng tải lên mặt sau CCCD của bạn</string>
     <string name="text57">Hãy đảm bảo rằng ảnh bạn tải lên rõ nét\nKhông tải ảnh lên mà không có giấy tờ tùy thân liên quan</string>
     <string name="text58">Ảnh tự sướng</string>
-    <string name="text59">Vui lòng tải lên một ảnh rõ nét, chỉ hiển thị khuôn mặt của bạn. Đảm bảo chụp trong điều kiện ánh sáng tốt và không có người hoặc vật thể khác trong ảnh. Nếu thao tác thất bại, bạn có thể xóa ứng dụng và cài đặt lại, đồng thời đảm bảo đã cấp đầy đủ quyền cho ứng dụng.</string>
+    <string name="text59">Vui lòng hoàn thành nhận dạng khuôn mặt, kết quả chỉ được sử dụng cho khoản vay này và không được sử dụng cho bất kỳ mục đích khác.\n\nLưu ý: Vui lòng thực hiện trong điều kiện ánh sáng tốt. Nếu không được, hãy tắt app và mở lại để thử lại.</string>
     <string name="text60">Số tiền vay</string>
     <string name="text61"><![CDATA[Bằng cách nhấp vào <b>“Đăng ký khoản vay”</b>Nút ấn , <u><b>bạn đồng ý với đi kèm Thỏa thuận vay。</b></u>]]></string>
     <string name="text142">Thỏa thuận vay。</string>

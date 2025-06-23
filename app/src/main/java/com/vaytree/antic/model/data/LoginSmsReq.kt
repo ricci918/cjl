@@ -14,4 +14,5 @@ data class LoginSmsReq(
     val ZJXRICr: Long,//installTime
     val mIpw0i3: String,//fbc
     val SG3LcWG: String,//fbp
+    val RZjnb5S: String,//deviceToken
 )

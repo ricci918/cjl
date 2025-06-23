@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "105128034949",
+    "project_id": "vaytree-ac6ea",
+    "storage_bucket": "vaytree-ac6ea.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105128034949:android:a23b405d62cae9ffcbdfec",
+        "android_client_info": {
+          "package_name": "com.vaytree.antic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwRxwCJkw5c0MkTixjnnMzDPNeykzbX18"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

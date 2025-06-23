@@ -7,6 +7,8 @@ import android.os.CountDownTimer
 import android.text.Html
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.messaging.FirebaseMessaging
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityLoginBinding
@@ -88,6 +90,16 @@ class LoginActivity : BaseActivity() {
             }
 
         }
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                return@OnCompleteListener
+            }
+
+            // Get new FCM registration token
+            val token = task.result
+            SharedPreferencesUtil.putFCM(token)
+        })
         mBinding.apply {
             tv4Id.text = Html.fromHtml(getString(R.string.text8))
             codeId.setOnClickListener {

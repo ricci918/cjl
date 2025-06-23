@@ -236,7 +236,7 @@ class KycViewModel : BaseViewModel() {
 
     fun addBankInfo(paymentNumber: String, paymentType: String) {
         launchWithException {
-//            if (paymentNumber != "" && paymentType != "" &&  image3 != null) {
+            if (paymentNumber != "" && paymentType != "" &&  image3 != null) {
                 loadingLiveData1.value = true
                 val addBankInfo = ApiServiceResponse.addBankInfo(
                     AddBankInfoReq(
@@ -250,13 +250,13 @@ class KycViewModel : BaseViewModel() {
                         false
                     )
                 )
-//                loadingLiveData.value = false
-//            } else {
-//                ToolUtils.showToast(
-//                    MyApplication.instance,
-//                    MyApplication.instance.getString(R.string.text138)
-//                )
-//            }
+                addBankInfoData.value = true
+            } else {
+                ToolUtils.showToast(
+                    MyApplication.instance,
+                    MyApplication.instance.getString(R.string.text138)
+                )
+            }
 
         }
     }

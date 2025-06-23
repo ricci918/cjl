@@ -25,8 +25,7 @@ class LoginViewModel : BaseViewModel() {
                 loadingLiveData.value = true
                 val openapi = ApiServiceResponse.sendSMSCode(
                     SendSMSCodeReq(
-                        phone,
-                        SharedPreferencesUtil.getSystemInfoData()?.ozVIAIM ?: ""
+                        phone, SharedPreferencesUtil.getSystemInfoData()?.ozVIAIM ?: ""
                     )
                 )
                 codeData = openapi as String
@@ -35,7 +34,7 @@ class LoginViewModel : BaseViewModel() {
         }
     }
 
-    fun login(activity: Activity, phone: String, code: String,fbc : String,fbp: String) {
+    fun login(activity: Activity, phone: String, code: String, fbc: String, fbp: String) {
         launchWithException {
             loadingLiveData.value = true
             val packageManager: PackageManager = activity.packageManager
@@ -50,7 +49,11 @@ class LoginViewModel : BaseViewModel() {
                 ToolUtils.getAndroidId(activity),
                 AppsFlyerLib.getInstance().getAppsFlyerUID(activity) ?: "",
                 SharedPreferencesUtil.getCampaignId(),
-                SharedPreferencesUtil.getGaId(), firstInstallTime,fbc,fbp
+                SharedPreferencesUtil.getGaId(),
+                firstInstallTime,
+                fbc,
+                fbp,
+                SharedPreferencesUtil.getFCM()
             )
             val loginSms = ApiServiceResponse.loginSms(loginSmsReq)
             UserConfig.saveUser(loginSms)

@@ -68,6 +68,7 @@ open class AuthenticationActivity : BaseActivity() {
                     if (SharedPreferencesUtil.getSystemInfoData()?.upaPdXO == true) {
                         viewModel.addVay1()
                     } else {
+                        viewModel.loadingLiveData1.value = false
                         startActivity(BorrowMoneyActivity::class.java)
                         finishAffinity()
                     }
@@ -202,22 +203,41 @@ open class AuthenticationActivity : BaseActivity() {
                     return@setOnClickListener
                 }
                 if (!needReq) {
-                    DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
-                        AndPermission.with(this@AuthenticationActivity)
-                            .permission(Manifest.permission.CAMERA)
-                            .onGranted {
-                                loginClick()
-                                needReq = true
-                            }
-                            .onDenied {
+                    AndPermission.with(this@AuthenticationActivity)
+                        .permission(Manifest.permission.CAMERA)
+                        .onGranted {
+                            loginClick()
+                            needReq = true
+                        }
+                        .onDenied {
 
-                            }
-                            .start()
-                    }
+                        }
+                        .start()
                 } else {
                     loginClick()
                 }
             }
+
+            iv5Id.setOnClickListener {
+                if (ToolUtils.isFastClick(800)) {
+                    return@setOnClickListener
+                }
+                if (!needReq) {
+                    AndPermission.with(this@AuthenticationActivity)
+                        .permission(Manifest.permission.CAMERA)
+                        .onGranted {
+                            loginClick()
+                            needReq = true
+                        }
+                        .onDenied {
+
+                        }
+                        .start()
+                } else {
+                    loginClick()
+                }
+            }
+
             tvNext.setOnClickListener {
                 if (ToolUtils.isFastClick(800)) {
                     return@setOnClickListener
