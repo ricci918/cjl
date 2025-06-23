@@ -21,7 +21,6 @@ import com.vaytree.antic.model.utils.DeviceInfoUtils
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
 import java.io.File
-import java.util.regex.Pattern
 
 class KycViewModel : BaseViewModel() {
     val basicInfoData: MutableLiveData<Boolean> = MutableLiveData()
@@ -141,28 +140,28 @@ class KycViewModel : BaseViewModel() {
         }
     }
 
-    fun identity(file: File, i: Int) {
-        launchWithException {
-            loadingLiveData.value = true
-            val identity = ApiServiceResponse.identity(file)
-            if (identity != null) {
-                when (i) {
-                    1 -> {
-                        image1 = identity as Double
-                    }
-
-                    2 -> {
-                        image2 = identity as Double
-                    }
-
-//                    3 -> {
-//                        image3 = identity as Double
+//    fun identity(file: File, i: Int) {
+//        launchWithException {
+//            loadingLiveData.value = true
+//            val identity = ApiServiceResponse.identity(file)
+//            if (identity != null) {
+//                when (i) {
+//                    1 -> {
+//                        image1 = identity as Double
 //                    }
-                }
-            }
-            loadingLiveData.value = false
-        }
-    }
+//
+//                    2 -> {
+//                        image2 = identity as Double
+//                    }
+//
+////                    3 -> {
+////                        image3 = identity as Double
+////                    }
+//                }
+//            }
+//            loadingLiveData.value = false
+//        }
+//    }
 
     fun token() {
         launchWithException {
@@ -173,7 +172,7 @@ class KycViewModel : BaseViewModel() {
 
     fun addVay() {
         launchWithException {
-            loadingLiveData.value = true
+            loadingLiveData1.value = true
             val addVay = ApiServiceResponse.addVay()
             addVayData.value = true
         }
@@ -223,7 +222,7 @@ class KycViewModel : BaseViewModel() {
         launchWithException {
             val orderCreate = ApiServiceResponse.orderCreate(OrderCreateReq())
             orderCreateData.value = true
-            loadingLiveData.value = false
+            loadingLiveData1.value = false
         }
     }
 
@@ -231,33 +230,33 @@ class KycViewModel : BaseViewModel() {
         launchWithException {
             val orderCreate = ApiServiceResponse.orderCreate(OrderCreateReq())
             orderCreateData.value = true
+            loadingLiveData1.value = false
         }
     }
 
     fun addBankInfo(paymentNumber: String, paymentType: String) {
         launchWithException {
-            if (paymentNumber != "" && paymentType != "" && image1 != null && image2 != null && image3 != null) {
-                loadingLiveData.value = true
+//            if (paymentNumber != "" && paymentType != "" &&  image3 != null) {
+                loadingLiveData1.value = true
                 val addBankInfo = ApiServiceResponse.addBankInfo(
                     AddBankInfoReq(
                         paymentNumber,
                         paymentType,
                         null,
                         null,
-                        image1!!.toInt().toString(),
-                        image2!!.toInt().toString(),
+                        "",
+                        "",
                         image3!!.toInt().toString(),
                         false
                     )
                 )
-                addBankInfoData.value = true
-                loadingLiveData.value = false
-            } else {
-                ToolUtils.showToast(
-                    MyApplication.instance,
-                    MyApplication.instance.getString(R.string.text138)
-                )
-            }
+//                loadingLiveData.value = false
+//            } else {
+//                ToolUtils.showToast(
+//                    MyApplication.instance,
+//                    MyApplication.instance.getString(R.string.text138)
+//                )
+//            }
 
         }
     }

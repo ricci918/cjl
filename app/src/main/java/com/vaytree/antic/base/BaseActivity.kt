@@ -16,7 +16,9 @@ import com.vaytree.antic.ui.dialog.DialogUtils
 
 open class BaseActivity : AppCompatActivity() {
     private var dialog: Dialog? = null
+    private var dialog1: Dialog? = null
     private var isShowLoading = false
+    private var isShowLoading1 = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,6 +31,7 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     class NetException(val code: Int, val msg: String) : Exception("code = $code msg = $msg")
+
     fun <T> observe(liveData: LiveData<T>, observer: Observer<T>) {
         liveData.observe(this, observer)
     }
@@ -50,6 +53,14 @@ open class BaseActivity : AppCompatActivity() {
                 dismissLoading()
             }
         }
+
+        observe(viewModel.loadingLiveData1) {
+            if (it) {
+                showLoading1()
+            } else {
+                dismissLoading1()
+            }
+        }
     }
 
     open fun showLoading() {
@@ -69,5 +80,25 @@ open class BaseActivity : AppCompatActivity() {
         }
         DialogUtils.showCloseDialog(dialog)
         isShowLoading = false
+    }
+
+
+    open fun showLoading1() {
+        if (isFinishing || isShowLoading) {
+            return
+        }
+        if (dialog1 == null) {
+            dialog1 = DialogUtils.showLoadingDialog1(this)
+        }
+        dialog1?.show()
+        isShowLoading1 = true
+    }
+
+    open fun dismissLoading1() {
+        if (isFinishing || !isShowLoading1 || dialog1 == null) {
+            return
+        }
+        DialogUtils.showCloseDialog1(dialog1)
+        isShowLoading1 = false
     }
 }

@@ -38,12 +38,12 @@ class PermissionActivity : BaseActivity() {
                     .permission(Manifest.permission.ACCESS_COARSE_LOCATION)
                     .onGranted {
                         SharedPreferencesUtil.putIsFirstInstall(false)
-                        startActivity(LoginActivity::class.java)
+                        startActivity(UnverifiedActivity::class.java)
                         finishAffinity()
                     }
                     .onDenied {
                         SharedPreferencesUtil.putIsFirstInstall(false)
-                        startActivity(LoginActivity::class.java)
+                        startActivity(UnverifiedActivity::class.java)
                         finishAffinity()
                     }
                     .start()

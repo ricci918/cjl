@@ -31,7 +31,7 @@ class WelcomeActivity : BaseActivity() {
             if (UserConfig.isLogin()) {
                 viewModel1.queryStatus()
             } else {
-                countDown(LoginActivity::class.java)
+                countDown(UnverifiedActivity::class.java)
             }
         }
     }

@@ -1,10 +1,14 @@
 package com.vaytree.antic.ui.activity
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityOnlineRepaymentBinding
+import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.viewmodel.MainViewModel
 
 class OnlineRepaymentActivity : BaseActivity() {
@@ -43,6 +47,25 @@ class OnlineRepaymentActivity : BaseActivity() {
             tvClose.setOnClickListener {
                 finish()
             }
+            tv3Id.setOnClickListener {
+                ToolUtils.copyText(this@OnlineRepaymentActivity, tvGathering.text.toString())
+            }
+            tv6Id.setOnClickListener {
+                ToolUtils.copyText(this@OnlineRepaymentActivity, tvGathering.text.toString())
+            }
+            tvGathering.setOnClickListener {
+                ToolUtils.copyText(this@OnlineRepaymentActivity, tvGathering.text.toString())
+            }
+            tv4Id.setOnClickListener {
+                ToolUtils.copyText(this@OnlineRepaymentActivity, tvBankAccount.text.toString())
+            }
+            tv7Id.setOnClickListener {
+                ToolUtils.copyText(this@OnlineRepaymentActivity, tvBankAccount.text.toString())
+            }
+            tvBankAccount.setOnClickListener {
+                ToolUtils.copyText(this@OnlineRepaymentActivity, tvBankAccount.text.toString())
+            }
+
         }
     }
 }

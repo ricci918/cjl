@@ -35,9 +35,9 @@ open class AuthenticationActivity : BaseActivity() {
     private val viewModel by lazy { ViewModelProvider(this)[KycViewModel::class.java] }
     private var bankListData: MutableList<BankListData>? = null
     private var bank: BankListData? = null
-    private var imageUri: Uri? = null
-    private var child1 = "imageOut1.jpeg"
-    private var child2 = "imageOut2.jpeg"
+//    private var imageUri: Uri? = null
+//    private var child1 = "imageOut1.jpeg"
+//    private var child2 = "imageOut2.jpeg"
     private var needReq = false
     private var orderCreated: Boolean? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -107,32 +107,32 @@ open class AuthenticationActivity : BaseActivity() {
         }
     }
 
-    private var CAPTURE: Int? = null
-    private val REQUEST_IMAGE_CAPTURE1: Int = 1
-    private val REQUEST_IMAGE_CAPTURE2: Int = 2
-
-    private fun dispatchTakePictureIntent(action: Int, child: String) {
-        try {
-            val imageTemp = File(externalCacheDir, child)
-            if (imageTemp.exists()) {
-                imageTemp.delete()
-            }
-            imageTemp.createNewFile()
-            imageUri = Uri.fromFile(imageTemp)
-            if (Build.VERSION.SDK_INT > 24) {
-                imageUri = FileProvider.getUriForFile(
-                    this,
-                    "com.vaytree.antic.FileProvider",
-                    imageTemp
-                )
-            }
-            val intent = Intent()
-            intent.setAction("android.media.action.IMAGE_CAPTURE")
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
-            startActivityForResult(intent, action)
-        } catch (_: Exception) {
-        }
-    }
+//    private var CAPTURE: Int? = null
+//    private val REQUEST_IMAGE_CAPTURE1: Int = 1
+//    private val REQUEST_IMAGE_CAPTURE2: Int = 2
+//
+//    private fun dispatchTakePictureIntent(action: Int, child: String) {
+//        try {
+//            val imageTemp = File(externalCacheDir, child)
+//            if (imageTemp.exists()) {
+//                imageTemp.delete()
+//            }
+//            imageTemp.createNewFile()
+//            imageUri = Uri.fromFile(imageTemp)
+//            if (Build.VERSION.SDK_INT > 24) {
+//                imageUri = FileProvider.getUriForFile(
+//                    this,
+//                    "com.vaytree.antic.FileProvider",
+//                    imageTemp
+//                )
+//            }
+//            val intent = Intent()
+//            intent.setAction("android.media.action.IMAGE_CAPTURE")
+//            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
+//            startActivityForResult(intent, action)
+//        } catch (_: Exception) {
+//        }
+//    }
 
     private fun initView() {
         observerCommon(viewModel, false)
@@ -151,51 +151,51 @@ open class AuthenticationActivity : BaseActivity() {
                     }
                 }
             }
-            iv2Id.setOnClickListener {
-                if (ToolUtils.isFastClick(800)) {
-                    return@setOnClickListener
-                }
-                CAPTURE = REQUEST_IMAGE_CAPTURE1
-                if (!needReq) {
-                    DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
-                        AndPermission.with(this@AuthenticationActivity)
-                            .permission(Manifest.permission.CAMERA)
-                            .onGranted {
-                                dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
-                                needReq = true
-                            }
-                            .onDenied {
-
-                            }
-                            .start()
-                    }
-                } else {
-                    dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
-                }
-
-            }
-            iv4Id.setOnClickListener {
-                if (ToolUtils.isFastClick(800)) {
-                    return@setOnClickListener
-                }
-                CAPTURE = REQUEST_IMAGE_CAPTURE2
-                if (!needReq) {
-                    DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
-                        AndPermission.with(this@AuthenticationActivity)
-                            .permission(Manifest.permission.CAMERA)
-                            .onGranted {
-                                dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
-                                needReq = true
-                            }
-                            .onDenied {
-
-                            }
-                            .start()
-                    }
-                } else {
-                    dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE2, child2)
-                }
-            }
+//            iv2Id.setOnClickListener {
+//                if (ToolUtils.isFastClick(800)) {
+//                    return@setOnClickListener
+//                }
+//                CAPTURE = REQUEST_IMAGE_CAPTURE1
+//                if (!needReq) {
+//                    DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
+//                        AndPermission.with(this@AuthenticationActivity)
+//                            .permission(Manifest.permission.CAMERA)
+//                            .onGranted {
+//                                dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
+//                                needReq = true
+//                            }
+//                            .onDenied {
+//
+//                            }
+//                            .start()
+//                    }
+//                } else {
+//                    dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
+//                }
+//
+//            }
+//            iv4Id.setOnClickListener {
+//                if (ToolUtils.isFastClick(800)) {
+//                    return@setOnClickListener
+//                }
+//                CAPTURE = REQUEST_IMAGE_CAPTURE2
+//                if (!needReq) {
+//                    DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
+//                        AndPermission.with(this@AuthenticationActivity)
+//                            .permission(Manifest.permission.CAMERA)
+//                            .onGranted {
+//                                dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
+//                                needReq = true
+//                            }
+//                            .onDenied {
+//
+//                            }
+//                            .start()
+//                    }
+//                } else {
+//                    dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE2, child2)
+//                }
+//            }
 
             iv6Id.setOnClickListener {
                 if (ToolUtils.isFastClick(800)) {
@@ -241,49 +241,49 @@ open class AuthenticationActivity : BaseActivity() {
             }
         })
     }
-    override fun onActivityResult(
-        requestCode: Int,
-        resultCode: Int,
-        data: Intent?,
-    ) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_IMAGE_CAPTURE1 && resultCode == RESULT_OK) {
-            try {
-                val convertPathToFile =
-                    ToolUtils.convertPathToFile("$externalCacheDir/$child1")
-                val newFile = CompressHelper.Builder(this)
-                    .setMaxWidth(1920f)
-                    .setMaxHeight(1080f)
-                    .setQuality(95)
-                    .setCompressFormat(CompressFormat.JPEG)
-                    .build()
-                    .compressToFile(convertPathToFile)
-                viewModel.identity(newFile, 1)
-                mBinding.iv2Id.setImageResource(R.mipmap.succeed)
-            } catch (e: FileNotFoundException) {
-                e.printStackTrace()
-            }
-
-        } else if (
-            requestCode == REQUEST_IMAGE_CAPTURE2 && resultCode == RESULT_OK
-        ) {
-            try {
-                val convertPathToFile =
-                    ToolUtils.convertPathToFile("$externalCacheDir/$child2")
-                val newFile = CompressHelper.Builder(this)
-                    .setMaxWidth(1920f)
-                    .setMaxHeight(1080f)
-                    .setQuality(95)
-                    .setCompressFormat(CompressFormat.JPEG)
-                    .build()
-                    .compressToFile(convertPathToFile)
-                viewModel.identity(newFile, 2)
-                mBinding.iv4Id.setImageResource(R.mipmap.succeed)
-            } catch (e: FileNotFoundException) {
-                e.printStackTrace()
-            }
-        }
-    }
+//    override fun onActivityResult(
+//        requestCode: Int,
+//        resultCode: Int,
+//        data: Intent?,
+//    ) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//        if (requestCode == REQUEST_IMAGE_CAPTURE1 && resultCode == RESULT_OK) {
+//            try {
+//                val convertPathToFile =
+//                    ToolUtils.convertPathToFile("$externalCacheDir/$child1")
+//                val newFile = CompressHelper.Builder(this)
+//                    .setMaxWidth(1920f)
+//                    .setMaxHeight(1080f)
+//                    .setQuality(95)
+//                    .setCompressFormat(CompressFormat.JPEG)
+//                    .build()
+//                    .compressToFile(convertPathToFile)
+//                viewModel.identity(newFile, 1)
+//                mBinding.iv2Id.setImageResource(R.mipmap.succeed)
+//            } catch (e: FileNotFoundException) {
+//                e.printStackTrace()
+//            }
+//
+//        } else if (
+//            requestCode == REQUEST_IMAGE_CAPTURE2 && resultCode == RESULT_OK
+//        ) {
+//            try {
+//                val convertPathToFile =
+//                    ToolUtils.convertPathToFile("$externalCacheDir/$child2")
+//                val newFile = CompressHelper.Builder(this)
+//                    .setMaxWidth(1920f)
+//                    .setMaxHeight(1080f)
+//                    .setQuality(95)
+//                    .setCompressFormat(CompressFormat.JPEG)
+//                    .build()
+//                    .compressToFile(convertPathToFile)
+//                viewModel.identity(newFile, 2)
+//                mBinding.iv4Id.setImageResource(R.mipmap.succeed)
+//            } catch (e: FileNotFoundException) {
+//                e.printStackTrace()
+//            }
+//        }
+//    }
 
     private fun isJurisdiction() {
         if (ContextCompat.checkSelfPermission(

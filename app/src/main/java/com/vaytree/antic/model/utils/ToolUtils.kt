@@ -1,6 +1,8 @@
 package com.vaytree.antic.model.utils
 
 import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -14,6 +16,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import com.google.gson.GsonBuilder
+import com.vaytree.antic.R
 import java.io.File
 import java.lang.reflect.Type
 import java.text.SimpleDateFormat
@@ -263,5 +266,11 @@ object ToolUtils {
         return str.matches("^\\d+$".toRegex())
     }
 
-
+    fun copyText(activity: Activity,text: String){
+        val clipboard: ClipboardManager =
+            activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("simple text", text)
+        clipboard.setPrimaryClip(clip)
+        showToast(activity, activity.getString(R.string.text124))
+    }
 }

@@ -23,7 +23,8 @@ class JobInformationActivity : BaseActivity() {
     private var salary = -1
     private var relation1 = -1
     private var relation2 = -1
-    private var relation3 = -1
+
+    //    private var relation3 = -1
     private var province = ""
     private var county = ""
     private var areaList: MutableList<AreaList>? = null
@@ -100,17 +101,17 @@ class JobInformationActivity : BaseActivity() {
                 }
             }
 
-            tvRelation3.setOnClickListener {
-                SharedPreferencesUtil.getUserFieldCode()?.vi_VN?.relation?.let { it1 ->
-                    DialogUtils.showKycMessageDialog(
-                        this@JobInformationActivity, it,
-                        it1
-                    ) {
-                        relation3 = it.value
-                        tvRelation3.text = it.name
-                    }
-                }
-            }
+//            tvRelation3.setOnClickListener {
+//                SharedPreferencesUtil.getUserFieldCode()?.vi_VN?.relation?.let { it1 ->
+//                    DialogUtils.showKycMessageDialog(
+//                        this@JobInformationActivity, it,
+//                        it1
+//                    ) {
+//                        relation3 = it.value
+//                        tvRelation3.text = it.name
+//                    }
+//                }
+//            }
             tvProvince.setOnClickListener {
                 areaListData?.let { it1 ->
                     DialogUtils.showKycRegionDialog(
@@ -154,16 +155,16 @@ class JobInformationActivity : BaseActivity() {
                         relation2, 1
                     )
                 )
-                arrayList.add(
-                    Attach(
-                        etFamilyName3.text.toString(),
-                        etFamilyPhone3.text.toString(),
-                        relation3, 2
-                    )
-                )
+//                arrayList.add(
+//                    Attach(
+//                        etFamilyName3.text.toString(),
+//                        etFamilyPhone3.text.toString(),
+//                        relation3, 2
+//                    )
+//                )
                 if (etCompanyName.text.toString() != "" && etCompanyPhone.text.toString() != "" && etSpecificAddress.text.toString() != "" && job != -1 && salary != -1 && province != "" && county != "" && etSite.text.toString() != ""
-                    && etFamilyName1.text.toString() != "" && etFamilyName2.text.toString() != "" && etFamilyName3.text.toString() != "" && etFamilyPhone1.text.toString() != "" && etFamilyPhone2.text.toString() != "" && etFamilyPhone3.text.toString() != ""
-                    && relation1 != -1 && relation2 != -1 && relation3 != -1
+                    && etFamilyName1.text.toString() != "" && etFamilyName2.text.toString() != "" && etFamilyPhone1.text.toString() != "" && etFamilyPhone2.text.toString() != "" &&
+                    relation1 != -1 && relation2 != -1
                 ) {
                     arrayList.let { it1 ->
                         viewModel.addAttachInfo(

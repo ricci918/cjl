@@ -28,7 +28,7 @@ class UnverifiedActivity : BaseActivity() {
             tv5Id.text = "20,000,000"
             tv3Id.text = "20,000,000"
             tv8Id.setOnClickListener {
-                startActivity(PersonalInformationActivity::class.java)
+                startActivity(LoginActivity::class.java)
                 finish()
             }
             tv3Id.setOnClickListener {

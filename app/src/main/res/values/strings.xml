@@ -51,13 +51,13 @@
     <string name="text49">Số điện thoại người liên lạc khẩn cấp/gia đình</string>
     <string name="text50">Mối quan hệ với người liên lạc khẩn cấp</string>
     <string name="text51">Thông tin công việc</string>
-    <string name="text52">Xác minh thông tin</string>
+    <string name="text52">Điền thông tin tài khoản nhận tiền</string>
     <string name="text53">Vui lòng điền tên thật của bạn</string>
     <string name="text54">Chọn tên thẻ ngân hàng</string>
     <string name="text55">Vui lòng tải lên mặt trước CCCD của bạn</string>
     <string name="text56">Vui lòng tải lên mặt sau CCCD của bạn</string>
     <string name="text57">Hãy đảm bảo rằng ảnh bạn tải lên rõ nét\nKhông tải ảnh lên mà không có giấy tờ tùy thân liên quan</string>
-    <string name="text58">Tải lên ảnh tự sướng mặt trước</string>
+    <string name="text58">Ảnh tự sướng</string>
     <string name="text59">Vui lòng tải lên một ảnh rõ nét, chỉ hiển thị khuôn mặt của bạn. Đảm bảo chụp trong điều kiện ánh sáng tốt và không có người hoặc vật thể khác trong ảnh. Nếu thao tác thất bại, bạn có thể xóa ứng dụng và cài đặt lại, đồng thời đảm bảo đã cấp đầy đủ quyền cho ứng dụng.</string>
     <string name="text60">Số tiền vay</string>
     <string name="text61"><![CDATA[Bằng cách nhấp vào <b>“Đăng ký khoản vay”</b>Nút ấn , <u><b>bạn đồng ý với đi kèm Thỏa thuận vay。</b></u>]]></string>
@@ -367,4 +367,8 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
     <string name="text228">+5.000.000 hạn mức</string>
     <string name="text229">+10.000.000 hạn mức</string>
     <string name="text230">+15.000.000 hạn mức</string>
+    <string name="text231">Lưu ý：Vui lòng kiểm tra tin nhắn Zalo và nghe điện thoại để nhận mã.\n\n
+Mã xác minh sẽ được ưu tiên gửi qua Zalo, cuộc gọi thoại hoặc SMS. </string>
+    <string name="text232">（Nhấn để sao chép.）</string>
+    <string name="text233">Đơn hàng đang được tạo, vui lòng chờ（%1$ds）....</string>
 </resources>

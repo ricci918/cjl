@@ -31,13 +31,7 @@ class LoginActivity : BaseActivity() {
     private fun initData() {
         observe(viewModel.isLogin) {
             if (it) {
-                if (SharedPreferencesUtil.getUser()?.ydfUyCR == true) {
-                    startActivity(UnverifiedActivity::class.java)
-                    finish()
-                } else {
-                    viewModel.queryStatus()
-                }
-
+                viewModel.queryStatus()
             }
         }
         observe(viewModel.step) {
@@ -104,7 +98,7 @@ class LoginActivity : BaseActivity() {
                 viewModel.login(
                     this@LoginActivity,
                     mBinding.etPhone.text.toString(),
-                    mBinding.etCode.text.toString(),fbc, fbp
+                    mBinding.etCode.text.toString(), fbc, fbp
                 )
             }
             tv4Id.setOnClickListener {

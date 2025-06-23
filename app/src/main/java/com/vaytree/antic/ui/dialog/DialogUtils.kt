@@ -1,11 +1,13 @@
 package com.vaytree.antic.ui.dialog
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Dialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Build
+import android.os.CountDownTimer
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.Gravity
@@ -20,6 +22,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.RatingBar
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import androidx.annotation.RequiresApi
@@ -450,6 +453,52 @@ object DialogUtils {
         }
     }
 
+    private lateinit var countDownTimer: CountDownTimer
+    fun showLoadingDialog1(context: Context?): Dialog? {
+        val inflater = LayoutInflater.from(context)
+        val v: View = inflater.inflate(R.layout.dialog_common_loading, null)
+        val layout = v.findViewById<View>(R.id.dialog_loading_view) as LinearLayout
+        val tipTextView = v.findViewById<View>(R.id.tipTextView) as TextView
+        val loadingDialog = context?.let { Dialog(it, R.style.MyDialogStyle) }
+        loadingDialog?.setCancelable(true)
+        loadingDialog?.setCanceledOnTouchOutside(false)
+        loadingDialog?.setContentView(
+            layout, RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT
+            )
+        )
+        var countTime = 30
+        countDownTimer = object : CountDownTimer(30000, 1000) {
+            @SuppressLint("SetTextI18n")
+            override fun onFinish() {
+
+            }
+
+            @SuppressLint("SimpleDateFormat", "SetTextI18n")
+            override fun onTick(time: Long) {
+                countTime--
+                tipTextView.text = String.format(
+                    context?.getString(R.string.text233).toString(), countTime
+                )
+            }
+        }.start()
+        val window = loadingDialog?.window
+        val lp = window!!.attributes
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+        window.setGravity(Gravity.CENTER)
+        window.attributes = lp
+        window.setWindowAnimations(R.style.PopWindowAnimStyle)
+        return loadingDialog
+    }
+
+    fun showCloseDialog1(dialog: Dialog?) {
+        if (dialog != null && dialog.isShowing) {
+            countDownTimer.cancel()
+            dialog.dismiss()
+        }
+    }
     fun showUpdateDialog(activity: Activity, isConstraint: Boolean) {
         val inflater = LayoutInflater.from(activity)
         val view: View = inflater.inflate(R.layout.update_dialog, null)

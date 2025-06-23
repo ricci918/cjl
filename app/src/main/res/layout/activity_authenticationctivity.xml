@@ -106,6 +106,174 @@
                 app:layout_constraintStart_toStartOf="@id/schedule3_id"
                 app:layout_constraintTop_toTopOf="@id/schedule3_id" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv5_id"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/space_50"-->
+<!--            android:text="@string/text55"-->
+<!--            android:textColor="#006F11"-->
+<!--            android:textSize="@dimen/sp_16"-->
+<!--            android:gravity="center"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/et_bank_account" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv1_id"-->
+<!--            android:layout_width="@dimen/space_150"-->
+<!--            android:layout_height="@dimen/space_150"-->
+<!--            android:layout_marginTop="@dimen/space_15"-->
+<!--            android:src="@mipmap/certificate1"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tv5_id" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv2_id"-->
+<!--            android:layout_width="@dimen/space_50"-->
+<!--            android:layout_height="@dimen/space_40"-->
+<!--            android:src="@mipmap/certificate3"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/iv1_id"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/iv1_id"-->
+<!--            app:layout_constraintStart_toStartOf="@id/iv1_id"-->
+<!--            app:layout_constraintTop_toTopOf="@id/iv1_id" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv6_id"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/space_30"-->
+<!--            android:text="@string/text56"-->
+<!--            android:textColor="#006F11"-->
+<!--            android:textSize="@dimen/sp_16"-->
+<!--            android:gravity="center"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/iv1_id" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv3_id"-->
+<!--            android:layout_width="@dimen/space_150"-->
+<!--            android:layout_height="@dimen/space_150"-->
+<!--            android:layout_marginTop="@dimen/space_15"-->
+<!--            android:src="@mipmap/certificate2"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tv6_id" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/iv4_id"-->
+<!--            android:layout_width="@dimen/space_50"-->
+<!--            android:layout_height="@dimen/space_40"-->
+<!--            android:src="@mipmap/certificate3"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/iv3_id"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/iv3_id"-->
+<!--            app:layout_constraintStart_toStartOf="@id/iv3_id"-->
+<!--            app:layout_constraintTop_toTopOf="@id/iv3_id" />-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:id="@id/cl1_id"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="@dimen/space_30"-->
+<!--            android:background="@drawable/shape_white_10_"-->
+<!--            android:padding="@dimen/space_10"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/iv3_id">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tv7_id"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center"-->
+<!--                android:lineSpacingExtra="5dp"-->
+<!--                android:text="@string/text57"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="@dimen/sp_10"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--            <ImageView-->
+<!--                android:layout_width="@dimen/space_40"-->
+<!--                android:layout_height="@dimen/space_40"-->
+<!--                android:src="@mipmap/certificate4"-->
+<!--                android:layout_marginTop="@dimen/space_20"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/tv7_id" />-->
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+        <TextView
+            android:id="@+id/tv8_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_50"
+            android:text="@string/text58"
+            android:textColor="#006F11"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll_id" />
+
+        <ImageView
+            android:id="@+id/iv5_id"
+            android:layout_width="@dimen/space_240"
+            android:layout_height="@dimen/space_150"
+            android:layout_marginTop="@dimen/space_30"
+            android:src="@mipmap/certificate5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv8_id" />
+
+        <ImageView
+            android:id="@+id/iv6_id"
+            android:layout_width="@dimen/space_50"
+            android:layout_height="@dimen/space_40"
+            android:src="@mipmap/certificate3"
+            app:layout_constraintBottom_toBottomOf="@id/iv5_id"
+            app:layout_constraintEnd_toEndOf="@id/iv5_id"
+            app:layout_constraintStart_toStartOf="@id/iv5_id"
+            app:layout_constraintTop_toTopOf="@id/iv5_id" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@id/cl2_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_30"
+            android:background="@drawable/shape_faeda3_10_"
+            android:padding="@dimen/space_10"
+            app:layout_constraintTop_toBottomOf="@id/iv5_id">
+
+            <TextView
+                android:id="@+id/tv9_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:text="@string/text59"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="@dimen/space_40"
+                android:layout_height="@dimen/space_40"
+                android:src="@mipmap/certificate4"
+                android:layout_marginTop="@dimen/space_20"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv9_id" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <TextView
             android:id="@+id/tv1_id"
             android:layout_width="wrap_content"
@@ -113,11 +281,12 @@
             android:layout_marginTop="@dimen/space_30"
             android:text="@string/text52"
             android:textColor="#006F11"
+            android:gravity="center"
             android:textSize="@dimen/sp_20"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ll_id" />
+            app:layout_constraintTop_toBottomOf="@id/cl2_id" />
 
         <TextView
             android:id="@+id/tv2_id"
@@ -205,171 +374,6 @@
             android:textSize="@dimen/sp_12"
             app:layout_constraintTop_toBottomOf="@id/tv4_id" />
 
-        <TextView
-            android:id="@+id/tv5_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_50"
-            android:text="@string/text55"
-            android:textColor="#006F11"
-            android:textSize="@dimen/sp_16"
-            android:gravity="center"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_bank_account" />
-
-        <ImageView
-            android:id="@+id/iv1_id"
-            android:layout_width="@dimen/space_150"
-            android:layout_height="@dimen/space_150"
-            android:layout_marginTop="@dimen/space_15"
-            android:src="@mipmap/certificate1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv5_id" />
-
-        <ImageView
-            android:id="@+id/iv2_id"
-            android:layout_width="@dimen/space_50"
-            android:layout_height="@dimen/space_40"
-            android:src="@mipmap/certificate3"
-            app:layout_constraintBottom_toBottomOf="@id/iv1_id"
-            app:layout_constraintEnd_toEndOf="@id/iv1_id"
-            app:layout_constraintStart_toStartOf="@id/iv1_id"
-            app:layout_constraintTop_toTopOf="@id/iv1_id" />
-
-        <TextView
-            android:id="@+id/tv6_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_30"
-            android:text="@string/text56"
-            android:textColor="#006F11"
-            android:textSize="@dimen/sp_16"
-            android:gravity="center"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv1_id" />
-
-        <ImageView
-            android:id="@+id/iv3_id"
-            android:layout_width="@dimen/space_150"
-            android:layout_height="@dimen/space_150"
-            android:layout_marginTop="@dimen/space_15"
-            android:src="@mipmap/certificate2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv6_id" />
-
-        <ImageView
-            android:id="@+id/iv4_id"
-            android:layout_width="@dimen/space_50"
-            android:layout_height="@dimen/space_40"
-            android:src="@mipmap/certificate3"
-            app:layout_constraintBottom_toBottomOf="@id/iv3_id"
-            app:layout_constraintEnd_toEndOf="@id/iv3_id"
-            app:layout_constraintStart_toStartOf="@id/iv3_id"
-            app:layout_constraintTop_toTopOf="@id/iv3_id" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@id/cl1_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_30"
-            android:background="@drawable/shape_white_10_"
-            android:padding="@dimen/space_10"
-            app:layout_constraintTop_toBottomOf="@id/iv3_id">
-
-            <TextView
-                android:id="@+id/tv7_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:lineSpacingExtra="5dp"
-                android:text="@string/text57"
-                android:textColor="@color/black"
-                android:textSize="@dimen/sp_10"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="@dimen/space_40"
-                android:layout_height="@dimen/space_40"
-                android:src="@mipmap/certificate4"
-                android:layout_marginTop="@dimen/space_20"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv7_id" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <TextView
-            android:id="@+id/tv8_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_50"
-            android:text="@string/text58"
-            android:textColor="#006F11"
-            android:textSize="@dimen/sp_16"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cl1_id" />
-
-        <ImageView
-            android:id="@+id/iv5_id"
-            android:layout_width="@dimen/space_240"
-            android:layout_height="@dimen/space_150"
-            android:layout_marginTop="@dimen/space_15"
-            android:src="@mipmap/certificate5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv8_id" />
-
-        <ImageView
-            android:id="@+id/iv6_id"
-            android:layout_width="@dimen/space_50"
-            android:layout_height="@dimen/space_40"
-            android:src="@mipmap/certificate3"
-            app:layout_constraintBottom_toBottomOf="@id/iv5_id"
-            app:layout_constraintEnd_toEndOf="@id/iv5_id"
-            app:layout_constraintStart_toStartOf="@id/iv5_id"
-            app:layout_constraintTop_toTopOf="@id/iv5_id" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@id/cl2_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_30"
-            android:background="@drawable/shape_white_10_"
-            android:padding="@dimen/space_10"
-            app:layout_constraintTop_toBottomOf="@id/iv5_id">
-
-            <TextView
-                android:id="@+id/tv9_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:lineSpacingExtra="5dp"
-                android:text="@string/text59"
-                android:textColor="@color/black"
-                android:textSize="@dimen/sp_10"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="@dimen/space_40"
-                android:layout_height="@dimen/space_40"
-                android:src="@mipmap/certificate4"
-                android:layout_marginTop="@dimen/space_20"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv9_id" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/tv_next"
@@ -382,7 +386,7 @@
             android:textColor="@color/white"
             android:textSize="@dimen/sp_18"
             android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/cl2_id" />
+            app:layout_constraintTop_toBottomOf="@id/et_bank_account" />
 
         <TextView
             android:id="@+id/tv_return"

@@ -146,13 +146,25 @@
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/tv_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp_12"
+        android:textColor="#DEBC00"
+        app:layout_constraintTop_toBottomOf="@id/cl1_id"
+        android:layout_marginStart="@dimen/space_35"
+        android:layout_marginEnd="@dimen/space_35"
+        android:text="@string/text231"
+        android:layout_marginTop="@dimen/space_20"
+        />
     <LinearLayout
         android:id="@+id/ll1_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_30"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/cl1_id">
+        app:layout_constraintTop_toBottomOf="@id/tv_hint">
 
         <ImageView
             android:layout_width="@dimen/space_28"
@@ -189,15 +201,15 @@
             android:textColor="#DEBC00"
             android:layout_marginStart="@dimen/space_5" />
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/space_10"
-        android:text="@string/text216"
-        android:textColor="#DEBC00"
-        android:textSize="@dimen/sp_14"
-        android:layout_marginStart="@dimen/space_5"
-        app:layout_constraintTop_toBottomOf="@id/ll2_id"
-        />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:gravity="center"-->
+<!--        android:layout_marginTop="@dimen/space_10"-->
+<!--        android:text="@string/text216"-->
+<!--        android:textColor="#DEBC00"-->
+<!--        android:textSize="@dimen/sp_14"-->
+<!--        android:layout_marginStart="@dimen/space_5"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/ll2_id"-->
+<!--        />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

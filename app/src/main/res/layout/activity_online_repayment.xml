@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="@mipmap/login_bj"
     tools:context=".ui.activity.OnlineRepaymentActivity">
+
     <include
         android:id="@+id/head_id"
         layout="@layout/head_layout" />
@@ -37,6 +38,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tv6_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_2"
+            android:text="@string/text232"
+            android:textColor="#006F11"
+            android:textSize="@dimen/sp_9"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv3_id"
+            app:layout_constraintStart_toEndOf="@id/tv3_id"
+            app:layout_constraintTop_toTopOf="@id/tv3_id" />
+
+
+        <TextView
             android:id="@+id/tv_gathering"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,6 +72,19 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_gathering" />
+
+        <TextView
+            android:id="@+id/tv7_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_2"
+            android:text="@string/text232"
+            android:textColor="#006F11"
+            android:textSize="@dimen/sp_9"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv4_id"
+            app:layout_constraintStart_toEndOf="@id/tv4_id"
+            app:layout_constraintTop_toTopOf="@id/tv4_id" />
 
         <TextView
             android:id="@+id/tv_bank_account"
@@ -91,27 +119,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv5_id" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv6_id"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="@dimen/space_10"-->
-<!--            android:text="@string/text92"-->
-<!--            android:textColor="#006F11"-->
-<!--            android:textSize="@dimen/sp_16"-->
-<!--            android:textStyle="bold"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/tv_bank" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv6_id"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="@dimen/space_10"-->
+        <!--            android:text="@string/text92"-->
+        <!--            android:textColor="#006F11"-->
+        <!--            android:textSize="@dimen/sp_16"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/tv_bank" />-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_sub_branch"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="@dimen/space_5"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="@dimen/sp_16"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/tv6_id" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv_sub_branch"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="@dimen/space_5"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="@dimen/sp_16"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/tv6_id" />-->
 
         <TextView
             android:id="@+id/tv_attention"

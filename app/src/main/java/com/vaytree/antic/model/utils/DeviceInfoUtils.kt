@@ -355,79 +355,82 @@ object DeviceInfoUtils {
 //    fun getUserApplications(
 //        context: Activity
 //    ): List<UserApplications> {
-//        val intent = Intent().apply {
-//            action = Intent.ACTION_MAIN
-//        }
 //        val listOf = arrayListOf<UserApplications>()
 //        val uniqueAppList = mutableListOf<UserApplications>()
 //        val pm: PackageManager = context.packageManager
-//        val resolveInfos =
-//            pm.queryIntentActivities(intent, PackageManager.MATCH_ALL)
-//        resolveInfos.forEach { resolve->
-//            val userApplications = UserApplications()
-//            userApplications.apply {
-//                // 处理用户安装的应用
-//                val packageInfo = pm.getPackageInfo(resolve.activityInfo.packageName, 0)
-//                gLQTq6p = resolve.loadLabel(pm).toString()
-//                woPaooB = resolve.activityInfo.packageName
-//                OwW9DeP = packageInfo.firstInstallTime
-//                YlC7moa = packageInfo.lastUpdateTime
-//                LbFjKqZ = packageInfo.versionName
-//                w2yRtja = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-//                    packageInfo.longVersionCode
-//                } else {
-//                    0
+//        pm.getInstalledPackages(0)
+//            .forEach { resolve ->
+//                val userApplications = UserApplications()
+//                userApplications.apply {
+//                    // 处理用户安装的应用
+//                    val packageInfo = pm.getPackageInfo(resolve.packageName, 0)
+//                    gLQTq6p = resolve.applicationInfo?.loadLabel(pm).toString()
+//                    woPaooB = resolve.packageName
+//                    OwW9DeP = packageInfo.firstInstallTime
+//                    YlC7moa = packageInfo.lastUpdateTime
+//                    LbFjKqZ = packageInfo.versionName
+//                    w2yRtja = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+//                        packageInfo.longVersionCode
+//                    } else {
+//                        0
+//                    }
+//                    val appInfo: ApplicationInfo =
+//                        context.packageManager.getApplicationInfo(resolve.packageName, 0)
+//                    val isSystemApp = (appInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0
+//                    GLEXpI6 = if (isSystemApp) {
+//                        1
+//                    } else {
+//                        0
+//                    }
+//                    listOf.add(userApplications)
+//
 //                }
-//                val appInfo: ApplicationInfo =
-//                    context.packageManager.getApplicationInfo(resolve.activityInfo.packageName, 0)
-//                val isSystemApp = (appInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0
-//                GLEXpI6 = if (isSystemApp) {
-//                    1
-//                } else {
-//                    0
-//                }
-//                listOf.add(userApplications)
 //            }
-//        }
 //        uniqueAppList.addAll(listOf.distinctBy { it.woPaooB })
 //        return uniqueAppList
 //    }
-//
+
 
     fun getUserApplications(
         context: Activity
     ): List<UserApplications> {
+        val intent = Intent().apply {
+            action = Intent.ACTION_MAIN
+        }
         val listOf = arrayListOf<UserApplications>()
         val uniqueAppList = mutableListOf<UserApplications>()
         val pm: PackageManager = context.packageManager
-        pm.getInstalledPackages(0)
-            .forEach { resolve ->
-                val userApplications = UserApplications()
-                userApplications.apply {
-                    // 处理用户安装的应用
-                    val packageInfo = pm.getPackageInfo(resolve.packageName, 0)
-                    gLQTq6p = resolve.applicationInfo?.loadLabel(pm).toString()
-                    woPaooB = resolve.packageName
-                    OwW9DeP = packageInfo.firstInstallTime
-                    YlC7moa = packageInfo.lastUpdateTime
-                    LbFjKqZ = packageInfo.versionName
-                    w2yRtja = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                        packageInfo.longVersionCode
-                    } else {
-                        0
-                    }
-                    val appInfo: ApplicationInfo =
-                        context.packageManager.getApplicationInfo(resolve.packageName, 0)
-                    val isSystemApp = (appInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0
-                    GLEXpI6 = if (isSystemApp) {
-                        1
-                    } else {
-                        0
-                    }
-                    listOf.add(userApplications)
-
+        val resolveInfos =
+            pm.queryIntentActivities(intent, PackageManager.MATCH_ALL)
+        resolveInfos.forEach { resolve ->
+            val userApplications = UserApplications()
+            userApplications.apply {
+                // 处理用户安装的应用
+                val packageInfo = pm.getPackageInfo(resolve.activityInfo.packageName, 0)
+                gLQTq6p = resolve.loadLabel(pm).toString()
+                woPaooB = resolve.activityInfo.packageName
+                OwW9DeP = packageInfo.firstInstallTime
+                YlC7moa = packageInfo.lastUpdateTime
+                LbFjKqZ = packageInfo.versionName
+                w2yRtja = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    packageInfo.longVersionCode
+                } else {
+                    0
                 }
+                val appInfo: ApplicationInfo =
+                    context.packageManager.getApplicationInfo(
+                        resolve.activityInfo.packageName,
+                        0
+                    )
+                val isSystemApp = (appInfo.flags and ApplicationInfo.FLAG_SYSTEM) != 0
+                GLEXpI6 = if (isSystemApp) {
+                    1
+                } else {
+                    0
+                }
+                listOf.add(userApplications)
             }
+        }
         uniqueAppList.addAll(listOf.distinctBy { it.woPaooB })
         return uniqueAppList
     }

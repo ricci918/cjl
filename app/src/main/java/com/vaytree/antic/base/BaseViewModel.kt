@@ -1,6 +1,5 @@
 package com.vaytree.antic.base
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,6 +10,7 @@ import java.net.SocketTimeoutException
 open class BaseViewModel : ViewModel() {
     val strErrorLiveData: MutableLiveData<String> by lazy { MutableLiveData() }
     val loadingLiveData by lazy { MutableLiveData<Boolean>() }
+    val loadingLiveData1 by lazy { MutableLiveData<Boolean>() }
 
     fun launchWithException(onFailed: (() -> Unit)? = null, onSuccess: suspend () -> Unit) {
         viewModelScope.launch {
@@ -25,12 +25,22 @@ open class BaseViewModel : ViewModel() {
                         is ConnectException,
                         is SocketTimeoutException -> {
                             strErrorLiveData.value = "server error"
-                            loadingLiveData.value = false
+                            if (loadingLiveData.value == true) {
+                                loadingLiveData.value = false
+                            }
+                            if (loadingLiveData1.value == true) {
+                                loadingLiveData1.value = false
+                            }
                         }
 
                         else -> {
                             strErrorLiveData.value = ex.message?.replace("java.lang.Exception:", "")
-                            loadingLiveData.value = false
+                            if (loadingLiveData.value == true) {
+                                loadingLiveData.value = false
+                            }
+                            if (loadingLiveData1.value == true) {
+                                loadingLiveData1.value = false
+                            }
                         }
                     }
                 }
