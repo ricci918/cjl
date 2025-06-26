@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,208 +8,215 @@
     android:background="@mipmap/login_bj"
     tools:context=".ui.activity.LoginActivity">
 
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="@dimen/space_95"
-        android:layout_height="@dimen/space_95"
-        android:layout_marginTop="@dimen/space_80"
-        android:src="@mipmap/tb2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl1_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/space_25"
-        android:layout_marginTop="@dimen/space_40"
-        android:layout_marginEnd="@dimen/space_25"
-        android:background="@drawable/shape_white_20_50"
-        android:paddingStart="@dimen/space_30"
-        android:paddingTop="@dimen/space_32"
-        android:paddingEnd="@dimen/space_30"
-        android:paddingBottom="@dimen/space_35"
-        app:layout_constraintTop_toBottomOf="@id/iv_icon">
+        android:paddingBottom="@dimen/space_100">
 
         <ImageView
-            android:id="@+id/iv1_id"
-            android:layout_width="@dimen/space_12"
-            android:layout_height="@dimen/space_18"
-            android:src="@mipmap/phone"
+            android:id="@+id/iv_icon"
+            android:layout_width="@dimen/space_95"
+            android:layout_height="@dimen/space_95"
+            android:layout_marginTop="@dimen/space_80"
+            android:src="@mipmap/tb2"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv1_id"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/space_18"
-            android:layout_marginStart="@dimen/space_5"
-            android:text="@string/text3"
-            android:textColor="@color/black"
-            android:textSize="@dimen/sp_12"
-            app:layout_constraintBottom_toBottomOf="@id/iv1_id"
-            app:layout_constraintStart_toEndOf="@id/iv1_id"
-            app:layout_constraintTop_toTopOf="@id/iv1_id" />
-
-        <EditText
-            android:id="@+id/et_phone"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl1_id"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/space_35"
-            android:layout_marginTop="@dimen/space_5"
-            android:background="@drawable/shape_black_5"
-            android:hint="@string/text4"
-            android:inputType="number"
-            android:maxLength="10"
-            android:paddingStart="@dimen/space_10"
-            android:paddingTop="@dimen/space_9"
-            android:paddingEnd="@dimen/space_10"
-            android:paddingBottom="@dimen/space_9"
-            android:textColor="@color/black"
-            android:textColorHint="#949494"
-            android:textSize="@dimen/sp_12"
-            app:layout_constraintTop_toBottomOf="@id/iv1_id" />
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_25"
+            android:layout_marginTop="@dimen/space_40"
+            android:layout_marginEnd="@dimen/space_25"
+            android:background="@drawable/shape_white_20_50"
+            android:paddingStart="@dimen/space_30"
+            android:paddingTop="@dimen/space_32"
+            android:paddingEnd="@dimen/space_30"
+            android:paddingBottom="@dimen/space_35"
+            app:layout_constraintTop_toBottomOf="@id/iv_icon">
 
-        <EditText
-            android:id="@+id/et_code"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/space_35"
-            android:layout_marginTop="@dimen/space_20"
-            android:layout_marginEnd="@dimen/space_10"
-            android:background="@drawable/shape_black_5"
-            android:hint="@string/text5"
-            android:inputType="number"
-            android:maxLength="6"
-            android:paddingStart="@dimen/space_10"
-            android:paddingTop="@dimen/space_9"
-            android:paddingEnd="@dimen/space_10"
-            android:paddingBottom="@dimen/space_9"
-            android:textColor="@color/black"
-            android:textColorHint="#949494"
-            android:textSize="@dimen/sp_10"
-            app:layout_constraintEnd_toStartOf="@id/code_id"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_phone" />
-
-        <TextView
-            android:id="@+id/code_id"
-            android:layout_width="@dimen/space_88"
-            android:layout_height="@dimen/space_35"
-            android:layout_marginTop="@dimen/space_20"
-            android:background="@drawable/shape_f2cd00_5"
-            android:gravity="center"
-            android:text="@string/text6"
-            android:textColor="#006F11"
-            android:textSize="@dimen/sp_12"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_phone" />
-
-        <TextView
-            android:id="@+id/login_id"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/space_40"
-            android:layout_marginTop="@dimen/space_30"
-            android:background="@drawable/shape_f2cd00_5"
-            android:gravity="center"
-            android:text="@string/text7"
-            android:textColor="#006F11"
-            android:textSize="@dimen/sp_18"
-            android:textStyle="bold"
-            app:layout_constraintTop_toBottomOf="@id/code_id" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/space_50"
-            android:layout_marginTop="@dimen/space_45"
-            android:gravity="center"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/login_id">
-
-            <CheckBox
-                android:layout_width="@dimen/space_14"
-                android:layout_height="@dimen/space_14"
-                android:layout_gravity="center"
-                android:background="@drawable/select_login"
-                android:button="@null"
-                android:checked="true" />
+            <ImageView
+                android:id="@+id/iv1_id"
+                android:layout_width="@dimen/space_12"
+                android:layout_height="@dimen/space_18"
+                android:src="@mipmap/phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv4_id"
+                android:id="@+id/tv1_id"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/space_18"
                 android:layout_marginStart="@dimen/space_5"
-                android:gravity="center_vertical"
-                android:text="@string/text8"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_12" />
+                android:text="@string/text3"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintBottom_toBottomOf="@id/iv1_id"
+                app:layout_constraintStart_toEndOf="@id/iv1_id"
+                app:layout_constraintTop_toTopOf="@id/iv1_id" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_35"
+                android:layout_marginTop="@dimen/space_5"
+                android:background="@drawable/shape_black_5"
+                android:hint="@string/text4"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingStart="@dimen/space_10"
+                android:paddingTop="@dimen/space_9"
+                android:paddingEnd="@dimen/space_10"
+                android:paddingBottom="@dimen/space_9"
+                android:textColor="@color/black"
+                android:textColorHint="#949494"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintTop_toBottomOf="@id/iv1_id" />
+
+            <EditText
+                android:id="@+id/et_code"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/space_35"
+                android:layout_marginTop="@dimen/space_20"
+                android:layout_marginEnd="@dimen/space_10"
+                android:background="@drawable/shape_black_5"
+                android:hint="@string/text5"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingStart="@dimen/space_10"
+                android:paddingTop="@dimen/space_9"
+                android:paddingEnd="@dimen/space_10"
+                android:paddingBottom="@dimen/space_9"
+                android:textColor="@color/black"
+                android:textColorHint="#949494"
+                android:textSize="@dimen/sp_10"
+                app:layout_constraintEnd_toStartOf="@id/code_id"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_phone" />
+
+            <TextView
+                android:id="@+id/code_id"
+                android:layout_width="@dimen/space_88"
+                android:layout_height="@dimen/space_35"
+                android:layout_marginTop="@dimen/space_20"
+                android:background="@drawable/shape_f2cd00_5"
+                android:gravity="center"
+                android:text="@string/text6"
+                android:textColor="#006F11"
+                android:textSize="@dimen/sp_12"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/et_phone" />
+
+            <TextView
+                android:id="@+id/login_id"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_40"
+                android:layout_marginTop="@dimen/space_30"
+                android:background="@drawable/shape_f2cd00_5"
+                android:gravity="center"
+                android:text="@string/text7"
+                android:textColor="#006F11"
+                android:textSize="@dimen/sp_18"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/code_id" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_50"
+                android:layout_marginTop="@dimen/space_45"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/login_id">
+
+                <CheckBox
+                    android:layout_width="@dimen/space_14"
+                    android:layout_height="@dimen/space_14"
+                    android:layout_gravity="center"
+                    android:background="@drawable/select_login"
+                    android:button="@null"
+                    android:checked="true" />
+
+                <TextView
+                    android:id="@+id/tv4_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_5"
+                    android:gravity="center_vertical"
+                    android:text="@string/text8"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_35"
+            android:layout_marginTop="@dimen/space_20"
+            android:layout_marginEnd="@dimen/space_35"
+            android:text="@string/text231"
+            android:textColor="#DEBC00"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintTop_toBottomOf="@id/cl1_id" />
+
+        <LinearLayout
+            android:id="@+id/ll1_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_30"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/tv_hint">
+
+            <ImageView
+                android:layout_width="@dimen/space_28"
+                android:layout_height="@dimen/space_24"
+                android:src="@mipmap/kf" />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_24"
+                android:layout_marginStart="@dimen/space_5"
+                android:textColor="#DEBC00"
+                android:textSize="@dimen/sp_14" />
         </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll2_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_10"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/ll1_id">
+
+            <ImageView
+                android:layout_width="@dimen/space_21"
+                android:layout_height="@dimen/space_16"
+                android:src="@mipmap/yx" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/space_16"
+                android:layout_marginStart="@dimen/space_5"
+                android:textColor="#DEBC00"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+        <!--    <TextView-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:gravity="center"-->
+        <!--        android:layout_marginTop="@dimen/space_10"-->
+        <!--        android:text="@string/text216"-->
+        <!--        android:textColor="#DEBC00"-->
+        <!--        android:textSize="@dimen/sp_14"-->
+        <!--        android:layout_marginStart="@dimen/space_5"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/ll2_id"-->
+        <!--        />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/tv_hint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/sp_12"
-        android:textColor="#DEBC00"
-        app:layout_constraintTop_toBottomOf="@id/cl1_id"
-        android:layout_marginStart="@dimen/space_35"
-        android:layout_marginEnd="@dimen/space_35"
-        android:text="@string/text231"
-        android:layout_marginTop="@dimen/space_20"
-        />
-    <LinearLayout
-        android:id="@+id/ll1_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_30"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/tv_hint">
-
-        <ImageView
-            android:layout_width="@dimen/space_28"
-            android:layout_height="@dimen/space_24"
-            android:src="@mipmap/kf" />
-
-        <TextView
-            android:id="@+id/tv_phone"
-            android:layout_width="wrap_content"
-            android:textColor="#DEBC00"
-            android:layout_height="@dimen/space_24"
-            android:textSize="@dimen/sp_14"
-            android:layout_marginStart="@dimen/space_5" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll2_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/space_10"
-        app:layout_constraintTop_toBottomOf="@id/ll1_id">
-
-        <ImageView
-            android:layout_width="@dimen/space_21"
-            android:layout_height="@dimen/space_16"
-            android:src="@mipmap/yx" />
-
-        <TextView
-            android:id="@+id/tv_email"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/space_16"
-            android:textSize="@dimen/sp_14"
-            android:textColor="#DEBC00"
-            android:layout_marginStart="@dimen/space_5" />
-    </LinearLayout>
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_marginTop="@dimen/space_10"-->
-<!--        android:text="@string/text216"-->
-<!--        android:textColor="#DEBC00"-->
-<!--        android:textSize="@dimen/sp_14"-->
-<!--        android:layout_marginStart="@dimen/space_5"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/ll2_id"-->
-<!--        />-->
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

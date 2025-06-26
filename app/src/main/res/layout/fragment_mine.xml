@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/head_id"
-        layout="@layout/head_layout" />
+        layout="@layout/head_layout1" />
 
     <TextView
         android:id="@+id/tv_personal_information"

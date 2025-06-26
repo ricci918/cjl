@@ -9,7 +9,7 @@
 
     <include
         android:id="@+id/head_id"
-        layout="@layout/head_layout" />
+        layout="@layout/head_layout1" />
 
     <RadioGroup
         android:id="@+id/rg_id"
