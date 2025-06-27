@@ -74,10 +74,6 @@ object ToolUtils {
                 gson.toJson(target)
             }
         } catch (ex: Exception) {
-            Log.e(
-                "GsonUtil", "目标对象 " + target.javaClass.name
-                        + " 转换 JSON 字符串时，发生异常！"
-            )
             if (target is Collection<*> || target is Iterator<*>
                 || target is Enumeration<*>
                 || target.javaClass.isArray
@@ -107,7 +103,6 @@ object ToolUtils {
         return try {
             gson.fromJson(json, clazz)
         } catch (ex: Exception) {
-            Log.e("GsonUtil", json + " 无法转换为 " + clazz.name + " 对象!", ex)
             null
         }
     }

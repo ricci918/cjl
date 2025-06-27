@@ -31,6 +31,7 @@ class KycViewModel : BaseViewModel() {
     val tokenData: MutableLiveData<String> = MutableLiveData()
     val addVayData: MutableLiveData<Boolean> = MutableLiveData()
     val acquisitionData: MutableLiveData<Boolean> = MutableLiveData()
+    val acquisitionData1: MutableLiveData<Boolean> = MutableLiveData()
     val orderCreateData: MutableLiveData<Boolean> = MutableLiveData()
     val addBankInfoData: MutableLiveData<Boolean> = MutableLiveData()
     val otp1Data: MutableLiveData<Boolean> = MutableLiveData()
@@ -218,6 +219,23 @@ class KycViewModel : BaseViewModel() {
         }
     }
 
+    fun acquisition2(activity: Activity) {
+        launchWithException {
+            val acquisition = ApiServiceResponse.acquisition(
+                AcquisitionReq(
+                    UserDeviceInfo(null, null, null, DeviceInfoUtils.getDeviceInfo(activity)),
+                    null,
+                    null,
+                    null,
+                    null,
+                    DeviceInfoUtils.getUserApplications(activity),
+                    null
+                )
+            )
+            acquisitionData1.value = true
+        }
+    }
+
     fun orderCreate() {
         launchWithException {
             val orderCreate = ApiServiceResponse.orderCreate(OrderCreateReq())
@@ -234,9 +252,16 @@ class KycViewModel : BaseViewModel() {
         }
     }
 
+    fun orderCreate2() {
+        launchWithException {
+            val orderCreate = ApiServiceResponse.orderCreate(OrderCreateReq())
+            orderCreateData.value = true
+        }
+    }
+
     fun addBankInfo(paymentNumber: String, paymentType: String) {
         launchWithException {
-            if (paymentNumber != "" && paymentType != "" &&  image3 != null) {
+            if (paymentNumber != "" && paymentType != "" && image3 != null) {
                 loadingLiveData1.value = true
                 val addBankInfo = ApiServiceResponse.addBankInfo(
                     AddBankInfoReq(
@@ -311,11 +336,11 @@ class KycViewModel : BaseViewModel() {
         }
     }
 
-    fun licenseResult(licenseId : String) {
+    fun licenseResult(licenseId: String) {
         launchWithException {
             loadingLiveData.value = true
             val licenseResult = ApiServiceResponse.licenseResult(LicenseResultReq(licenseId))
-            if (licenseResult != null && licenseResult !=""){
+            if (licenseResult != null && licenseResult != "") {
                 image3 = licenseResult as Double
             }
             licenseResultData.value = true

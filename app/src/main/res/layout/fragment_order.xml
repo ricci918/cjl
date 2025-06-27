@@ -83,6 +83,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/tv_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_20"
+                android:gravity="center"
+                android:text="Đang tải, vui lòng chờ..."
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_16" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv1_id"
                 android:layout_width="match_parent"

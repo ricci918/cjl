@@ -3,31 +3,24 @@ package com.vaytree.antic.ui.activity
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap.CompressFormat
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
-import android.util.Log
 import android.view.MotionEvent
 import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
-import com.nanchen.compresshelper.CompressHelper
 import com.trustdecision.mobrisk.TDRisk
 import com.trustdecision.mobrisk.TDRiskLivenessCallback
 import com.vaytree.antic.R
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityAuthenticationctivityBinding
+import com.vaytree.antic.model.contract.ApiServiceResponse
 import com.vaytree.antic.model.data.BankListData
 import com.vaytree.antic.model.data.LicenseSuccessData
+import com.vaytree.antic.model.utils.RetrofitManager
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.dialog.DialogUtils
 import com.vaytree.antic.viewmodel.KycViewModel
 import com.yanzhenjie.permission.AndPermission
-import java.io.File
-import java.io.FileNotFoundException
 
 
 open class AuthenticationActivity : BaseActivity() {
@@ -35,9 +28,6 @@ open class AuthenticationActivity : BaseActivity() {
     private val viewModel by lazy { ViewModelProvider(this)[KycViewModel::class.java] }
     private var bankListData: MutableList<BankListData>? = null
     private var bank: BankListData? = null
-//    private var imageUri: Uri? = null
-//    private var child1 = "imageOut1.jpeg"
-//    private var child2 = "imageOut2.jpeg"
     private var needReq = false
     private var orderCreated: Boolean? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +43,7 @@ open class AuthenticationActivity : BaseActivity() {
         viewModel.bankList()
         viewModel.info()
         viewModel.token()
+        viewModel.acquisition(this)
         observe(viewModel.bankListData) {
             bankListData = it
         }
@@ -84,19 +75,16 @@ open class AuthenticationActivity : BaseActivity() {
         observe(viewModel.addVayData) {
             if (it) {
                 if (orderCreated == false) {
-                    viewModel.acquisition(this)
+                    if (viewModel.acquisitionData.value == true) {
+                        viewModel.orderCreate1()
+                    }
                 }
-            }
-        }
-        observe(viewModel.acquisitionData) {
-            if (it) {
-                viewModel.orderCreate1()
             }
         }
         observe(viewModel.orderCreateData) {
             if (it) {
                 val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("goodReputation","goodReputation")
+                intent.putExtra("goodReputation", "goodReputation")
                 startActivity(intent)
                 finishAffinity()
             }
@@ -108,35 +96,10 @@ open class AuthenticationActivity : BaseActivity() {
         }
     }
 
-//    private var CAPTURE: Int? = null
-//    private val REQUEST_IMAGE_CAPTURE1: Int = 1
-//    private val REQUEST_IMAGE_CAPTURE2: Int = 2
-//
-//    private fun dispatchTakePictureIntent(action: Int, child: String) {
-//        try {
-//            val imageTemp = File(externalCacheDir, child)
-//            if (imageTemp.exists()) {
-//                imageTemp.delete()
-//            }
-//            imageTemp.createNewFile()
-//            imageUri = Uri.fromFile(imageTemp)
-//            if (Build.VERSION.SDK_INT > 24) {
-//                imageUri = FileProvider.getUriForFile(
-//                    this,
-//                    "com.vaytree.antic.FileProvider",
-//                    imageTemp
-//                )
-//            }
-//            val intent = Intent()
-//            intent.setAction("android.media.action.IMAGE_CAPTURE")
-//            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
-//            startActivityForResult(intent, action)
-//        } catch (_: Exception) {
-//        }
-//    }
 
     private fun initView() {
         observerCommon(viewModel, false)
+        initLicense()
         mBinding.apply {
             tvReturn.setOnClickListener {
                 finish()
@@ -152,51 +115,6 @@ open class AuthenticationActivity : BaseActivity() {
                     }
                 }
             }
-//            iv2Id.setOnClickListener {
-//                if (ToolUtils.isFastClick(800)) {
-//                    return@setOnClickListener
-//                }
-//                CAPTURE = REQUEST_IMAGE_CAPTURE1
-//                if (!needReq) {
-//                    DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
-//                        AndPermission.with(this@AuthenticationActivity)
-//                            .permission(Manifest.permission.CAMERA)
-//                            .onGranted {
-//                                dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
-//                                needReq = true
-//                            }
-//                            .onDenied {
-//
-//                            }
-//                            .start()
-//                    }
-//                } else {
-//                    dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
-//                }
-//
-//            }
-//            iv4Id.setOnClickListener {
-//                if (ToolUtils.isFastClick(800)) {
-//                    return@setOnClickListener
-//                }
-//                CAPTURE = REQUEST_IMAGE_CAPTURE2
-//                if (!needReq) {
-//                    DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
-//                        AndPermission.with(this@AuthenticationActivity)
-//                            .permission(Manifest.permission.CAMERA)
-//                            .onGranted {
-//                                dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
-//                                needReq = true
-//                            }
-//                            .onDenied {
-//
-//                            }
-//                            .start()
-//                    }
-//                } else {
-//                    dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE2, child2)
-//                }
-//            }
 
             iv6Id.setOnClickListener {
                 if (ToolUtils.isFastClick(800)) {
@@ -249,6 +167,7 @@ open class AuthenticationActivity : BaseActivity() {
             }
         }
     }
+
     private fun loginClick() {
         val licence: String = SharedPreferencesUtil.getLicence()
         TDRisk.showLiveness(licence, object : TDRiskLivenessCallback {
@@ -261,7 +180,81 @@ open class AuthenticationActivity : BaseActivity() {
             }
         })
     }
-//    override fun onActivityResult(
+
+
+    private fun isJurisdiction() {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.CAMERA
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            needReq = false
+        } else {
+            needReq = true
+        }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
+        when (ev.action) {
+            MotionEvent.ACTION_DOWN -> {
+                val view = currentFocus
+                ToolUtils.hideKeyboard(ev, view, this)
+            }
+
+            else -> {}
+        }
+        return super.dispatchTouchEvent(ev)
+    }
+
+    private fun initLicense() {
+        RetrofitManager.launchWithException {
+            val license = ApiServiceResponse.license()
+            SharedPreferencesUtil.putLicence(license.LBUJFuU)
+            val builder = TDRisk.Builder()
+                /*************************** 必传  */
+                .partnerCode(license.yYUrHtw) // 同盾的合作⽅编码，请填写⾃身的合作⽅编码
+                .appKey(license.knZvrfk) // 同盾平台注册的应用标识
+                .country(TDRisk.COUNTRY_SG).language("vi")
+            TDRisk.initWithOptions(applicationContext, builder)
+            TDRisk.getBlackBox { // 此处回调在新开辟的子线程
+                // ⽹络正常的情况下，会在1-2s内返回结果；⽹络异常的情况下，会在超时时间（默认最长15s）后返回
+            }
+        }
+    }
+
+//    private var imageUri: Uri? = null
+//    private var child1 = "imageOut1.jpeg"
+//    private var child2 = "imageOut2.jpeg"
+
+//    private var CAPTURE: Int? = null
+//    private val REQUEST_IMAGE_CAPTURE1: Int = 1
+//    private val REQUEST_IMAGE_CAPTURE2: Int = 2
+//
+//    private fun dispatchTakePictureIntent(action: Int, child: String) {
+//        try {
+//            val imageTemp = File(externalCacheDir, child)
+//            if (imageTemp.exists()) {
+//                imageTemp.delete()
+//            }
+//            imageTemp.createNewFile()
+//            imageUri = Uri.fromFile(imageTemp)
+//            if (Build.VERSION.SDK_INT > 24) {
+//                imageUri = FileProvider.getUriForFile(
+//                    this,
+//                    "com.vaytree.antic.FileProvider",
+//                    imageTemp
+//                )
+//            }
+//            val intent = Intent()
+//            intent.setAction("android.media.action.IMAGE_CAPTURE")
+//            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
+//            startActivityForResult(intent, action)
+//        } catch (_: Exception) {
+//        }
+//    }
+
+
+    //    override fun onActivityResult(
 //        requestCode: Int,
 //        resultCode: Int,
 //        data: Intent?,
@@ -305,27 +298,50 @@ open class AuthenticationActivity : BaseActivity() {
 //        }
 //    }
 
-    private fun isJurisdiction() {
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.CAMERA
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            needReq = false
-        } else {
-            needReq = true
-        }
-    }
 
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        when (ev.action) {
-            MotionEvent.ACTION_DOWN -> {
-                val view = currentFocus
-                ToolUtils.hideKeyboard(ev, view, this)
-            }
-
-            else -> {}
-        }
-        return super.dispatchTouchEvent(ev)
-    }
+    //            iv2Id.setOnClickListener {
+//                if (ToolUtils.isFastClick(800)) {
+//                    return@setOnClickListener
+//                }
+//                CAPTURE = REQUEST_IMAGE_CAPTURE1
+//                if (!needReq) {
+//                    DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
+//                        AndPermission.with(this@AuthenticationActivity)
+//                            .permission(Manifest.permission.CAMERA)
+//                            .onGranted {
+//                                dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
+//                                needReq = true
+//                            }
+//                            .onDenied {
+//
+//                            }
+//                            .start()
+//                    }
+//                } else {
+//                    dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
+//                }
+//
+//            }
+//            iv4Id.setOnClickListener {
+//                if (ToolUtils.isFastClick(800)) {
+//                    return@setOnClickListener
+//                }
+//                CAPTURE = REQUEST_IMAGE_CAPTURE2
+//                if (!needReq) {
+//                    DialogUtils.showKycCameraDialog(this@AuthenticationActivity, it) {
+//                        AndPermission.with(this@AuthenticationActivity)
+//                            .permission(Manifest.permission.CAMERA)
+//                            .onGranted {
+//                                dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE1, child1)
+//                                needReq = true
+//                            }
+//                            .onDenied {
+//
+//                            }
+//                            .start()
+//                    }
+//                } else {
+//                    dispatchTakePictureIntent(REQUEST_IMAGE_CAPTURE2, child2)
+//                }
+//            }
 }

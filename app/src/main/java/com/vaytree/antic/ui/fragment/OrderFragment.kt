@@ -92,7 +92,13 @@ class OrderFragment : BaseFragment() {
     }
 
     private fun initData() {
+        viewModel1.info()
         observe(viewModel.auditListData) {
+            if (it == null || it.size == 0) {
+                fBinding.tvHint.visibility = View.VISIBLE
+            } else {
+                fBinding.tvHint.visibility = View.GONE
+            }
             val manager = LinearLayoutManager(activity)
             fBinding.rv1Id.layoutManager = manager
             val adapter = OrderAdapter(it, requireActivity(), checkData) { it1, it2 ->
@@ -134,7 +140,17 @@ class OrderFragment : BaseFragment() {
         observe(viewModel.withdrawData) {
             if (it) {
                 EventBus.getDefault().post("refresh")
-                ToolUtils.showToast(requireActivity(),getString(R.string.text217))
+                ToolUtils.showToast(requireActivity(), getString(R.string.text217))
+            }
+        }
+        observe(viewModel1.infoData) {
+            if (!it.VrFTK75) {
+                viewModel1.acquisition2(requireActivity())
+            }
+        }
+        observe(viewModel1.acquisitionData1) {
+            if (it) {
+                viewModel1.orderCreate2()
             }
         }
         val intent: Intent = Intent(

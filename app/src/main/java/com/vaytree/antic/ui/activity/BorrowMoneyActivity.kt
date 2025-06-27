@@ -26,6 +26,7 @@ class BorrowMoneyActivity : BaseActivity() {
 
     private fun initData() {
         viewModel.info()
+        viewModel.acquisition(this)
         mBinding.apply {
             observe(viewModel.infoData) {
                 tvName.text = it.OP3wOGr.WUMJac5
@@ -53,18 +54,15 @@ class BorrowMoneyActivity : BaseActivity() {
             }
             observe(viewModel.addVayData) {
                 if (it) {
-                    viewModel.acquisition(this@BorrowMoneyActivity)
-                }
-            }
-            observe(viewModel.acquisitionData) {
-                if (it) {
-                    viewModel.orderCreate()
+                    if (viewModel.acquisitionData.value == true) {
+                        viewModel.orderCreate()
+                    }
                 }
             }
             observe(viewModel.orderCreateData) {
                 if (it) {
                     val intent = Intent(this@BorrowMoneyActivity, MainActivity::class.java)
-                    intent.putExtra("goodReputation","goodReputation")
+                    intent.putExtra("goodReputation", "goodReputation")
                     startActivity(intent)
                     finish()
                 }
@@ -91,8 +89,10 @@ class BorrowMoneyActivity : BaseActivity() {
             vfTv1.text = Html.fromHtml(getString(R.string.text173))
             vfTv2.text = Html.fromHtml(getString(R.string.text174))
             vfTv3.text = Html.fromHtml(getString(R.string.text175))
-            vfId.inAnimation = AnimationUtils.loadAnimation(this@BorrowMoneyActivity, R.anim.push_up_in)
-            vfId.outAnimation = AnimationUtils.loadAnimation(this@BorrowMoneyActivity, R.anim.push_up_out)
+            vfId.inAnimation =
+                AnimationUtils.loadAnimation(this@BorrowMoneyActivity, R.anim.push_up_in)
+            vfId.outAnimation =
+                AnimationUtils.loadAnimation(this@BorrowMoneyActivity, R.anim.push_up_out)
             vfId.startFlipping()
         }
     }

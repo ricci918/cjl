@@ -53,23 +53,6 @@ class MyApplication : Application() {
         AppsFlyerLib.getInstance().start(this)
         initAgId()
         installReferrer()
-        initLicense()
-    }
-
-    private fun initLicense() {
-        RetrofitManager.launchWithException {
-            val license = ApiServiceResponse.license()
-            SharedPreferencesUtil.putLicence(license.LBUJFuU)
-            val builder = TDRisk.Builder()
-                /*************************** 必传  */
-                .partnerCode(license.yYUrHtw) // 同盾的合作⽅编码，请填写⾃身的合作⽅编码
-                .appKey(license.knZvrfk) // 同盾平台注册的应用标识
-                .country(TDRisk.COUNTRY_SG).language("vi")
-            TDRisk.initWithOptions(applicationContext, builder)
-            TDRisk.getBlackBox { // 此处回调在新开辟的子线程
-                // ⽹络正常的情况下，会在1-2s内返回结果；⽹络异常的情况下，会在超时时间（默认最长15s）后返回
-            }
-        }
     }
 
     private fun initAgId() {
