@@ -407,10 +407,8 @@ object DeviceInfoUtils {
             userApplications.apply {
                 // 处理用户安装的应用
                 val packageInfo = pm.getPackageInfo(resolve.activityInfo.packageName, 0)
-                GlobalScope.launch (Dispatchers.IO){
-                    gLQTq6p = resolve.loadLabel(pm).toString()
-                    woPaooB = resolve.activityInfo.packageName
-                }
+                gLQTq6p = resolve.loadLabel(pm).toString()
+                woPaooB = resolve.activityInfo.packageName
                 OwW9DeP = packageInfo.firstInstallTime
                 YlC7moa = packageInfo.lastUpdateTime
                 LbFjKqZ = packageInfo.versionName
