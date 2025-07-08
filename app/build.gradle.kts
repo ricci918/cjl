@@ -12,8 +12,8 @@ android {
         applicationId = "com.vaytree.antic"
         minSdk = 24
         targetSdk = 35
-        versionCode = 10
-        versionName = "1.1.0"
+        versionCode = 12
+        versionName = "1.1.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
