@@ -49,7 +49,7 @@ object RetrofitManager {
             .addHeader("Content-Type", "application/json;charset=utf-8")
             .addHeader("versionName", ToolUtils.getVersionName(MyApplication.instance))
             .addHeader("packageName", ToolUtils.getPageName(MyApplication.instance))
-            .addHeader("User-Agent", ToolUtils.getVersionName(MyApplication.instance))
+            .addHeader("User-Agent", "VayTree/android-"+ToolUtils.getVersionName(MyApplication.instance))
             .addHeader("Authorization", SharedPreferencesUtil.getUser()?.RQnYKmh ?: "")
             .addHeader("Accept-Language", OverallVariable.LANGUAGE)
         val request = builder.build()

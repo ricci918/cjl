@@ -24,15 +24,10 @@ class WelcomeActivity : BaseActivity() {
     }
 
     private fun initView() {
-        if (SharedPreferencesUtil.isFirstInstall()) {
-            startActivity(PrivacyActivity::class.java)
-            finish()
+        if (UserConfig.isLogin()) {
+            viewModel1.queryStatus()
         } else {
-            if (UserConfig.isLogin()) {
-                viewModel1.queryStatus()
-            } else {
-                countDown(UnverifiedActivity::class.java)
-            }
+            countDown(UnverifiedActivity::class.java)
         }
     }
 
@@ -63,6 +58,7 @@ class WelcomeActivity : BaseActivity() {
                         countDown(OperatorActivity::class.java)
                     }
                 }
+
                 4 -> {
                     countDown(MainActivity::class.java)
                 }

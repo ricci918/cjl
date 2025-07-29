@@ -1,11 +1,14 @@
 package com.vaytree.antic.ui.activity
 
+import android.Manifest
+import android.os.Build
 import android.os.Bundle
 import com.vaytree.antic.base.BaseActivity
 import com.vaytree.antic.databinding.ActivityUnverifiedBinding
 import com.vaytree.antic.model.data.ContentData
 import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.ui.dialog.DialogUtils
+import com.yanzhenjie.permission.AndPermission
 
 class UnverifiedActivity : BaseActivity() {
     private lateinit var mBinding: ActivityUnverifiedBinding
@@ -18,6 +21,32 @@ class UnverifiedActivity : BaseActivity() {
 
     private fun initView() {
         mBinding.apply {
+            if (SharedPreferencesUtil.isFirstInstall()) {
+                DialogUtils.showPrivacyDialog(this@UnverifiedActivity) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        AndPermission.with(this@UnverifiedActivity)
+                            .permission(Manifest.permission.ACCESS_COARSE_LOCATION)
+                            .permission(Manifest.permission.POST_NOTIFICATIONS)
+                            .onGranted {
+                                SharedPreferencesUtil.putIsFirstInstall(false)
+                            }
+                            .onDenied {
+                                SharedPreferencesUtil.putIsFirstInstall(false)
+                            }
+                            .start()
+                    } else {
+                        AndPermission.with(this@UnverifiedActivity)
+                            .permission(Manifest.permission.ACCESS_COARSE_LOCATION)
+                            .onGranted {
+                                SharedPreferencesUtil.putIsFirstInstall(false)
+                            }
+                            .onDenied {
+                                SharedPreferencesUtil.putIsFirstInstall(false)
+                            }
+                            .start()
+                    }
+                }
+            }
             val arrayListOf = arrayListOf<ContentData>()
             arrayListOf.add(ContentData("900,000", 1))
             arrayListOf.add(ContentData("3000,000", 2))

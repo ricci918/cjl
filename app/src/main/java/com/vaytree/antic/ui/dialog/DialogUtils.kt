@@ -16,6 +16,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.webkit.WebSettings
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.ImageView
@@ -37,6 +40,7 @@ import com.vaytree.antic.model.data.BankListData
 import com.vaytree.antic.model.data.CommitReq
 import com.vaytree.antic.model.data.ContentData
 import com.vaytree.antic.model.utils.RetrofitManager
+import com.vaytree.antic.model.utils.SharedPreferencesUtil
 import com.vaytree.antic.model.utils.ToolUtils
 import com.vaytree.antic.ui.adapter.BankAdapter
 import com.vaytree.antic.ui.adapter.MyLoanAdapter
@@ -637,4 +641,80 @@ object DialogUtils {
         }
         dialog.show()
     }
+
+    @SuppressLint("InflateParams")
+    fun showPrivacyDialog(activity: Activity, onSelectedListener: () -> Unit) {
+        val inflater = LayoutInflater.from(activity)
+        val view: View = inflater.inflate(R.layout._privacy_permission_dialog, null)
+        val dialog = Dialog(activity, R.style.MyDialogStyle)
+        val dialogWindow = dialog.window
+        dialog.setCancelable(true)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.setContentView(view)
+        val lp = dialogWindow!!.attributes
+        val mScreenWidth: Int = ToolUtils.getScreenWidthPixels(activity)
+        lp.width = (0.9 * mScreenWidth).toInt()
+        lp.gravity = Gravity.BOTTOM
+        dialogWindow.attributes = lp
+        val tv2 = view.findViewById<TextView>(R.id.tv2_id)
+        val tv1 = view.findViewById<TextView>(R.id.tv1_id)
+        val webView = view.findViewById<WebView>(R.id.web_view)
+        webView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
+        webView.webViewClient = WebViewClient()
+        SharedPreferencesUtil.getSystemInfoData()
+            ?.let { webView.loadUrl(it.CkSYfJE) }
+        val settings = webView.settings
+        settings.layoutAlgorithm = WebSettings.LayoutAlgorithm.NARROW_COLUMNS
+        settings.textZoom = 80
+        tv1.setOnClickListener {
+            dialog.dismiss()
+        }
+        tv2.setOnClickListener {
+            showPermissionDialog(activity) {
+                onSelectedListener.invoke()
+                dialog.dismiss()
+            }
+        }
+        dialog.show()
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showPermissionDialog(
+        activity: Activity,
+        onSelectedListener: () -> Unit
+    ) {
+        val inflater = LayoutInflater.from(activity)
+        val view: View = inflater.inflate(R.layout._privacy_permission_dialog, null)
+        val dialog = Dialog(activity, R.style.MyDialogStyle)
+        val dialogWindow = dialog.window
+        dialog.setCancelable(true)
+        dialog.setCanceledOnTouchOutside(false)
+        dialog.setContentView(view)
+        val lp = dialogWindow!!.attributes
+        val mScreenWidth: Int = ToolUtils.getScreenWidthPixels(activity)
+        lp.width = (0.9 * mScreenWidth).toInt()
+        lp.gravity = Gravity.BOTTOM
+        dialogWindow.attributes = lp
+        val tv2 = view.findViewById<TextView>(R.id.tv2_id)
+        val tv1 = view.findViewById<TextView>(R.id.tv1_id)
+        val tv3 = view.findViewById<TextView>(R.id.tv3_id)
+        val webView = view.findViewById<WebView>(R.id.web_view)
+        webView.scrollBarStyle = View.SCROLLBARS_INSIDE_OVERLAY
+        webView.webViewClient = WebViewClient()
+        SharedPreferencesUtil.getSystemInfoData()
+            ?.let { webView.loadUrl(it.rj0zRsY) }
+        val settings = webView.settings
+        settings.layoutAlgorithm = WebSettings.LayoutAlgorithm.NARROW_COLUMNS
+        settings.textZoom = 80
+        tv3.text = activity.getString(R.string.text234)
+        tv1.setOnClickListener {
+            dialog.dismiss()
+        }
+        tv2.setOnClickListener {
+            dialog.dismiss()
+            onSelectedListener.invoke()
+        }
+        dialog.show()
+    }
+
 }

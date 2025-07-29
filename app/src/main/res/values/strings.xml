@@ -371,4 +371,5 @@ Tôi cam kết thông báo ngay khi có thay đổi về số điện thoại gi
 Mã xác minh sẽ được ưu tiên gửi qua Zalo, cuộc gọi thoại hoặc SMS. </string>
     <string name="text232">（Nhấn để sao chép.）</string>
     <string name="text233">Đơn hàng đang được tạo, vui lòng chờ（%1$ds）....</string>
+    <string name="text234">Tuyên bố quyền hạn</string>
 </resources>

@@ -50,10 +50,10 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     private fun initView() {
         mBinding.apply {
             viewOnClick(rb1Id, rb2Id, rb3Id)
-            val goodReputation = intent.getStringExtra("goodReputation")
-            if (goodReputation == "goodReputation"){
-                DialogUtils.showGoodReputationDialog(this@MainActivity)
-            }
+//            val goodReputation = intent.getStringExtra("goodReputation")
+//            if (goodReputation == "goodReputation"){
+//                DialogUtils.showGoodReputationDialog(this@MainActivity)
+//            }
         }
         if (SharedPreferencesUtil.getSystemInfoData()?.guxDxiV!! > ToolUtils.getVersionCode(this)) {
             DialogUtils.showUpdateDialog(this, SharedPreferencesUtil.getSystemInfoData()?.xyL5ST9!!)
