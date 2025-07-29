@@ -37,6 +37,7 @@ class OrderAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         result[position].let { it1 ->
             holder.itemView.apply {
+                holder.setIsRecyclable(false)
                 val icon = holder.itemView.findViewById<ImageView>(R.id.iv_icon)
                 val tv1 = holder.itemView.findViewById<TextView>(R.id.tv1_id)
                 val tv2 = holder.itemView.findViewById<TextView>(R.id.tv2_id)
@@ -263,7 +264,6 @@ class OrderAdapter(
     }
 
     override fun getItemCount(): Int = result.size
-
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 

@@ -19,7 +19,7 @@ class UpdateService : Service() {
                 EventBus.getDefault().post("refresh")
             }
         }
-        Timer().schedule(task, 0, (10 * 1000).toLong())
+        Timer().schedule(task, 0, (120 * 1000).toLong())
         return START_STICKY
     }
 
