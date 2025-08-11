@@ -132,7 +132,7 @@ class OrderFragment : BaseFragment() {
         }
         observe(viewModel.renewData) {
             if (it)
-                viewModel.auditList()
+                EventBus.getDefault().post("refresh")
         }
         observe(viewModel.checkData) {
             checkData = it
